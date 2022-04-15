@@ -1,17 +1,18 @@
 <template>
   <TheHeader />
-  <TheHero />
+  <!-- <TheHome /> -->
+  <router-view></router-view>
 </template>
 
 <script>
 
 import TheHeader from "./components/layout/TheHeader.vue"
-import TheHero from './components/layout/TheHero'
+// import TheHome from "./pages/home/TheHome.vue"
 export default {
   components: {
     TheHeader,
-    TheHero
-}
+    // TheHome,
+  }
 }
 </script>
 
