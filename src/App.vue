@@ -1,16 +1,17 @@
 <template>
-  
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <TheHeader />
+  <TheHero />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import TheHeader from "./components/layout/TheHeader.vue"
+import TheHero from './components/layout/TheHero'
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+    TheHeader,
+    TheHero
+}
 }
 </script>
 
@@ -23,4 +24,12 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+* {
+  padding: 0; margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
 </style>
