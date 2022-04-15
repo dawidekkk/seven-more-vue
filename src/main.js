@@ -7,10 +7,10 @@ import store from './store/index.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // Importing Fontawesome icons
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 // Adding icons 
-library.add(faBars)
+library.add(faBars, faXmark)
 
 const app = createApp(App)
 
