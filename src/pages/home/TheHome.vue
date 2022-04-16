@@ -6,16 +6,14 @@
 </template>
 
 <script>
-import HomeHero from '../../components/layout/HomeHero'
-import HomeCarousel from '../../components/layout/HomeCarousel'
+import HomeHero from "../../components/layout/HomeHero";
+import HomeCarousel from "../../components/layout/HomeCarousel";
 export default {
   components: {
     HomeHero,
-    HomeCarousel
-  }
-}
+    HomeCarousel,
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

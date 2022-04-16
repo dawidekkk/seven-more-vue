@@ -4,7 +4,7 @@
       <img src="../../assets/images/hero.png" alt="Logo hero">
       <p>7more7 clothing brand</p>
     </div>
-    <span class="circle"><font-awesome-icon icon="arrow-down" class="arrow" /></span>
+    <router-link to="#test" class="circle"><font-awesome-icon icon="arrow-down" class="arrow" /></router-link>
   </div>
 </template>
 

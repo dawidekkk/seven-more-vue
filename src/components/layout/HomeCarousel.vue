@@ -1,38 +1,19 @@
 <template>
-  <section class="home-carousel">
+  <section class="home-carousel" id="test">
     <h2 class="home-carousel-h2">cos wiecej niz moda</h2>
     <ul>
-      <CarouselCard
-        v-for="product in products"
-        :key="product.id"
-        :name="product.name"
-        :img="product.image"
-        :color="product.color"
-        :collection="product.collection"
-        :price="product.price"
-      />
-      
+      <CarouselCard />
     </ul>
-    
   </section>
 </template>
 
 <script>
-import CarouselCard from "../UI/CarouselCard";
-// import { mapGetters } from "vuex";
+import CarouselCard from '../UI/CarouselCard.vue'
 export default {
-
   components: {
     CarouselCard,
-  },
-
-  computed: {
-    // ...mapGetters(["products"]),
-    products() {
-      return this.$store.getters['products/products']
-    }
-  },
-};
+}
+}
 </script>
 
 <style scoped>
@@ -53,4 +34,11 @@ export default {
   font-size: 28px;
   color: black;
 }
+
+.img {
+  width: 100px;
+  height: 100px;
+}
+
+
 </style>
