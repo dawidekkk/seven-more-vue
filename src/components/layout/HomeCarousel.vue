@@ -23,7 +23,6 @@ export default {
   position: relative;
   top: 0;
   left: 0;
-  color: white;
 }
 
 .home-carousel-h2 {
@@ -33,12 +32,11 @@ export default {
   font-weight: 400;
   font-size: 28px;
   color: black;
+  text-align: center;
 }
 
 .img {
   width: 100px;
   height: 100px;
 }
-
-
 </style>

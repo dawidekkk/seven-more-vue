@@ -70,7 +70,7 @@ export default {
     "carousel-info carousel-info";
   width: 90%;
   height: 600px;
-  margin: 1rem auto 2rem auto;
+  margin: 1rem auto 4rem auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .collection {

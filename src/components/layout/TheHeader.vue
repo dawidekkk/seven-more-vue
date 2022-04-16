@@ -66,12 +66,11 @@ export default {
   opacity: 1;
 }
 
-
 header {
   position: fixed;
   top: 0; left: 0;
   z-index: 100;
-  width: 100%;
+  width: 100vw;
   background-color: hsl(0, 0%, 100%);
   display: flex;
   align-items: center;

@@ -1,12 +1,26 @@
 <template>
   <div class="home-hero">
     <div class="hero-logo">
-      <img src="../../assets/images/hero.png" alt="Logo hero">
-      <p>7more7 clothing brand</p>
+      <img :src="img" alt="Logo hero">
+      <p>{{ text }}</p>
     </div>
     <router-link to="#test" class="circle"><font-awesome-icon icon="arrow-down" class="arrow" /></router-link>
   </div>
 </template>
+
+<script>
+import { ref } from "vue"
+export default {
+  setup() {
+    const text = ref('7more7 clothing brand')
+    const img = ref(require('../../assets/images/hero.png'))
+    return {
+      text: text.value,
+      img: img.value,
+    }
+  }
+}
+</script>
 
 <style scoped>
 .home-hero {
