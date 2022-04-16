@@ -1,14 +1,17 @@
 <template>
   <div>
-    <TheHero />
+    <HomeHero />
+    <HomeCarousel />
   </div>
 </template>
 
 <script>
-import TheHero from '../../components/layout/TheHero'
+import HomeHero from '../../components/layout/HomeHero'
+import HomeCarousel from '../../components/layout/HomeCarousel'
 export default {
   components: {
-    TheHero
+    HomeHero,
+    HomeCarousel
   }
 }
 </script>
