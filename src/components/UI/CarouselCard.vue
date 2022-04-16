@@ -2,8 +2,10 @@
   <swiper
     :slides-per-view="1"
     :space-between="50"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
+    :centeredSlides="true"
+    pagination
+    parallax
+    :autoplay="delay"
   >
     <swiper-slide v-for="product in products" :key="product.id" class="test">
       <li class="carousel-card">
@@ -20,30 +22,38 @@
 </template>
 
 <script>
-import SwiperCore, { Navigation, Parallax } from "swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+import { reactive, computed } from "vue";
+import { useStore } from "vuex";
 
-SwiperCore.use([Navigation, Parallax]);
 export default {
   components: {
     SwiperSlide,
     Swiper,
   },
+  
+  setup() {
+    SwiperCore.use([Navigation, Pagination, Autoplay])
 
-  props: {
-    name: String,
-    img: String,
-    color: String,
-    collection: String,
-    price: Number,
-  },
+    const delay = reactive({
+      delay: 2500,
+      disableOnInteraction: false
+    })
 
-  computed: {
-    // ...mapGetters(["products"]),
-    products() {
-      return this.$store.getters["products/products"];
-    },
+    const store = useStore();
+
+    const products = computed(() => {
+      return store.getters["products/products"];
+    })
+
+    return{
+      delay,
+      products
+    }
   },
 };
 </script>
@@ -60,7 +70,7 @@ export default {
     "carousel-info carousel-info";
   width: 90%;
   height: 600px;
-  margin: 1rem auto;
+  margin: 1rem auto 2rem auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .collection {
@@ -83,6 +93,10 @@ export default {
   margin: 0 auto;
 }
 
+.test {
+  width: 100%;
+}
+
 h3,
 p {
   color: black;
@@ -94,4 +108,6 @@ h3 {
   color: black;
   width: auto;
 }
+
+
 </style>

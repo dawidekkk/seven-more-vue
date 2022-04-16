@@ -12,7 +12,7 @@ import CarouselCard from '../UI/CarouselCard.vue'
 export default {
   components: {
     CarouselCard,
-}
+  }
 }
 </script>
 
