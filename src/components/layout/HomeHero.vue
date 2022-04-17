@@ -2,7 +2,7 @@
   <div class="home-hero">
     <div class="hero-logo">
       <img :src="img" alt="Logo hero">
-      <p>{{ text }}</p>
+      <h1>{{ text }}</h1>
     </div>
     <router-link to="#test" class="circle"><font-awesome-icon icon="arrow-down" class="arrow" /></router-link>
   </div>
@@ -22,7 +22,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+@mixin test {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%; left: 50%;
+}
+
 .home-hero {
   background-image: url(../../assets/images/bg_1.jpg);
   background-position: center;
@@ -32,26 +39,29 @@ export default {
   width: 100%; height: 100vh;
   position: relative;
   top: 0; left: 0;
+
+  .hero-logo {
+    // position: absolute;
+    // transform: translate(-50%, -50%);
+    // top: 50%; left: 50%;
+    @include test();
+  }
 }
 
-.hero-logo {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%; left: 50%;
-}
+
 
 img {
   width: auto; height: 200px;
 }
 
-p {
+h1 {
   text-transform: uppercase;
   background-color: black;
   color: white;
   font-size: 20px;
   letter-spacing: 4px;
   width: 100%;
-  line-height: 1.5;
+  text-align: center;
 }
 
 .circle {

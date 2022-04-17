@@ -30,6 +30,7 @@ export default {
 body {
   height: 100vh;
   width: 100vw;
+  line-height: 1.5;
 }
 
 
