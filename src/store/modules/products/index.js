@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state() {
     return {
+      test: 'elo',
       carouselProducts: [
         {
           id: '1',

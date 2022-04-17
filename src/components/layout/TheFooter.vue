@@ -1,6 +1,6 @@
 <template>
   <footer class="home-footer">
-    <img :src="pic" alt="zdjecie 77" class="img" />
+    <img :src="pic" alt="zdjecie 77" class="footer-logo" />
     <div class="social-links">
       <button>
         <svg viewBox="0 0 320 512">
@@ -59,51 +59,54 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .home-footer {
   width: 100vw;
   height: 100%;
   background-color: rgb(244, 244, 244);
   padding: 4rem 1rem;
-}
 
-.img {
-  width: auto;
-  height: 180px;
-}
+  .footer-logo {
+    width: auto;
+    height: 180px;
+  }
 
-.social-links {
-  margin: 2rem auto;
-}
+  .social-links {
+    margin: 2rem auto;
 
-button {
-  background-color: white;
-  border-radius: 50%;
-  border: none;
-  width: 60px;
-  height: 60px;
-}
+    button {
+      background-color: white;
+      border-radius: 50%;
+      border: none;
+      width: 60px;
+      height: 60px;
+      margin: 0 0.5rem;
+    }
+  }
 
-svg {
-  width: 50%;
-  height: 50%;
-}
+  svg {
+    width: 50%;
+    height: 50%;
+  }
 
-li {
-  list-style: none;
-}
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    nav {
+      margin: 1rem 2rem;
 
-nav {
-  margin: 1rem 2rem;
-}
+      li {
+        margin: 0.5rem auto;
+        list-style: none;
+      }
+    }
+  }
 
-h4 {
-  text-align: center;
+  h4 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
 }
 </style>

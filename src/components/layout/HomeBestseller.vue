@@ -1,6 +1,6 @@
 <template>
   <section class="home-bestseller">
-    <h2 class="home-best-h2">bestseller</h2>
+    <BaseTitle>bestseller</BaseTitle>
     <div class="bestseller-wrapper">
       <HomeProductCard
         v-for="product in products"
@@ -26,34 +26,26 @@ export default {
     const [products] = useProduct("bestsellerProducts");
 
     return {
-      products
+      products,
     };
   },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .home-bestseller {
   width: 100vw;
-  height: auto;
-  position: relative;
-  top: 0;
-  left: 0;
-  background-color: rgb(161, 161, 161);
-  padding: .5rem;
-}
-
-.bestseller-wrapper {
-  width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-}
+  background-color: rgb(255, 255, 255);
+  padding: 0.5rem;
+  margin: 1rem auto 3.5rem auto;
 
-.home-best-h2 {
-  text-transform: uppercase;
-  margin: 2rem auto;
-  text-align: center;
+  .bestseller-wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
 }
 </style>

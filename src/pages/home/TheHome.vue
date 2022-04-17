@@ -1,14 +1,13 @@
 <template>
   <div>
-    <HomeHero />
-    <HomeCarousel />
+    <HomeHero  />
+    <HomeCarousel  />
     <HomeInfo />
     <HomeBestseller />
     <HomeAmbasadors />
     <HomeInstagram />
     <HomeSocial />
     <HomeSubscribe />
-    <HomeFooter />
   </div>
 </template>
 
@@ -21,7 +20,6 @@ import HomeAmbasadors from "@/components/layout/HomeAmbasadors.vue";
 import HomeInstagram from "@/components/layout/HomeInstagram.vue";
 import HomeSocial from "../../components/layout/HomeSocial.vue";
 import HomeSubscribe from "../../components/layout/HomeSubscribe.vue";
-import HomeFooter from "@/components/layout/HomeFooter.vue";
 
 export default {
   components: {
@@ -33,8 +31,12 @@ export default {
     HomeInstagram,
     HomeSocial,
     HomeSubscribe,
-    HomeFooter
-},
+  },
+
+  methods: {
+    
+  },
+
 };
 </script>
 

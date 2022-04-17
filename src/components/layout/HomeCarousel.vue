@@ -1,6 +1,6 @@
 <template>
-  <section class="home-carousel">
-    <h2 class="home-carousel-h2">cos wiecej niz moda</h2>
+  <section class="home-carousel" id="home-carousel">
+    <BaseTitle>coś więcej niż moda</BaseTitle>
     <ul>
       <CarouselCard />
     </ul>
@@ -8,36 +8,27 @@
 </template>
 
 <script>
-import CarouselCard from '../UI/CarouselCard.vue'
+import CarouselCard from "../UI/CarouselCard.vue";
 export default {
   components: {
     CarouselCard,
-  }
-}
+  },
+
+  props: {
+    test: String,
+  },
+
+  // mounted() {
+  //   console.log(this.$refs.test.id)
+  // },
+};
 </script>
 
 <style scoped>
 .home-carousel {
   width: 100%;
-  height: 100vh;
-  position: relative;
-  top: 0;
-  left: 0;
-  background-color: rgb(63, 63, 63);
-}
-
-.home-carousel-h2 {
-  margin: 5rem auto 2rem auto;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  font-weight: 400;
-  font-size: 28px;
-  color: black;
-  text-align: center;
-}
-
-.img {
-  width: 100px;
-  height: 100px;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  margin: 1rem auto 0rem auto;
 }
 </style>

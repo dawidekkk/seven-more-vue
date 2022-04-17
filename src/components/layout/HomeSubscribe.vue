@@ -1,47 +1,40 @@
 <template>
   <section class="home-sub">
-  <h2>DOŁĄCZ DO NAS!</h2>
+    <BaseTitle>DOŁĄCZ DO NAS!</BaseTitle>
     <form action="email">
       <label for="email">
-        <input type="email" placeholder="Wpisz swój adres email">
+        <input type="email" placeholder="Wpisz swój adres email" />
         <button type="submit">Subcribe</button>
       </label>
     </form>
   </section>
 </template>
 
-<style scoped>
-.home-sub {
-  width: 100vw;
-  height: 50vh;
-  background-color: rgb(161, 161, 161);
-  padding: 4rem 0rem;
-  /* background-image: url("../../assets/images/bg_4.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
-}
-
-h2 {
-  color: white;
-  font-size: 36px;
-  text-align: center;
-  margin: 2rem auto;
-}
-
-form {
+<style scoped lang="scss">
+@mixin center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.home-sub {
+  width: 100vw;
+  height: 45vh;
+  background-color: rgb(255, 255, 255);
+  @include center();
+  flex-direction: column;
+}
+
+form {
+  @include center();
+}
 
 input {
   height: 52px;
-  border: 1px solid black;;
+  border: 1px solid black;
   color: black;
   font-size: 16px;
   width: 300px;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 button {

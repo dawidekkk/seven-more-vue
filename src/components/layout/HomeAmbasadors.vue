@@ -11,13 +11,26 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+
+@mixin pic {
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  width: 200px; height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 10;
+}
+
 .home-ambasadors {
   width: 100vw; height: 55vh;
   position: relative;
   top: 0;
   left: 0;
-  background-color: rgb(222, 222, 222);
+  background-color: #f8f9fa;
   padding: .25rem;
   display: grid; 
   grid-template-columns: 1fr 1fr; 
@@ -29,43 +42,24 @@
 }
 
 .ambasador-title {
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
   font-size: 52px;
   position: absolute;
-  top:100%; left: 50%;
+  top: 100%; left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
   grid-area: ambasador-title;
-  color: white;
+  color: #eeeff0;
 }
 
 .ambasador-nitro {
   background-image: url(../../assets/images/nitro.jpg);
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  width: 200px; height: 240px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+  @include pic();
   grid-area: ambasador-nitro;
-  z-index: 40;
 }
 
 .ambasador-sandra {
   background-image: url(../../assets/images/sandra.jpg);
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  width: 200px; height: 240px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+  @include pic();
   grid-area: ambasador-sandra;
-  z-index: 40;
 }
 </style>
