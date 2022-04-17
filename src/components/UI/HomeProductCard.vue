@@ -36,7 +36,6 @@ export default {
   backdrop-filter: blur(20px);
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  /* margin: .25rem; */
 }
 
 .home-product-h4 {
@@ -49,5 +48,13 @@ export default {
 
 .img {
   width: 160px; height: auto;
+  display: flex;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .img {
+    width: 250px;
+  }
 }
 </style>

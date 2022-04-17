@@ -41,4 +41,10 @@ export default {};
 h3 {
   font-size: 28px;
 }
+
+@media only screen and (min-width: 600px) {
+  h3 {
+    font-size: 36px;
+  }
+}
 </style>

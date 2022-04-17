@@ -17,7 +17,7 @@
   background-position: center;
   background-size: cover;
   border-radius: 50%;
-  width: 200px; height: 240px;
+  width: 100%; height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,4 +62,11 @@
   @include pic();
   grid-area: ambasador-sandra;
 }
+
+// @media only screen and(min-width: 600px) {
+//   .ambasador-nitro,
+//   .ambasador-sandra {
+//     width: 300px; height: 300px;
+//   }
+// }
 </style>

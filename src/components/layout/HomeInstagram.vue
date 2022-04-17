@@ -1,6 +1,8 @@
 <template>
   <section class="home-instagram">
-    <BaseTitle>UŻYJ #Taga <strong class="more">#7MORE7</strong> I POKAŻ NAM SWÓJ OUTFIT</BaseTitle>
+    <BaseTitle
+      >UŻYJ #Taga <strong class="more">#7MORE7</strong> I POKAŻ NAM SWÓJ OUTFIT</BaseTitle
+    >
     <div class="instagram-grid">
       <img :src="pic1" alt="zdjecie ig" class="imgs" />
       <img :src="pic2" alt="zdjecie ig" class="imgs" />
@@ -61,5 +63,12 @@ export default {
 .imgs {
   width: 120px;
   height: 120px;
+}
+
+@media only screen and (min-width: 600px) {
+  .imgs {
+    width: 200px;
+    height: 200px;
+  }
 }
 </style>

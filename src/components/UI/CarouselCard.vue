@@ -1,11 +1,11 @@
 <template>
   <swiper
-    :slides-per-view="1"
-    :space-between="50"
-    :centeredSlides="true"
     pagination
     parallax
     :autoplay="delay"
+    ref="swiper"
+    :slides-per-view="1"
+    :breakpoints="swiperOptions"
   >
     <swiper-slide v-for="product in products" :key="product.id">
       <li class="carousel-card">
@@ -44,11 +44,22 @@ export default {
       disableOnInteraction: false,
     });
 
+    // Carousel responsive
+    const swiperOptions = reactive({
+      breakpoints: {
+        600: {
+          slidesPerView: 2,
+        }
+      }
+    })
+
+    // Using hook with $store.state.carouselProducts
     const [products] = useProduct("carouselProducts");
 
     return {
       delay,
       products,
+      swiperOptions: swiperOptions.breakpoints,
     };
   },
 };

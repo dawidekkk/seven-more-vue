@@ -25,10 +25,6 @@ export default {
       scrollInto,
     };
   },
-
-  mounted() {
-    console.log(this.$store.state.products.carouselProducts[0].id)
-  },
 };
 </script>
 
