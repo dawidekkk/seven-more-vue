@@ -22,13 +22,13 @@
 </template>
 
 <script>
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-import { reactive, computed } from "vue";
-import { useStore } from "vuex";
+import { reactive } from "vue";
+import useProduct from "../../hooks/products.js";
 
 export default {
   components: {
@@ -37,23 +37,19 @@ export default {
   },
   
   setup() {
-    SwiperCore.use([Navigation, Pagination, Autoplay])
+    SwiperCore.use([Pagination, Autoplay]);
 
     const delay = reactive({
       delay: 2500,
       disableOnInteraction: false
-    })
+    });
 
-    const store = useStore();
-
-    const products = computed(() => {
-      return store.getters["products/products"];
-    })
+    const [products] = useProduct('carouselProducts');
 
     return{
       delay,
       products
-    }
+    };
   },
 };
 </script>
@@ -71,17 +67,25 @@ export default {
   width: 90%;
   height: 600px;
   margin: 1rem auto 4rem auto;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3)
 }
+
 .collection {
   grid-area: collection;
 }
+
 .imgs {
   grid-area: imgs;
   width: 100%;
   height: 100%;
   margin: 0 auto;
 }
+
 .carousel-info {
   grid-area: carousel-info;
   display: flex;
@@ -93,10 +97,6 @@ export default {
   margin: 0 auto;
 }
 
-.test {
-  width: 100%;
-}
-
 h3,
 p {
   color: black;
@@ -104,7 +104,7 @@ p {
 }
 
 h3 {
-  background-color: green;
+  /* background-color: green; */
   color: black;
   width: auto;
 }

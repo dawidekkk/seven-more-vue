@@ -1,13 +1,17 @@
 export default {
-  products(state) {
-    return state.dummyProducts;
+  carouselProducts(state) {
+    return state.carouselProducts;
   },
 
-  hasProducts(state) {
-    return state.dummyProducts && state.dummyProducts.length > 0;
+  hasCarouselProducts(state) {
+    return state.carouselProducts && state.carouselProducts.length > 0;
   },
 
   // finalCounter(state) {
   //   return state.counter;
   // }
+
+  bestsellerProducts(state) {
+    return state.bestsellerProducts;
+  },
 }

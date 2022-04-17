@@ -6,9 +6,7 @@ export default {
   namespaced: true,
   state() {
     return {
-      test: 'aaa',
-      counter: 0,
-      dummyProducts: [
+      carouselProducts: [
         {
           id: '1',
           name: 'Czapka 77 #1',
@@ -57,6 +55,57 @@ export default {
           image: require("../../../assets/images/6.png"),
           collection: "NOWOSC",
         },
+        {
+          id: '7',
+          name: 'Hoodie FIRE DRAGON',
+          color: 'pomaranczowy',
+          price: 249.99,
+          image: require("../../../assets/images/7.png"),
+          collection: "RESTOCK",
+        },
+        {
+          id: '8',
+          name: 'Hoodie UNLUCKY',
+          color: 'czarny',
+          price: 249.99,
+          image: require("../../../assets/images/8.png"),
+          collection: "RESTOCK",
+        },
+        {
+          id: '9',
+          name: 'Jogger UNSTABLE WORLD slim',
+          color: 'czarny',
+          price: 249.99,
+          image: require("../../../assets/images/9.png"),
+          collection: "RESTOCK",
+        },
+        {
+          id: '10',
+          name: 'Hoodie Welur 7MORE7',
+          color: 'blekit',
+          price: 349.99,
+          image: require("../../../assets/images/10.png"),
+          collection: "RESTOCK",
+        },
+        {
+          id: '11',
+          name: 'Jogger Welur 7MORE7',
+          color: 'czarny',
+          price: 189.99,
+          image: require("../../../assets/images/11.png"),
+          collection: "RESTOCK",
+        },
+        {
+          id: '12',
+          name: 'Hoodie Welur SICARIOS',
+          color: 'bordowy',
+          price: 349.99,
+          image: require("../../../assets/images/12.png"),
+          collection: "RESTOCK",
+        },
+      ],
+
+      bestsellerProducts: [
         {
           id: '7',
           name: 'Hoodie FIRE DRAGON',

@@ -1,5 +1,5 @@
 <template>
-  <section class="home-carousel" id="test">
+  <section class="home-carousel">
     <h2 class="home-carousel-h2">cos wiecej niz moda</h2>
     <ul>
       <CarouselCard />
@@ -23,6 +23,7 @@ export default {
   position: relative;
   top: 0;
   left: 0;
+  background-color: rgb(63, 63, 63);
 }
 
 .home-carousel-h2 {
