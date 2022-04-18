@@ -85,6 +85,14 @@ export default {
     color: rgba(128, 128, 128, 0.12);
     font-size: 180px;
   }
+
+  @media screen and (min-width: 1400px) {
+    top: -20%;
+  }
+
+  @media screen and (min-width: 1600px) {
+    top: -18%;
+  }
 }
 
 .imgs {
@@ -114,6 +122,14 @@ export default {
   @media screen and (min-width: 1200px) {
     width: 240px;
     height: 260px;
+  }
+  @media screen and (min-width: 1400px) {
+    width: 280px;
+    height: 300px;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 320px;
+    height: 340px;
   }
 }
 

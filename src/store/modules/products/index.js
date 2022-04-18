@@ -155,6 +155,22 @@ export default {
           image: require("../../../assets/images/12.png"),
           collection: "RESTOCK",
         },
+        {
+          id: '12',
+          name: 'T-SHIRT ALIEN',
+          color: 'czarny',
+          price: 99.99,
+          image: require("../../../assets/images/13.png"),
+          collection: "RESTOCK",
+        },
+        {
+          id: '12',
+          name: 'Hoodie ALIEN',
+          color: 'czarny',
+          price: 249.99,
+          image: require("../../../assets/images/14.png"),
+          collection: "RESTOCK",
+        },
       ]
     }
   },
