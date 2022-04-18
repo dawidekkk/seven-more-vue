@@ -91,5 +91,10 @@ export default {
   @media screen and (min-width: 768px) {
     width: 150px;
   }
+
+  @media screen and (min-width: 992px) {
+    width: 200px;
+    height: 260px;
+  }
 }
 </style>

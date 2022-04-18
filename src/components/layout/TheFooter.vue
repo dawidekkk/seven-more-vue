@@ -123,6 +123,10 @@ export default {
     grid-area: menu;
   }
   .footer-logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     grid-area: footer-logo-wrapper;
   }
 
