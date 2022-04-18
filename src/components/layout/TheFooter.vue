@@ -23,7 +23,7 @@
       <nav>
         <h3>MENU</h3>
         <ul>
-          <li>Home</li>
+          <li><router-link to="/home">Home</router-link></li>
           <li>Voucher</li>
           <li>Sklep</li>
           <li>Kolekcje</li>
@@ -33,7 +33,7 @@
       <nav>
         <h3>Informacje</h3>
         <ul>
-          <li>Regulamin</li>
+          <li><router-link to="/regulamin">Regulamin</router-link></li>
           <li>Polityka prywatności</li>
           <li>Odstąpienie od umowy</li>
           <li>Reklamacja</li>
@@ -81,6 +81,7 @@ export default {
       border-radius: 50%;
       border: none;
       margin: 0 0.5rem;
+      
     }
   }
 
@@ -100,6 +101,10 @@ export default {
       li {
         margin: 0.5rem auto;
         list-style: none;
+
+        a {
+          text-decoration: none;
+        }
       }
     }
   }

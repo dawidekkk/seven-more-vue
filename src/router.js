@@ -11,11 +11,18 @@ const NotFound = defineAsyncComponent(() =>
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/home', component: TheHome },
     { path: '/', redirect: '/home'},
+    { path: '/home', component: TheHome },
     { path: '/regulamin', component: TheRules },
     { path: '/:notFound(.*)', component: NotFound}
   ],
+  scrollBehavior(_, _2, savedPosition) {
+    if(savedPosition) {
+      return savedPosition;
+    }
+
+    return { left: 0, top: 0 }
+  }
 })
 
 export default router;

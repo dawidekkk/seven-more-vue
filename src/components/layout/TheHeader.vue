@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo-wrapper">
-      <img src="../../assets/images/logo.png" alt="logo strony" class="logo">
+      <router-link to="/home"><img src="../../assets/images/logo.png" alt="logo strony" class="logo"></router-link>
     </div>
     <div class="ham-wrapper">
       <font-awesome-icon :icon="toggleIcon" class="icon" @click="toggleHidden" />
@@ -15,6 +15,7 @@
           <li><router-link to="/home">kontakt</router-link></li>
           <li><router-link to="/home">koszyk</router-link></li>
           <li><router-link to="/home">logowanie</router-link></li>
+          <li><router-link to="/regulamin">Regulamin</router-link></li>
         </ul>
       </nav>
     </Transition>

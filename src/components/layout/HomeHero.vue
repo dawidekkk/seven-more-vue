@@ -62,7 +62,7 @@ export default {
       height: 200px;
 
       @media screen and (min-width: 1200px) {
-        height: 350px;
+        height: 300px;
       }
     }
   }
