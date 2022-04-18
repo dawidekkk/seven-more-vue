@@ -37,7 +37,9 @@
       </p>
       <p>Regulamin Karty Podarunkowej 7MORE7 https://www.7more.com/regulamin-voucher</p>
       <div>
-        <img src="../../assets/images/voucher.png" alt="zdjecie vouchera" class="img" />
+        <div class="img-wrapper">
+          <img src="../../assets/images/voucher.png" alt="zdjecie vouchera" class="img" />
+        </div>
         <VoucherForm />
       </div>
     </div>
@@ -47,12 +49,12 @@
 <script>
 import VoucherForm from "../../components/UI/VoucherForm.vue";
 export default {
-    data() {
-        return {
-            title: "voucher",
-        };
-    },
-    components: { VoucherForm }
+  data() {
+    return {
+      title: "voucher",
+    };
+  },
+  components: { VoucherForm },
 };
 </script>
 
@@ -77,8 +79,13 @@ export default {
   }
 }
 
-.img {
-  width: 200px;
-  height: 200px;
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .img {
+    width: 300px;
+    height: 400px;
+  }
 }
 </style>

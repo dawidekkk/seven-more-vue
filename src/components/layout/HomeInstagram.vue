@@ -52,14 +52,16 @@ export default {
 <style scoped lang="scss">
 .home-instagram {
   width: 100%;
-  height: auto;
+  // height: auto;
   background-color: rgb(255, 255, 255);
   padding: 4rem 0rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  // position: relative;
+  position: relative;
+  top: 100px;
+  margin-bottom: 2rem;
 }
 
 .instagram-grid {
@@ -80,7 +82,8 @@ export default {
   @media screen and (min-width: 1200px) {
     opacity: 1;
     position: absolute;
-    top: -22%; left: 50%;
+    top: -22%;
+    left: 50%;
     transform: translate(-50%, 50%);
     color: rgba(128, 128, 128, 0.12);
     font-size: 180px;
@@ -132,6 +135,4 @@ export default {
     height: 340px;
   }
 }
-
-
 </style>
