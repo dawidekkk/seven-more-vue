@@ -22,3 +22,7 @@ app.component("font-awesome-icon", FontAwesomeIcon)
 app.component("BaseTitle", BaseTitle)
 app.component("BasePages", BasePages)
 app.mount('#app')
+
+// router.isReady().then(() => {
+//   app.mount('#app');
+// });

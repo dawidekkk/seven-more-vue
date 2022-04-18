@@ -10,8 +10,9 @@
       <nav v-if="!hidden">
         <ul>
           <font-awesome-icon :icon="toggleIcon" class="icon close" @click="toggleHidden" />
-          <li><router-link to="/home">home</router-link></li>
+          <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/home">sklep</router-link></li>
+          <li><router-link to="/voucher">Voucher</router-link></li>
           <li><router-link to="/home">kontakt</router-link></li>
           <li><router-link to="/home">koszyk</router-link></li>
           <li><router-link to="/home">logowanie</router-link></li>

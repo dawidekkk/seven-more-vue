@@ -24,7 +24,7 @@
         <h3>MENU</h3>
         <ul>
           <li><router-link to="/home">Home</router-link></li>
-          <li>Voucher</li>
+          <li><router-link to="/voucher">Voucher</router-link></li>
           <li>Sklep</li>
           <li>Kolekcje</li>
           <li>Kontakt</li>

@@ -9,7 +9,7 @@
 </template>
 
 <style scoped>
-section {
+/* section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -17,5 +17,5 @@ section {
   font-size: 30px;
   width: 90%;
   height: 100vh;
-}
+} */
 </style>

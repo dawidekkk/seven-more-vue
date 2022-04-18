@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HomeHero  />
-    <HomeCarousel  />
+    <HomeHero />
+    <HomeCarousel />
     <HomeInfo />
     <HomeBestseller />
     <HomeAmbasadors />
