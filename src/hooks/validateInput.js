@@ -1,13 +1,14 @@
-// export default function validateInput(entered, validity) {
+import { computed } from "@vue/reactivity";
+export default function useValidateInput(entered, enteredValidity) {
 
-//   let val = validity;
-//   const validate = () => {
-//     if(entered.trim() === '') {
-//       this.val = 'invalid'
-//     } else {
-//       validity = 'valid';
-//     }
-//   }
 
-//   return [validate]
-// }
+  const validateInput = () => {
+    entered.value.trim() === '' ? enteredValidity.value = 'invalid' : enteredValidity.value = 'valid';
+  }
+
+  const valid = computed(() => {
+    return enteredValidity.value === 'invalid';
+  })
+
+  return [validateInput, valid]
+}

@@ -196,15 +196,16 @@
 </template>
 
 <script>
-
+import { ref } from 'vue';
+import useValidInput from '../../hooks/validateInput'
 export default {
   data() {
     return {
       enteredPrice: 100,
       chosenShipRadio: null,
 
-      enteredName: "",
-      enteredNameValidity: 'pending',
+      // enteredName: "",
+      // enteredNameValidity: 'pending',
 
       enteredStreet: "",
       enteredStreetValidity: 'pending',
@@ -226,7 +227,7 @@ export default {
       if (
         this.enteredPrice < 100 ||
         !this.chosenShipRadio ||
-        this.enteredName === "" ||
+        // this.enteredName === "" ||
         this.enteredStreet === "" ||
         this.enteredPost === 0 ||
         this.enteredPost.length >= 6 ||
@@ -238,20 +239,30 @@ export default {
         return;
       }
       this.invalidInput = false;
-      this.enteredName = '';
+      // this.enteredName = '';
     },
-
-    validateInput() {
-     return this.enteredName.trim() === '' ? this.enteredNameValidity = 'invalid' : this.enteredNameValidity = 'valid'
-    }
   },
 
-  computed: {
-    valid() {
-      return this.enteredNameValidity === 'invalid'
-    },
-  }
+  setup() {
 
+    // const val = reactive({
+    //   enteredName: '',
+    //   enteredNameValidity: 'pending',
+    // });
+
+    const enteredName = ref('');
+    const enteredNameValidity = ref('pending');
+    
+    const [validateInput, valid] = useValidInput(enteredName, enteredNameValidity)
+
+    return {
+      validateInput: validateInput,
+      valid: valid,
+      // val
+      enteredName,
+      enteredNameValidity
+    }
+  }
   
 };
 </script>
