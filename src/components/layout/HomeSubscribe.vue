@@ -1,5 +1,6 @@
 <template>
   <section class="home-sub">
+    <h1 class="h1">Newsletter</h1>
     <BaseTitle>DOŁĄCZ DO NAS!</BaseTitle>
     <form action="email">
       <label for="email">
@@ -22,6 +23,7 @@
   background-color: rgb(255, 255, 255);
   @include center();
   flex-direction: column;
+  position: relative
 }
 
 form {
@@ -44,5 +46,17 @@ button {
   color: white;
   background-color: black;
   font-size: 16px;
+}
+
+.h1 {
+  opacity: 0;
+  @media screen and (min-width: 1200px) {
+    opacity: 1;
+    position: absolute;
+    top: -30%; left: 50%;
+    transform: translate(-50%, 50%);
+    color: rgba(128, 128, 128, 0.12);
+    font-size: 180px;
+  }
 }
 </style>

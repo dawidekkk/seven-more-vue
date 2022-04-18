@@ -49,20 +49,42 @@
     margin-bottom: 2rem;
   }
 
-  
   p {
     font-size: 1rem;
     text-align: left;
   }
 
   @media only screen and (min-width: 600px) {
-
     h2 {
       font-size: 3.5rem;
     }
 
     p {
       font-size: 1.5rem;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .girl-photo {
+      background-size: contain;
+    }
+
+    .specify {
+      width: 50%;
+    }
+
+    h2 {
+      font-size: 3.25rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media only screen and (min-width: 1400px) {
+    .specify {
+      width: 40%;
     }
   }
 }

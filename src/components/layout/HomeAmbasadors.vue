@@ -48,7 +48,7 @@
   transform: translate(-50%, -50%);
   z-index: 20;
   grid-area: ambasador-title;
-  color: #eeeff0;
+  color: rgba(128, 128, 128, 0.12);
 }
 
 .ambasador-nitro {
@@ -64,12 +64,20 @@
 }
 
 @media only screen and(min-width: 768px) {
-  // .ambasador-nitro,
-  // .ambasador-sandra {
-  //   width: 300px; height: 300px;
-  // }
   .ambasador-title {
     font-size: 88px;
+  }
+}
+
+@media only screen and(min-width: 1200px) {
+  .ambasador-title {
+    font-size: 180px;
+  }
+
+  .ambasador-nitro,
+  .ambasador-sandra {
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }
 </style>

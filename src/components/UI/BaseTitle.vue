@@ -4,7 +4,7 @@
   </h2>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 h2 {
   text-transform: uppercase;
   letter-spacing: 6px;
@@ -13,5 +13,9 @@ h2 {
   color: black;
   text-align: center;
   padding: 2rem 2rem;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 42px;
+  }
 }
 </style>

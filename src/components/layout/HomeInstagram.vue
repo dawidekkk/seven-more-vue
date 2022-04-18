@@ -1,5 +1,6 @@
 <template>
   <section class="home-instagram">
+    <h1 class="h1">#7more7</h1>
     <BaseTitle
       >UŻYJ #Taga <strong class="more">#7MORE7</strong> I POKAŻ NAM SWÓJ OUTFIT</BaseTitle
     >
@@ -58,6 +59,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .instagram-grid {
@@ -71,6 +73,18 @@ export default {
 
 .more {
   color: green;
+}
+
+.h1 {
+  opacity: 0;
+  @media screen and (min-width: 1200px) {
+    opacity: 1;
+    position: absolute;
+    top: -22%; left: 50%;
+    transform: translate(-50%, 50%);
+    color: rgba(128, 128, 128, 0.12);
+    font-size: 180px;
+  }
 }
 
 .imgs {
@@ -96,5 +110,12 @@ export default {
     width: 200px;
     height: 260px;
   }
+
+  @media screen and (min-width: 1200px) {
+    width: 240px;
+    height: 260px;
+  }
 }
+
+
 </style>

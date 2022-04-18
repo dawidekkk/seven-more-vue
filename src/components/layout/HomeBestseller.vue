@@ -1,5 +1,6 @@
 <template>
   <section class="home-bestseller">
+    <h1 class="h1">Produkty</h1>
     <BaseTitle>bestseller</BaseTitle>
     <div class="bestseller-wrapper">
       <HomeProductCard
@@ -39,6 +40,7 @@ export default {
   background-color: rgb(255, 255, 255);
   padding: 0.5rem;
   margin: 1rem auto 3.5rem auto;
+  position: relative;
 
   .bestseller-wrapper {
     width: 100%;
@@ -46,6 +48,23 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4px;
+
+    @media screen and (min-width: 1200px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 }
-</style>
+
+.h1 {
+  opacity: 0;
+  @media screen and (min-width: 1200px) {
+    opacity: 1;
+    position: absolute;
+    top: -14%; left: 50%;
+    transform: translate(-50%, 50%);
+    color: rgba(128, 128, 128, 0.12);
+    font-size: 180px;
+  }
+}
+
+</style> 
