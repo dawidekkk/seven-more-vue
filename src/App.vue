@@ -1,16 +1,27 @@
 <template>
   <TheHeader />
   <router-view></router-view>
+  <HomeInstagram />
+  <HomeSocial />
+  <HomeSubscribe />
   <TheFooter />
 </template>
 
 <script>
 import TheHeader from "./components/layout/TheHeader.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
+import HomeInstagram from "./components/layout/HomeInstagram";
+import HomeSubscribe from "./components/layout/HomeSubscribe.vue";
+import HomeSocial from "./components/layout/HomeSocial.vue";
+
+
 export default {
   components: {
     TheHeader,
     TheFooter,
+    HomeInstagram,
+    HomeSubscribe,
+    HomeSocial,
   },
 };
 </script>

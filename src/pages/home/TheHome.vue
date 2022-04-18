@@ -5,9 +5,6 @@
     <HomeInfo />
     <HomeBestseller />
     <HomeAmbasadors />
-    <HomeInstagram />
-    <HomeSocial />
-    <HomeSubscribe />
   </div>
 </template>
 
@@ -17,9 +14,6 @@ import HomeCarousel from "../../components/layout/HomeCarousel";
 import HomeInfo from "@/components/layout/HomeInfo.vue";
 import HomeBestseller from "@/components/layout/HomeBestseller.vue";
 import HomeAmbasadors from "@/components/layout/HomeAmbasadors.vue";
-import HomeInstagram from "@/components/layout/HomeInstagram.vue";
-import HomeSocial from "../../components/layout/HomeSocial.vue";
-import HomeSubscribe from "../../components/layout/HomeSubscribe.vue";
 
 export default {
   components: {
@@ -28,16 +22,7 @@ export default {
     HomeInfo,
     HomeBestseller,
     HomeAmbasadors,
-    HomeInstagram,
-    HomeSocial,
-    HomeSubscribe,
   },
-
-  methods: {
-    
-  },
-
 };
 </script>
 
-<style></style>
