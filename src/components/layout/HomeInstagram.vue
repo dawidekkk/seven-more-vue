@@ -10,6 +10,10 @@
       <img :src="pic4" alt="zdjecie ig" class="imgs" />
       <img :src="pic5" alt="zdjecie ig" class="imgs" />
       <img :src="pic6" alt="zdjecie ig" class="imgs" />
+      <img :src="pic7" alt="zdjecie ig" class="imgs" />
+      <img :src="pic8" alt="zdjecie ig" class="imgs" />
+      <img :src="pic9" alt="zdjecie ig" class="imgs" />
+      <img :src="pic10" alt="zdjecie ig" class="imgs" />
     </div>
   </section>
 </template>
@@ -23,6 +27,10 @@ export default {
     const pic4 = require("../../assets/images/ig4.jpg");
     const pic5 = require("../../assets/images/ig5.jpg");
     const pic6 = require("../../assets/images/ig6.jpg");
+    const pic7 = require("../../assets/images/ig7.jpg");
+    const pic8 = require("../../assets/images/ig8.jpg");
+    const pic9 = require("../../assets/images/ig9.jpg");
+    const pic10 = require("../../assets/images/ig10.jpg");
 
     return {
       pic1,
@@ -31,6 +39,10 @@ export default {
       pic4,
       pic5,
       pic6,
+      pic7,
+      pic8,
+      pic9,
+      pic10,
     };
   },
 };
@@ -38,8 +50,8 @@ export default {
 
 <style scoped lang="scss">
 .home-instagram {
-  width: 100vw;
-  height: 80vh;
+  width: 100%;
+  height: auto;
   background-color: rgb(255, 255, 255);
   padding: 4rem 0rem;
   display: flex;
@@ -54,6 +66,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .more {
@@ -61,14 +74,22 @@ export default {
 }
 
 .imgs {
-  width: 120px;
+  width: 82px;
   height: 120px;
-}
+  filter: brightness(0.6);
+  transition: all 0.5s;
 
-@media only screen and (min-width: 600px) {
-  .imgs {
-    width: 200px;
+  &:hover {
+    filter: brightness(1);
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 140px;
     height: 200px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 150px;
   }
 }
 </style>

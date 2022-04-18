@@ -63,10 +63,13 @@
   grid-area: ambasador-sandra;
 }
 
-// @media only screen and(min-width: 600px) {
-//   .ambasador-nitro,
-//   .ambasador-sandra {
-//     width: 300px; height: 300px;
-//   }
-// }
+@media only screen and(min-width: 768px) {
+  // .ambasador-nitro,
+  // .ambasador-sandra {
+  //   width: 300px; height: 300px;
+  // }
+  .ambasador-title {
+    font-size: 88px;
+  }
+}
 </style>
