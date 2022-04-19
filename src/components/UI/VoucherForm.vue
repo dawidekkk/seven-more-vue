@@ -8,6 +8,7 @@
       placeholder="minimalnie 100,00 PLN"
       min="100,00"
       v-model="enteredPrice"
+      :class="validatePrice"
     />
     <div class="radio">
       <h3>Przesyłka:</h3>
@@ -212,15 +213,16 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import useValidInput from "../../hooks/validateInput";
 import useValidPostInput from "../../hooks/validatePostInput";
 import useValidPhoneInput from "../../hooks/validatePhoneInput";
 import useValidEmailInput from "../../hooks/validateEmailInput";
+
 export default {
   data() {
     return {
-      enteredPrice: 100,
+      // enteredPrice: 100,
       chosenShipRadio: null,
       enteredCheckboxOne: false,
       enteredCheckboxTwo: false,
@@ -228,6 +230,7 @@ export default {
       enteredCheckboxFour: false,
       enteredCheckboxes: false,
       invalidInput: false,
+      border: 'border',
     };
   },
 
@@ -251,9 +254,20 @@ export default {
       this.invalidInput = false;
       // this.enteredName = '';
     },
+
+    checkNum() {
+      return this.enteredPrice < 100 ? 'border' : ''
+    }
   },
 
   setup() {
+
+    const enteredPrice = ref(100);
+
+    const validatePrice = computed(() => ({
+      border: enteredPrice.value < 100,
+      red: enteredPrice.value < 100,
+    }))
 
     // String v-models
     const enteredName = ref("");
@@ -302,6 +316,8 @@ export default {
     );
 
     return {
+      validatePrice,
+      enteredPrice,
       enteredName,
       enteredNameValidity,
       enteredStreet,
