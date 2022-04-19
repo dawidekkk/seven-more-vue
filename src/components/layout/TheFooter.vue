@@ -34,10 +34,10 @@
         <h3>Informacje</h3>
         <ul>
           <li><router-link to="/regulamin">Regulamin</router-link></li>
-          <li>Polityka prywatności</li>
-          <li>Odstąpienie od umowy</li>
-          <li>Reklamacja</li>
-          <li>Płatność i wysyłka</li>
+          <li><router-link to="/polityka">Polityka prywatności</router-link></li>
+          <li><router-link to="/pliki">Odstąpienie od umowy</router-link></li>
+          <li><router-link to="/pliki">Reklamacja</router-link></li>
+          <li><router-link to="/platnosc">Płatność i wysyłka</router-link></li>
         </ul>
       </nav>
     </div>
@@ -81,7 +81,6 @@ export default {
       border-radius: 50%;
       border: none;
       margin: 0 0.5rem;
-      
     }
   }
 

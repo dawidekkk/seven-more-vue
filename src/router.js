@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { defineAsyncComponent } from "vue";
 import TheHome from './pages/home/TheHome.vue'
-import TheRules from './pages/regulamin/TheRules.vue'
 import TheVoucher from './pages/voucher/TheVoucher.vue'
+import TheRules from './pages/regulamin/TheRules.vue'
+import ThePrivacyPolicy from './pages/regulamin/ThePrivacyPolicy.vue'
+import TheDownloadableLinks from './pages/regulamin/TheDownloadableLinks.vue'
+import TheShipInfo from './pages/regulamin/TheShipInfo.vue'
 
 // Async loading specify cmps, because of performance. 
 const NotFound = defineAsyncComponent(() => 
@@ -14,8 +17,11 @@ const router = createRouter({
   routes: [
     { path: '/', redirect: '/home'},
     { path: '/home', component: TheHome },
-    { path: '/regulamin', component: TheRules },
     { path: '/voucher', component: TheVoucher },
+    { path: '/regulamin', component: TheRules },
+    { path: '/polityka', component: ThePrivacyPolicy },
+    { path: '/pliki', component: TheDownloadableLinks },
+    { path: '/platnosc', component: TheShipInfo },
     { path: '/:notFound(.*)', component: NotFound}
   ],
   scrollBehavior(_, _2, savedPosition) {
