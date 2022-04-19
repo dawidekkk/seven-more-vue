@@ -59,11 +59,11 @@
           required
           placeholder="Imię i naziwsko"
           v-model.trim="enteredName"
-          :class="{ border: valid }"
-          @blur="validateInput"
+          :class="{ border: validName }"
+          @blur="validateInputName"
         />
       </div>
-      <p class="red" v-if="valid">Pole z imieniem i nazwiskiem jest pustę.</p>
+      <p class="red" v-if="validName">Pole z imieniem i nazwiskiem jest pustę.</p>
       <div>
         <label for="street">Ulica i nr budynku:</label>
         <input
@@ -73,9 +73,11 @@
           required
           placeholder="Ulica i nr. budynku"
           v-model.trim="enteredStreet"
+          :class="{ border: validStreet }"
+          @blur="validateInputStreet"
         />
       </div>
-      <!-- <p v-if="enteredStreetValidity === 'invalid'">Please enter a valid street</p> -->
+      <p class="red" v-if="validStreet">Pole z ulicą i numerem budynku jest pustę.</p>
       <div>
         <label for="post-nr">Kod pocztowy:</label>
         <input
@@ -85,8 +87,11 @@
           required
           placeholder="Kod pocztowy"
           v-model.trim="enteredPost"
+          :class="{ border: validPost }"
+          @blur="validateInputPost"
         />
       </div>
+      <p class="red" v-if="validPost">Pole z kodem pocztowym jest albo pustę albo zawiera nieprawidłowe znaki.</p>
       <div>
         <label for="city">Nazwa miasta:</label>
         <input
@@ -204,12 +209,6 @@ export default {
       enteredPrice: 100,
       chosenShipRadio: null,
 
-      // enteredName: "",
-      // enteredNameValidity: 'pending',
-
-      enteredStreet: "",
-      enteredStreetValidity: 'pending',
-      enteredPost: null,
       enteredCity: "",
       enteredPhone: null,
       enteredEmail: null,
@@ -231,6 +230,7 @@ export default {
         this.enteredStreet === "" ||
         this.enteredPost === 0 ||
         this.enteredPost.length >= 6 ||
+        this.enteredPost !== Number ||
         this.enteredCity === "" ||
         this.enteredPhone === "" ||
         this.enteredEmail === ""
@@ -245,22 +245,30 @@ export default {
 
   setup() {
 
-    // const val = reactive({
-    //   enteredName: '',
-    //   enteredNameValidity: 'pending',
-    // });
-
     const enteredName = ref('');
     const enteredNameValidity = ref('pending');
+    const enteredStreet = ref('');
+    const enteredStreetValidity = ref('pending');
+    const enteredPost = ref(null);
+    const enteredPostValidity = ref('pending');
     
-    const [validateInput, valid] = useValidInput(enteredName, enteredNameValidity)
+    const [validateInputName, validName] = useValidInput(enteredName, enteredNameValidity)
+    const [validateInputStreet, validStreet] = useValidInput(enteredStreet, enteredStreetValidity)
+    const [validateInputPost, validPost] = useValidInput(enteredPost, enteredPostValidity)
 
     return {
-      validateInput: validateInput,
-      valid: valid,
-      // val
       enteredName,
-      enteredNameValidity
+      enteredNameValidity,
+      enteredStreet,
+      enteredStreetValidity,
+      enteredPost,
+      enteredPostValidity,
+      validateInputName: validateInputName,
+      validName: validName,
+      validateInputStreet: validateInputStreet,
+      validStreet: validStreet,
+      validateInputPost: validateInputPost,
+      validPost: validPost,
     }
   }
   
