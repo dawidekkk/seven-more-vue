@@ -117,8 +117,11 @@
           required
           placeholder="Number"
           v-model.trim="enteredPhone"
+          :class="{ border: validPhone }"
+          @blur="validateInputPhone"
         />
       </div>
+      <p class="red" v-if="validPhone">Pole z numerem jest albo pustę albo zawiera nieprawidłowe znaki.</p>
       <div>
         <label for="email">Adres @mail:</label>
         <input
@@ -128,8 +131,11 @@
           required
           placeholder="Email"
           v-model.trim="enteredEmail"
+          :class="{ border: validEmail }"
+          @blur="validateInputEmail"
         />
       </div>
+      <p class="red" v-if="validEmail">Pole z emailem jest albo pustę albo zawiera nieprawidłowe znaki.</p>
     </div>
     <div class="checkboxes">
       <div>
@@ -209,13 +215,13 @@
 import { ref } from "vue";
 import useValidInput from "../../hooks/validateInput";
 import useValidPostInput from "../../hooks/validatePostInput";
+import useValidPhoneInput from "../../hooks/validatePhoneInput";
+import useValidEmailInput from "../../hooks/validateEmailInput";
 export default {
   data() {
     return {
       enteredPrice: 100,
       chosenShipRadio: null,
-      enteredPhone: null,
-      enteredEmail: null,
       enteredCheckboxOne: false,
       enteredCheckboxTwo: false,
       enteredCheckboxThree: false,
@@ -278,15 +284,36 @@ export default {
       enteredPostValidity
     );
 
+    const enteredPhone = ref(null);
+    const enteredPhoneValidity = ref("pending");
+
+    const [validateInputPhone, validPhone] = useValidPhoneInput(
+      enteredPhone,
+      enteredPhoneValidity
+    );
+
+    // Email v-model
+    const enteredEmail = ref(null);
+    const enteredEmailValidity = ref("pending");
+
+    const [validateInputEmail, validEmail] = useValidEmailInput(
+      enteredEmail,
+      enteredEmailValidity
+    );
+
     return {
       enteredName,
       enteredNameValidity,
       enteredStreet,
       enteredStreetValidity,
-      enteredPost,
-      enteredPostValidity,
       enteredCity,
       enteredCityValidity,
+      enteredPost,
+      enteredPostValidity,
+      enteredPhone,
+      enteredPhoneValidity,
+      enteredEmail,
+      enteredEmailValidity,
       validateInputName: validateInputName,
       validName: validName,
       validateInputStreet: validateInputStreet,
@@ -295,6 +322,10 @@ export default {
       validPost: validPost,
       validateInputCity: validateInputCity,
       validCity: validCity,
+      validateInputPhone: validateInputPhone,
+      validPhone: validPhone,
+      validateInputEmail: validateInputEmail,
+      validEmail: validEmail,
     };
   },
 };
