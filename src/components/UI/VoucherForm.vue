@@ -91,7 +91,9 @@
           @blur="validateInputPost"
         />
       </div>
-      <p class="red" v-if="validPost">Pole z kodem pocztowym jest albo pustę albo zawiera nieprawidłowe znaki.</p>
+      <p class="red" v-if="validPost">
+        Pole z kodem pocztowym jest albo pustę albo zawiera nieprawidłowe znaki.
+      </p>
       <div>
         <label for="city">Nazwa miasta:</label>
         <input
@@ -101,8 +103,11 @@
           required
           placeholder="Miasto"
           v-model.trim="enteredCity"
+          :class="{ border: validCity }"
+          @blur="validateInputCity"
         />
       </div>
+      <p class="red" v-if="validCity">Pole z miastem jest albo pustę.</p>
       <div>
         <label for="number">Numer telefonu:</label>
         <input
@@ -201,15 +206,14 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import useValidInput from '../../hooks/validateInput'
+import { ref } from "vue";
+import useValidInput from "../../hooks/validateInput";
+import useValidPostInput from "../../hooks/validatePostInput";
 export default {
   data() {
     return {
       enteredPrice: 100,
       chosenShipRadio: null,
-
-      enteredCity: "",
       enteredPhone: null,
       enteredEmail: null,
       enteredCheckboxOne: false,
@@ -231,7 +235,7 @@ export default {
         this.enteredPost === 0 ||
         this.enteredPost.length >= 6 ||
         this.enteredPost !== Number ||
-        this.enteredCity === "" ||
+        // this.enteredCity === "" ||
         this.enteredPhone === "" ||
         this.enteredEmail === ""
       ) {
@@ -245,16 +249,34 @@ export default {
 
   setup() {
 
-    const enteredName = ref('');
-    const enteredNameValidity = ref('pending');
-    const enteredStreet = ref('');
-    const enteredStreetValidity = ref('pending');
+    // String v-models
+    const enteredName = ref("");
+    const enteredNameValidity = ref("pending");
+    const enteredStreet = ref("");
+    const enteredStreetValidity = ref("pending");
+    const enteredCity = ref("");
+    const enteredCityValidity = ref("pending");
+    const [validateInputName, validName] = useValidInput(
+      enteredName,
+      enteredNameValidity
+    );
+    const [validateInputStreet, validStreet] = useValidInput(
+      enteredStreet,
+      enteredStreetValidity
+    );
+    const [validateInputCity, validCity] = useValidInput(
+      enteredCity,
+      enteredCityValidity
+    );
+
+    // Number v-models
     const enteredPost = ref(null);
-    const enteredPostValidity = ref('pending');
-    
-    const [validateInputName, validName] = useValidInput(enteredName, enteredNameValidity)
-    const [validateInputStreet, validStreet] = useValidInput(enteredStreet, enteredStreetValidity)
-    const [validateInputPost, validPost] = useValidInput(enteredPost, enteredPostValidity)
+    const enteredPostValidity = ref("pending");
+
+    const [validateInputPost, validPost] = useValidPostInput(
+      enteredPost,
+      enteredPostValidity
+    );
 
     return {
       enteredName,
@@ -263,15 +285,18 @@ export default {
       enteredStreetValidity,
       enteredPost,
       enteredPostValidity,
+      enteredCity,
+      enteredCityValidity,
       validateInputName: validateInputName,
       validName: validName,
       validateInputStreet: validateInputStreet,
       validStreet: validStreet,
       validateInputPost: validateInputPost,
       validPost: validPost,
-    }
-  }
-  
+      validateInputCity: validateInputCity,
+      validCity: validCity,
+    };
+  },
 };
 </script>
 
@@ -325,5 +350,4 @@ input {
 .red {
   color: red;
 }
-
 </style>
