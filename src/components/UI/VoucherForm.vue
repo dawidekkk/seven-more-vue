@@ -6,7 +6,7 @@
       class="price"
       id="price"
       placeholder="minimalnie 100,00 PLN"
-      min="100,00"
+      min="100"
       v-model="enteredPrice"
       :class="validatePrice"
     />
@@ -19,6 +19,7 @@
           value="elektroniczna"
           name="ship"
           v-model="chosenShipRadio"
+          required
         />
         <label for="elektroniczna" class="lab"
           ><strong>Forma elektroniczna</strong> 0,00 PLN</label
@@ -31,6 +32,7 @@
           value="inpost"
           name="ship"
           v-model="chosenShipRadio"
+          required
         />
         <label for="inpost" class="lab"
           ><strong>InPost Paczkomaty</strong> 24/7 11,00 PLN</label
@@ -43,6 +45,7 @@
           value="ship"
           name="ship"
           v-model="chosenShipRadio"
+          required
         />
         <label for="kurier" class="lab"
           ><strong>Kurierska krajowa</strong> 17,00 PLN</label
@@ -205,7 +208,7 @@
         >
       </div>
     </div>
-    <p v-if="invalidInput">
+    <p v-if="invalidInput" class="red">
       Jeden albo więcej inputów zostały źle uzupełnione. Proszę sprawdź ponownie.
     </p>
     <button type="submit">Złóż zamówienie z obowiązkiem zapłaty</button>
@@ -220,49 +223,16 @@ import useValidPhoneInput from "../../hooks/validatePhoneInput";
 import useValidEmailInput from "../../hooks/validateEmailInput";
 
 export default {
-  data() {
-    return {
-      // enteredPrice: 100,
-      chosenShipRadio: null,
-      enteredCheckboxOne: false,
-      enteredCheckboxTwo: false,
-      enteredCheckboxThree: false,
-      enteredCheckboxFour: false,
-      enteredCheckboxes: false,
-      invalidInput: false,
-      border: 'border',
-    };
-  },
-
-  methods: {
-    submitForm() {
-      if (
-        this.enteredPrice < 100 ||
-        !this.chosenShipRadio ||
-        // this.enteredName === "" ||
-        this.enteredStreet === "" ||
-        this.enteredPost === 0 ||
-        this.enteredPost.length >= 6 ||
-        this.enteredPost !== Number ||
-        // this.enteredCity === "" ||
-        this.enteredPhone === "" ||
-        this.enteredEmail === ""
-      ) {
-        this.invalidInput = true;
-        return;
-      }
-      this.invalidInput = false;
-      // this.enteredName = '';
-    },
-
-    checkNum() {
-      return this.enteredPrice < 100 ? 'border' : ''
-    }
-  },
 
   setup() {
 
     const enteredPrice = ref(100);
+    const chosenShipRadio = ref(0);
+    const enteredCheckboxOne = ref(false);
+    const enteredCheckboxTwo = ref(false);
+    const enteredCheckboxThree = ref(false);
+    const enteredCheckboxFour = ref(false);
+    const invalidInput = ref(false);
 
     const validatePrice = computed(() => ({
       border: enteredPrice.value < 100,
@@ -315,9 +285,45 @@ export default {
       enteredEmailValidity
     );
 
+    // Submit Form
+    const submitForm = () => {
+      if(
+        enteredPrice.value < 100 ||
+        // chosenShipRadio.value ||
+        enteredName.value === '' || 
+        enteredStreet.value === '' || 
+        enteredPost.value === 0 ||
+        enteredPost.value.length >= 6 ||
+        enteredPost.value.length < 5 ||
+        enteredPost.value === String ||
+        enteredCity.value === '' || 
+        enteredPhone.value === String ||
+        enteredPhone.value === '' ||
+        enteredEmail.value === '' ||
+        !enteredEmail.value.includes('@') ||
+        enteredCheckboxOne.value === false ||
+        enteredCheckboxTwo.value === false ||
+        enteredCheckboxThree.value === false ||
+        enteredCheckboxFour.value === false
+      ) {
+        invalidInput.value = true;
+        return;
+      } else {
+        invalidInput.value = false;
+      }
+    }
+
+    console.log(submitForm);
+
     return {
       validatePrice,
+      chosenShipRadio,
       enteredPrice,
+      enteredCheckboxOne,
+      enteredCheckboxTwo,
+      enteredCheckboxThree,
+      enteredCheckboxFour,
+      invalidInput,
       enteredName,
       enteredNameValidity,
       enteredStreet,
@@ -342,6 +348,7 @@ export default {
       validPhone: validPhone,
       validateInputEmail: validateInputEmail,
       validEmail: validEmail,
+      submitForm,
     };
   },
 };
