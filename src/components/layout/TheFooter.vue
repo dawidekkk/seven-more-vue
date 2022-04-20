@@ -27,7 +27,7 @@
           <li><router-link to="/voucher">Voucher</router-link></li>
           <li>Sklep</li>
           <li>Kolekcje</li>
-          <li>Kontakt</li>
+          <li><router-link to="/kontakt">Kontakt</router-link></li>
         </ul>
       </nav>
       <nav>

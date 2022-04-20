@@ -80,8 +80,7 @@ export default {
 
 <style scoped lang="scss">
 .home-instagram {
-  width: 100%;
-  // height: auto;
+  width: 100%; height: auto;
   background-color: rgb(255, 255, 255);
   padding: 4rem 0rem;
   display: flex;
@@ -127,41 +126,41 @@ export default {
   }
 }
 
-// .imgs {
-//   width: 82px;
-//   height: 120px;
-//   filter: brightness(0.6);
-//   transition: all 0.5s;
+.imgs {
+  width: 82px;
+  height: 120px;
+  filter: brightness(0.6);
+  transition: all 0.5s;
 
-//   &:hover {
-//     filter: brightness(1);
-//   }
+  &:hover {
+    filter: brightness(1);
+  }
 
-//   @media screen and (min-width: 600px) {
-//     width: 140px;
-//     height: 200px;
-//   }
+  @media screen and (min-width: 600px) {
+    width: 140px;
+    height: 200px;
+  }
 
-//   @media screen and (min-width: 768px) {
-//     width: 150px;
-//   }
+  @media screen and (min-width: 768px) {
+    width: 150px;
+  }
 
-//   @media screen and (min-width: 992px) {
-//     width: 200px;
-//     height: 260px;
-//   }
+  @media screen and (min-width: 992px) {
+    width: 200px;
+    height: 260px;
+  }
 
-//   @media screen and (min-width: 1200px) {
-//     width: 240px;
-//     height: 260px;
-//   }
-//   @media screen and (min-width: 1400px) {
-//     width: 280px;
-//     height: 300px;
-//   }
-//   @media screen and (min-width: 1600px) {
-//     width: 320px;
-//     height: 340px;
-//   }
-// }
+  @media screen and (min-width: 1200px) {
+    width: 240px;
+    height: 260px;
+  }
+  @media screen and (min-width: 1400px) {
+    width: 280px;
+    height: 300px;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 320px;
+    height: 340px;
+  }
+}
 </style>

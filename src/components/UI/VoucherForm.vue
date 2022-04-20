@@ -1,15 +1,17 @@
 <template>
   <form @submit.prevent="submitForm">
-    <label for="price"><strong>Voucher prezentowy 7MORE7</strong></label>
-    <input
-      type="number"
-      class="price"
-      id="price"
-      placeholder="minimalnie 100,00 PLN"
-      min="100"
-      v-model="enteredPrice"
-      :class="validatePrice"
-    />
+    <div class="price-wrapper">
+      <label for="price" class="price-label"><strong>Voucher prezentowy 7MORE7</strong></label>
+      <input
+        type="number"
+        class="price"
+        id="price"
+        placeholder="minimalnie 100,00 PLN"
+        min="100"
+        v-model="enteredPrice"
+        :class="validatePrice"
+      />
+    </div>
     <div class="radio">
       <h3>Przesyłka:</h3>
       <div>
@@ -68,7 +70,7 @@
         />
       </div>
       <p class="red" v-if="validName">Pole z imieniem i nazwiskiem jest pustę.</p>
-      <div>
+      <div class="form-control">
         <label for="street">Ulica i nr budynku:</label>
         <input
           type="text"
@@ -82,7 +84,7 @@
         />
       </div>
       <p class="red" v-if="validStreet">Pole z ulicą i numerem budynku jest pustę.</p>
-      <div>
+      <div class="form-control">
         <label for="post-nr">Kod pocztowy:</label>
         <input
           type="number"
@@ -98,7 +100,7 @@
       <p class="red" v-if="validPost">
         Pole z kodem pocztowym jest albo pustę albo zawiera nieprawidłowe znaki.
       </p>
-      <div>
+      <div class="form-control">
         <label for="city">Nazwa miasta:</label>
         <input
           type="text"
@@ -112,7 +114,7 @@
         />
       </div>
       <p class="red" v-if="validCity">Pole z miastem jest albo pustę.</p>
-      <div>
+      <div class="form-control">
         <label for="number">Numer telefonu:</label>
         <input
           type="number"
@@ -125,8 +127,10 @@
           @blur="validateInputPhone"
         />
       </div>
-      <p class="red" v-if="validPhone">Pole z numerem jest albo pustę albo zawiera nieprawidłowe znaki.</p>
-      <div>
+      <p class="red" v-if="validPhone">
+        Pole z numerem jest albo pustę albo zawiera nieprawidłowe znaki.
+      </p>
+      <div class="form-control">
         <label for="email">Adres @mail:</label>
         <input
           type="email"
@@ -139,7 +143,9 @@
           @blur="validateInputEmail"
         />
       </div>
-      <p class="red" v-if="validEmail">Pole z emailem jest albo pustę albo zawiera nieprawidłowe znaki.</p>
+      <p class="red" v-if="validEmail">
+        Pole z emailem jest albo pustę albo zawiera nieprawidłowe znaki.
+      </p>
     </div>
     <div class="checkboxes">
       <div>
@@ -153,7 +159,7 @@
         <label for="rule-one"
           >Zapoznałem/am/ się i akceptuję
           <router-link to="/regulamin">regulamin</router-link> oraz
-          <router-link to="/regulamin">politykę prywatności</router-link></label
+          <router-link to="/polityka">politykę prywatności</router-link></label
         >
       </div>
       <div>
@@ -223,9 +229,7 @@ import useValidPhoneInput from "../../hooks/validatePhoneInput";
 import useValidEmailInput from "../../hooks/validateEmailInput";
 
 export default {
-
   setup() {
-
     const enteredPrice = ref(100);
     const chosenShipRadio = ref(0);
     const enteredCheckboxOne = ref(false);
@@ -237,7 +241,7 @@ export default {
     const validatePrice = computed(() => ({
       border: enteredPrice.value < 100,
       red: enteredPrice.value < 100,
-    }))
+    }));
 
     // String v-models
     const enteredName = ref("");
@@ -287,20 +291,20 @@ export default {
 
     // Submit Form
     const submitForm = () => {
-      if(
+      if (
         enteredPrice.value < 100 ||
         // chosenShipRadio.value ||
-        enteredName.value === '' || 
-        enteredStreet.value === '' || 
+        enteredName.value === "" ||
+        enteredStreet.value === "" ||
         enteredPost.value === 0 ||
         enteredPost.value.length >= 6 ||
         enteredPost.value.length < 5 ||
         enteredPost.value === String ||
-        enteredCity.value === '' || 
+        enteredCity.value === "" ||
         enteredPhone.value === String ||
-        enteredPhone.value === '' ||
-        enteredEmail.value === '' ||
-        !enteredEmail.value.includes('@') ||
+        enteredPhone.value === "" ||
+        enteredEmail.value === "" ||
+        !enteredEmail.value.includes("@") ||
         enteredCheckboxOne.value === false ||
         enteredCheckboxTwo.value === false ||
         enteredCheckboxThree.value === false ||
@@ -311,7 +315,7 @@ export default {
       } else {
         invalidInput.value = false;
       }
-    }
+    };
 
     console.log(submitForm);
 
@@ -390,18 +394,33 @@ input {
   margin-right: 0.5rem;
 }
 
-// .form-control {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
-// }
-
 .border {
   border: 2px solid red;
 }
 
 .red {
   color: red;
+}
+
+@media screen and (min-width: 600px) {
+
+  .price-wrapper,
+  .form-control {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    input {
+      width: 50%;
+    }
+  }
+
+  .ship-info,
+  .radio,
+  .price-label {
+    text-align: center;
+    font-size: 22px;
+  }
 }
 </style>

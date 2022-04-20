@@ -6,6 +6,7 @@ import TheRules from './pages/regulamin/TheRules.vue'
 import ThePrivacyPolicy from './pages/regulamin/ThePrivacyPolicy.vue'
 import TheDownloadableLinks from './pages/regulamin/TheDownloadableLinks.vue'
 import TheShipInfo from './pages/regulamin/TheShipInfo.vue'
+import TheContact from './pages/contact/TheContact.vue'
 
 // Async loading specify cmps, because of performance. 
 const NotFound = defineAsyncComponent(() => 
@@ -22,6 +23,7 @@ const router = createRouter({
     { path: '/polityka', component: ThePrivacyPolicy },
     { path: '/pliki', component: TheDownloadableLinks },
     { path: '/platnosc', component: TheShipInfo },
+    { path: '/kontakt', component: TheContact },
     { path: '/:notFound(.*)', component: NotFound}
   ],
   scrollBehavior(_, _2, savedPosition) {
