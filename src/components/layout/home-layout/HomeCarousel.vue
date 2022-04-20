@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import CarouselCard from "../UI/CarouselCard.vue";
+import CarouselCard from "../../UI/CarouselCard";
 export default {
   components: {
     CarouselCard,

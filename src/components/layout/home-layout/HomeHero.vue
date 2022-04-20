@@ -14,7 +14,7 @@
 import { ref } from "vue";
 export default {
   setup() {
-    const img = ref(require("../../assets/images/hero.png"));
+    const img = ref(require("../../../assets/images/hero.png"));
     
     const scrollInto = (id) => {
       document.getElementById(id).scrollIntoView({behavior: "smooth"})
@@ -30,7 +30,7 @@ export default {
 
 <style scoped lang="scss">
 .home-hero {
-  background-image: url(../../assets/images/bg_1.jpg);
+  background-image: url(../../../assets/images/bg_1.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

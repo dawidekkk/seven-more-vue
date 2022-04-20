@@ -21,7 +21,7 @@
   margin: 2rem auto 0rem auto;
 
   .girl-photo {
-    background-image: url(../../assets/images/girl.png);
+    background-image: url(../../../assets/images/girl.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

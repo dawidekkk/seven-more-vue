@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import HomeProductCard from "../UI/HomeProductCard.vue";
-import useProduct from "../../hooks/products.js";
+import HomeProductCard from "../../UI/HomeProductCard";
+import useProduct from "../../../hooks/products.js";
 
 export default {
   components: { HomeProductCard },

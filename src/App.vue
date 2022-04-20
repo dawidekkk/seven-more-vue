@@ -16,9 +16,9 @@
 <script>
 import TheHeader from "./components/layout/TheHeader.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
-import HomeInstagram from "./components/layout/HomeInstagram";
-import HomeSubscribe from "./components/layout/HomeSubscribe.vue";
-import HomeSocial from "./components/layout/HomeSocial.vue";
+import HomeInstagram from "./components/layout/home-layout/HomeInstagram";
+import HomeSubscribe from "./components/layout/home-layout/HomeSubscribe.vue";
+import HomeSocial from "./components/layout/home-layout/HomeSocial.vue";
 
 export default {
   components: {

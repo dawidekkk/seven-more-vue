@@ -52,13 +52,13 @@
 }
 
 .ambasador-nitro {
-  background-image: url(../../assets/images/nitro.jpg);
+  background-image: url(../../../assets/images/nitro.jpg);
   @include pic();
   grid-area: ambasador-nitro;
 }
 
 .ambasador-sandra {
-  background-image: url(../../assets/images/sandra.jpg);
+  background-image: url(../../../assets/images/sandra.jpg);
   @include pic();
   grid-area: ambasador-sandra;
 }

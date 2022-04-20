@@ -51,16 +51,16 @@
 <script>
 export default {
   setup() {
-    const pic1 = require("../../assets/images/ig1.jpg");
-    const pic2 = require("../../assets/images/ig2.jpg");
-    const pic3 = require("../../assets/images/ig3.jpg");
-    const pic4 = require("../../assets/images/ig4.jpg");
-    const pic5 = require("../../assets/images/ig5.jpg");
-    const pic6 = require("../../assets/images/ig6.jpg");
-    const pic7 = require("../../assets/images/ig7.jpg");
-    const pic8 = require("../../assets/images/ig8.jpg");
-    const pic9 = require("../../assets/images/ig9.jpg");
-    const pic10 = require("../../assets/images/ig10.jpg");
+    const pic1 = require("../../../assets/images/ig1.jpg");
+    const pic2 = require("../../../assets/images/ig2.jpg");
+    const pic3 = require("../../../assets/images/ig3.jpg");
+    const pic4 = require("../../../assets/images/ig4.jpg");
+    const pic5 = require("../../../assets/images/ig5.jpg");
+    const pic6 = require("../../../assets/images/ig6.jpg");
+    const pic7 = require("../../../assets/images/ig7.jpg");
+    const pic8 = require("../../../assets/images/ig8.jpg");
+    const pic9 = require("../../../assets/images/ig9.jpg");
+    const pic10 = require("../../../assets/images/ig10.jpg");
 
     return {
       pic1,

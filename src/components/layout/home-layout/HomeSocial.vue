@@ -15,17 +15,13 @@
   </section>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped lang="scss">
 .home-social {
   width: 100vw;
   height: 55vh;
   background-color: rgb(161, 161, 161);
   padding: 4rem 0rem;
-  background-image: url("../../assets/images/bg_4.jpg");
+  background-image: url("../../../assets/images/bg_4.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
