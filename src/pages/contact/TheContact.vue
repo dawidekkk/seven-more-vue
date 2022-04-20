@@ -21,7 +21,7 @@
           <h2>FAQ</h2>
           <div class="toggle-box" mode="out-in" @click="activeOne">
             <h3>Jak dokonać zwrotu produktu?</h3>
-            <transition name="test" mode="out-in">
+            <transition name="para" mode="out-in">
               <p v-if="toggleOne">
                 Jeżeli produkt nie posiada śladów użytkowania, można dokonać zwrotu
                 produktu w terminie 14 dni. Adres do zwrotu: Centrum Logistyczne - 7MORE7
@@ -35,7 +35,7 @@
           </div>
           <div class="toggle-box" mode="out-in" @click="activeTwo">
             <h3>Czy można dokonać wymiany rozmiaru?</h3>
-            <transition name="test" mode="out-in">
+            <transition name="para" mode="out-in">
               <p v-if="toggleTwo">
                 Produkty dostępne w sprzedaży są produktami limitowanymi i nie ma
                 możliwości dokonania wymiany na inny rozmiar. Można dokonać zwrotu w
@@ -45,7 +45,7 @@
           </div>
           <div class="toggle-box" mode="out-in" @click="activeThree">
             <h3>Czy dostępny będzie dany model/rozmiar?</h3>
-            <transition name="test" mode="out-in">
+            <transition name="para" mode="out-in">
               <p v-if="toggleThree">
                 Produkty są limitowane i ich ilość jest ograniczona. Zachęcamy do
                 śledzenia naszych social mediów, tam publikowane są wszystkie informację
@@ -55,7 +55,7 @@
           </div>
           <div class="toggle-box" mode="out-in" @click="activeFour">
             <h3>Czy moje zamówienie zostało wysłane?</h3>
-            <transition name="test" mode="out-in">
+            <transition name="para" mode="out-in">
               <p v-if="toggleFour">
                 Regulaminowy czas realizacji zamówień wynosi od 2 do 14 dni roboczych. W
                 momencie spakowania przesyłki otrzymują Państwo maila od firmy kurierskiej
@@ -68,7 +68,7 @@
               Po opłaceniu zamówienia otrzymałam/em maila z informacją o jego anulowainu.
               Jaki jest tego powód?
             </h3>
-            <transition name="test" mode="out-in">
+            <transition name="para" mode="out-in">
               <p v-if="toggleFive">
                 Najczęstszą przyczyną otrzymana takiej wiadomości jest fakt złożenia dwóch
                 identycznych zamówień i opłacenie tylko jednego z nich. W tej sytuacji
@@ -91,38 +91,37 @@
 <script>
 import { ref } from "vue";
 import useToggle from "../../hooks/useToggle";
-import ContactForm from '../../components/UI/ContactForm.vue'
+import ContactForm from "../../components/UI/ContactForm.vue";
 
 export default {
-    components: { ContactForm },
+  components: { ContactForm },
 
-    setup() {
-        const title = ref("Kontakt");
-        const toggleOne = ref(false);
-        const toggleTwo = ref(false);
-        const toggleThree = ref(false);
-        const toggleFour = ref(false);
-        const toggleFive = ref(false);
-        const [activeOne] = useToggle(toggleOne);
-        const [activeTwo] = useToggle(toggleTwo);
-        const [activeThree] = useToggle(toggleThree);
-        const [activeFour] = useToggle(toggleFour);
-        const [activeFive] = useToggle(toggleFive);
-        return {
-            title,
-            toggleOne,
-            toggleTwo,
-            toggleThree,
-            toggleFour,
-            toggleFive,
-            activeOne,
-            activeTwo,
-            activeThree,
-            activeFour,
-            activeFive,
-        };
-    },
-    
+  setup() {
+    const title = ref("Kontakt");
+    const toggleOne = ref(false);
+    const toggleTwo = ref(false);
+    const toggleThree = ref(false);
+    const toggleFour = ref(false);
+    const toggleFive = ref(false);
+    const [activeOne] = useToggle(toggleOne);
+    const [activeTwo] = useToggle(toggleTwo);
+    const [activeThree] = useToggle(toggleThree);
+    const [activeFour] = useToggle(toggleFour);
+    const [activeFive] = useToggle(toggleFive);
+    return {
+      title,
+      toggleOne,
+      toggleTwo,
+      toggleThree,
+      toggleFour,
+      toggleFive,
+      activeOne,
+      activeTwo,
+      activeThree,
+      activeFour,
+      activeFive,
+    };
+  },
 };
 </script>
 
@@ -157,46 +156,41 @@ h3 {
   padding: 1rem;
   margin: 1rem auto;
   border-radius: 8px;
-  box-shadow:  6px 6px 12px #e5e6e7, -6px -6px 12px #ffffff;
+  box-shadow: 6px 6px 12px #e5e6e7, -6px -6px 12px #ffffff;
   // box-shadow:  6px 6px 12px #e5e6e7, -6px -6px 12px #ffffff;
 
   &:active {
-    box-shadow: inset 6px 6px 12px #e5e6e7,
-            inset -6px -6px 12px #ffffff;
+    box-shadow: inset 6px 6px 12px #e5e6e7, inset -6px -6px 12px #ffffff;
   }
 }
 
-.test-enter-from,
-.test-leave-to {
+.para-enter-from,
+.para-leave-to {
   opacity: 0;
   transform: translateY(-30px);
 }
 
-.test-enter-active {
-  transition: all .5s ease-out;
+.para-enter-active {
+  transition: all 0.5s ease-out;
 }
 
-.test-leave-active {
-  transition: all .5s ease-in;
+.para-leave-active {
+  transition: all 0.5s ease-in;
 }
 
-.test-enter-to,
-.test-leave-from {
+.para-enter-to,
+.para-leave-from {
   opacity: 1;
   transform: translateY(0);
 }
 
-
 @media screen and (min-width: 600px) {
-  
-
   .toggle-box > p {
     width: 80%;
     margin: 0 auto;
   }
 }
 @media screen and (min-width: 992px) {
-
   .the-contact-wrapper {
     width: 50%;
     margin: 0 auto;

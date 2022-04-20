@@ -25,8 +25,8 @@
         <ul>
           <li><router-link to="/home">Home</router-link></li>
           <li><router-link to="/voucher">Voucher</router-link></li>
-          <li>Sklep</li>
-          <li>Kolekcje</li>
+          <li><router-link to="/sklep">Sklep</router-link></li>
+          <li><router-link to="/sklep">Kolekcje</router-link></li>
           <li><router-link to="/kontakt">Kontakt</router-link></li>
         </ul>
       </nav>

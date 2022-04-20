@@ -7,11 +7,15 @@ export default {
     return state.carouselProducts && state.carouselProducts.length > 0;
   },
 
-  // finalCounter(state) {
-  //   return state.counter;
-  // }
-
   bestsellerProducts(state) {
     return state.bestsellerProducts;
   },
+
+  shopProducts(state) {
+    return state.shopProducts;
+  },
+
+  testImages(state) {
+    return state.testImages;
+  }
 }

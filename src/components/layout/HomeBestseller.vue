@@ -10,7 +10,7 @@
         :color="product.color"
         :image="product.image"
         :price="product.price"
-        :collection="product.collection"
+        :stock="product.stock"
       />
     </div>
   </section>
@@ -64,11 +64,11 @@ export default {
   @media screen and (min-width: 1200px) {
     opacity: 1;
     position: absolute;
-    top: -14%; left: 50%;
+    top: -14%;
+    left: 50%;
     transform: translate(-50%, 50%);
     color: rgba(128, 128, 128, 0.12);
     font-size: 180px;
   }
 }
-
-</style> 
+</style>

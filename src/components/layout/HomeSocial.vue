@@ -22,7 +22,7 @@ export default {};
 <style scoped lang="scss">
 .home-social {
   width: 100vw;
-  height: 45vh;
+  height: 55vh;
   background-color: rgb(161, 161, 161);
   padding: 4rem 0rem;
   background-image: url("../../assets/images/bg_4.jpg");

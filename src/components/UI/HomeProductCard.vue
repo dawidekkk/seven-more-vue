@@ -1,14 +1,18 @@
 <template>
   <div class="home-product-card">
-    <h4>{{ collection }}</h4>
-    <img :src="image" alt="zdjecie produktu" class="img" />
+    <h4>{{ stock }}</h4>
+    <a href="">
+      <img :src="image" alt="zdjecie produktu" class="img" />
+    </a>
     <p>{{ name }}</p>
     <span>{{ color }}</span>
     <p>{{ price }}</p>
     <div>
-      <h4 class="home-product-h4">
-        dodaj do koszyka<font-awesome-icon icon="plus" class="plus" />
-      </h4>
+      <button class="btn">
+        <h4 class="home-product-h4">
+          dodaj do koszyka<font-awesome-icon icon="plus" class="plus" />
+        </h4>
+      </button>
     </div>
   </div>
 </template>
@@ -20,7 +24,7 @@ export default {
     color: String,
     price: Number,
     image: String,
-    collection: String,
+    stock: String,
   },
 };
 </script>
@@ -46,6 +50,12 @@ export default {
 .plus {
   width: 1rem;
   height: 1rem;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
 }
 
 .img {

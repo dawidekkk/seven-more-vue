@@ -9,7 +9,7 @@
   >
     <swiper-slide v-for="product in products" :key="product.id">
       <li class="carousel-card">
-        <h3>{{ product.collection }}</h3>
+        <h3>{{ product.stock }}</h3>
         <img :src="product.image" alt="zdjecie produktu" class="imgs" />
         <div class="info">
           <span>{{ product.name }}</span
@@ -57,9 +57,9 @@ export default {
 
         1400: {
           slidesPerView: 4,
-        }
-      }
-    })
+        },
+      },
+    });
 
     // Using hook with $store.state.carouselProducts
     const [products] = useProduct("carouselProducts");
@@ -94,15 +94,15 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.3);
 
   .collection {
-  grid-area: collection;
-}
+    grid-area: collection;
+  }
 
-.imgs {
-  grid-area: imgs;
-  // width: 100%;
-  height: 100%;
-  margin: 0 auto;
-}
+  .imgs {
+    grid-area: imgs;
+    // width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
 
   .info {
     grid-area: info;
@@ -115,5 +115,4 @@ export default {
     margin: 0 auto;
   }
 }
-
 </style>
