@@ -5,8 +5,37 @@
       >UŻYJ #Taga <strong class="more">#7MORE7</strong> I POKAŻ NAM SWÓJ OUTFIT</BaseTitle
     >
     <div class="instagram-grid">
-      <img :src="pic1" alt="zdjecie ig" class="imgs" />
-      <img :src="pic2" alt="zdjecie ig" class="imgs" />
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <a :href="'https://www.instagram.com/'">
+        <img :src="pic1" alt="zdjecie ig" class="imgs" />
+      </a>
+      <!-- <img :src="pic2" alt="zdjecie ig" class="imgs" />
       <img :src="pic3" alt="zdjecie ig" class="imgs" />
       <img :src="pic4" alt="zdjecie ig" class="imgs" />
       <img :src="pic5" alt="zdjecie ig" class="imgs" />
@@ -14,7 +43,7 @@
       <img :src="pic7" alt="zdjecie ig" class="imgs" />
       <img :src="pic8" alt="zdjecie ig" class="imgs" />
       <img :src="pic9" alt="zdjecie ig" class="imgs" />
-      <img :src="pic10" alt="zdjecie ig" class="imgs" />
+      <img :src="pic10" alt="zdjecie ig" class="imgs" /> -->
     </div>
   </section>
 </template>
@@ -70,7 +99,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 100%;
+  width: 100vw;
 }
 
 .more {
@@ -98,41 +127,41 @@ export default {
   }
 }
 
-.imgs {
-  width: 82px;
-  height: 120px;
-  filter: brightness(0.6);
-  transition: all 0.5s;
+// .imgs {
+//   width: 82px;
+//   height: 120px;
+//   filter: brightness(0.6);
+//   transition: all 0.5s;
 
-  &:hover {
-    filter: brightness(1);
-  }
+//   &:hover {
+//     filter: brightness(1);
+//   }
 
-  @media screen and (min-width: 600px) {
-    width: 140px;
-    height: 200px;
-  }
+//   @media screen and (min-width: 600px) {
+//     width: 140px;
+//     height: 200px;
+//   }
 
-  @media screen and (min-width: 768px) {
-    width: 150px;
-  }
+//   @media screen and (min-width: 768px) {
+//     width: 150px;
+//   }
 
-  @media screen and (min-width: 992px) {
-    width: 200px;
-    height: 260px;
-  }
+//   @media screen and (min-width: 992px) {
+//     width: 200px;
+//     height: 260px;
+//   }
 
-  @media screen and (min-width: 1200px) {
-    width: 240px;
-    height: 260px;
-  }
-  @media screen and (min-width: 1400px) {
-    width: 280px;
-    height: 300px;
-  }
-  @media screen and (min-width: 1600px) {
-    width: 320px;
-    height: 340px;
-  }
-}
+//   @media screen and (min-width: 1200px) {
+//     width: 240px;
+//     height: 260px;
+//   }
+//   @media screen and (min-width: 1400px) {
+//     width: 280px;
+//     height: 300px;
+//   }
+//   @media screen and (min-width: 1600px) {
+//     width: 320px;
+//     height: 340px;
+//   }
+// }
 </style>

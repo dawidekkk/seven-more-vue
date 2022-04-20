@@ -22,7 +22,7 @@ export default {};
 <style scoped lang="scss">
 .home-social {
   width: 100vw;
-  height: 80vh;
+  height: 45vh;
   background-color: rgb(161, 161, 161);
   padding: 4rem 0rem;
   background-image: url("../../assets/images/bg_4.jpg");
@@ -45,7 +45,8 @@ export default {};
   @media screen and (min-width: 1200px) {
     opacity: 1;
     position: absolute;
-    top: -18%; left: 50%;
+    top: -18%;
+    left: 50%;
     transform: translate(-50%, 50%);
     color: rgba(128, 128, 128, 0.12);
     font-size: 160px;
