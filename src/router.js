@@ -18,7 +18,7 @@ const NotFound = defineAsyncComponent(() =>
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', redirect: '/home'},
+    { path: '/', redirect: '/sevenmorevue'},
     { path: '/sevenmorevue', component: TheHome },
     { path: '/sklep', component: TheShop, },
     { path: '/sklep/:id', props: true, component: ShopProductCard },
