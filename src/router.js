@@ -19,7 +19,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', redirect: '/home'},
-    { path: '/home', component: TheHome },
+    { path: '/sevenmorevue', component: TheHome },
     { path: '/sklep', component: TheShop, },
     { path: '/sklep/:id', props: true, component: ShopProductCard },
     { path: '/voucher', component: TheVoucher },
