@@ -98,7 +98,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 100%;
+  width: 400px;
   height: 100%;
   margin: 0 auto;
 
@@ -118,6 +118,7 @@ export default {
 .btns-wrapper {
   margin: 1.5rem auto;
   padding: 0rem 3rem;
+  width: 400px;
 }
 
 .the-shop-btns-wrapper {
