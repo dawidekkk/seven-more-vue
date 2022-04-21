@@ -11,11 +11,11 @@
         <ul>
           <font-awesome-icon :icon="toggleIcon" class="icon close" @click="toggleHidden" />
           <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/home">sklep</router-link></li>
+          <li><router-link to="/sevenmorevue">sklep</router-link></li>
           <li><router-link to="/voucher">Voucher</router-link></li>
-          <li><router-link to="/home">kontakt</router-link></li>
-          <li><router-link to="/home">koszyk</router-link></li>
-          <li><router-link to="/home">logowanie</router-link></li>
+          <li><router-link to="/kontakt">kontakt</router-link></li>
+          <li><router-link to="/">koszyk</router-link></li>
+          <li><router-link to="/">logowanie</router-link></li>
           <li><router-link to="/regulamin">Regulamin</router-link></li>
         </ul>
       </nav>

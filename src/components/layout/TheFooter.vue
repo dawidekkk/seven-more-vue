@@ -23,7 +23,7 @@
       <nav>
         <h3>MENU</h3>
         <ul>
-          <li><router-link to="/home">Home</router-link></li>
+          <li><router-link to="/sevenmorevue">Home</router-link></li>
           <li><router-link to="/voucher">Voucher</router-link></li>
           <li><router-link to="/sklep">Sklep</router-link></li>
           <li><router-link to="/sklep">Kolekcje</router-link></li>
