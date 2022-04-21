@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo-wrapper">
-      <router-link to="/home"><img src="../../assets/images/logo.png" alt="logo strony" class="logo"></router-link>
+      <router-link to="/sevenmorevue"><img src="../../assets/images/logo.png" alt="logo strony" class="logo"></router-link>
     </div>
     <div class="ham-wrapper">
       <font-awesome-icon :icon="toggleIcon" class="icon" @click="toggleHidden" />
