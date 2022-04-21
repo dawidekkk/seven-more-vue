@@ -14,10 +14,6 @@ export default {
   components: {
     CarouselCard,
   },
-
-  props: {
-    test: String,
-  },
 };
 </script>
 

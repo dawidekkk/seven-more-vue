@@ -28,12 +28,18 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { reactive } from "vue";
-import useProduct from "../../hooks/products.js";
+// import useProduct from "../../hooks/products.js";
 
 export default {
   components: {
     SwiperSlide,
     Swiper,
+  },
+
+  computed: {
+    products() {
+      return this.$store.getters.carouselProducts;
+    }
   },
 
   setup() {
@@ -62,11 +68,11 @@ export default {
     });
 
     // Using hook with $store.state.carouselProducts
-    const [products] = useProduct("carouselProducts");
+    // const [products] = useProduct("carouselProducts");
 
     return {
       delay,
-      products,
+      // products,
       swiperOptions: swiperOptions.breakpoints,
     };
   },

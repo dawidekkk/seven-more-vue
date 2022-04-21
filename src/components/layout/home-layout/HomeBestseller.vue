@@ -18,18 +18,24 @@
 
 <script>
 import HomeProductCard from "../../UI/HomeProductCard";
-import useProduct from "../../../hooks/products.js";
+// import useProduct from "../../../hooks/products.js";
 
 export default {
   components: { HomeProductCard },
 
-  setup() {
-    const [products] = useProduct("bestsellerProducts");
+  computed: {
+    products() {
+      return this.$store.getters.bestsellerProducts
+    }
+  }
 
-    return {
-      products,
-    };
-  },
+  // setup() {
+  //   const [products] = useProduct("bestsellerProducts");
+
+  //   return {
+  //     products,
+  //   };
+  // },
 };
 </script>
 

@@ -61,23 +61,35 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import useProduct from "../../hooks/products";
+// import { ref } from "vue";
+// import useProduct from "../../hooks/products";
 import HomeProductCard from "../../components/UI/HomeProductCard";
 export default {
   components: {
     HomeProductCard,
   },
 
-  setup() {
-    const title = ref("Sklep");
-    const [products] = useProduct("shopProducts");
-
+  data() {
     return {
-      title,
-      products,
-    };
+      title: 'Sklep'
+    }
   },
+
+  computed: {
+    products() {
+      return this.$store.getters.shopProducts;
+    }
+  }
+
+  // setup() {
+  //   const title = ref("Sklep");
+  //   const [products] = useProduct("shopProducts");
+
+  //   return {
+  //     title,
+  //     products,
+  //   };
+  // },
 };
 </script>
 

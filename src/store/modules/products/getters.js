@@ -15,7 +15,16 @@ export default {
     return state.shopProducts;
   },
 
-  testImages(state) {
-    return state.testImages;
+  cartItems(state) {
+    return state.cart.items;
+  },
+
+  cartTotal(state) {
+    return state.cart.total;
+  },
+
+  cartQty(state) {
+    return state.cart.qty;
   }
+
 }

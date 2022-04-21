@@ -8,8 +8,8 @@
     <span>{{ color }}</span>
     <p>{{ price }}</p>
     <div>
-      <button class="btn">
-        <h4 class="home-product-h4">
+      <button class="btn" @click="addToCart">
+        <h4 class="h4">
           dodaj do koszyka<font-awesome-icon icon="plus" class="plus" />
         </h4>
       </button>
@@ -18,13 +18,28 @@
 </template>
 
 <script>
+
 export default {
   props: {
+    id: String,
     name: String,
     color: String,
     price: Number,
     image: String,
     stock: String,
+  },
+
+  methods: {
+    addToCart() {
+      this.$store.commit({
+        type: 'addProductToCart',
+        id: this.id,
+        image: this.image,
+        name: this.name,
+        price: this.price,
+        color: this.color,
+      });
+    },
   },
 };
 </script>
@@ -43,7 +58,7 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.home-product-h4 {
+.h4 {
   text-transform: uppercase;
 }
 

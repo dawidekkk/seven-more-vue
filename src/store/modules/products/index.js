@@ -3,7 +3,7 @@ import getters from "./getters.js"
 import actions from "./actions.js"
 
 export default {
-  namespaced: true,
+  // namespaced: true,
   state() {
     return {
       carouselProducts: [
@@ -309,10 +309,8 @@ export default {
           type: 'longsleeve',
         },
       ],
-      testImages: [
-        { image: require("../../../assets/images/15.png") },
-        { image: require("../../../assets/images/15a.png") }
-      ]
+
+      cart: { items: [], total: 0, qty: 0 }
     }
   },
   mutations: mutations,
