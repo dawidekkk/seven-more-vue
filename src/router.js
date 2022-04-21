@@ -9,6 +9,7 @@ import TheShipInfo from './pages/regulamin/TheShipInfo.vue'
 import TheContact from './pages/contact/TheContact.vue'
 import TheShop from './pages/shop/TheShop.vue'
 import ShopProductCard from './components/UI/ShopProductCard.vue'
+import ShoppingCart from './pages/shoppingcart/TheShoppingCart.vue'
 
 // Async loading specify cmps, because of performance. 
 const NotFound = defineAsyncComponent(() => 
@@ -23,6 +24,7 @@ const router = createRouter({
     { path: '/sklep', component: TheShop, },
     { path: '/sklep/:id', props: true, component: ShopProductCard },
     { path: '/voucher', component: TheVoucher },
+    { path: '/koszyk', component: ShoppingCart },
     { path: '/regulamin', component: TheRules },
     { path: '/polityka', component: ThePrivacyPolicy },
     { path: '/pliki', component: TheDownloadableLinks },

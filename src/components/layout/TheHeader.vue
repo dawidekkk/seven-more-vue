@@ -7,7 +7,7 @@
     </div>
     <div class="wrapper">
       <div class="basket">
-        <li><router-link to="/">Koszyk[0]</router-link></li>
+        <li><router-link to="/koszyk">Koszyk[0]</router-link></li>
       </div>
       <div class="ham-wrapper">
         <font-awesome-icon :icon="toggleIcon" class="icon" @click="toggleHidden" />
