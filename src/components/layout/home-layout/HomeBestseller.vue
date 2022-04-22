@@ -59,8 +59,11 @@ export default {
 
 .h1 {
   opacity: 0;
+  display: none;
+
   @media screen and (min-width: 1200px) {
     opacity: 1;
+    display: block;
     position: absolute;
     top: -14%;
     left: 50%;

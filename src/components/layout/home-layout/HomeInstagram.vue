@@ -85,7 +85,6 @@ export default {
 }
 
 .instagram-grid {
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 0px;
@@ -133,7 +132,10 @@ export default {
 
 .h1 {
   opacity: 0;
+  display: none;
+  
   @media screen and (min-width: 1200px) {
+    display: block;
     opacity: 1;
     position: absolute;
     top: -22%;

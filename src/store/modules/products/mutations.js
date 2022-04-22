@@ -5,8 +5,8 @@ export default {
     console.log(productInCartIndex);
     
     if(productInCartIndex >= 0) {
+      // Add the same product MORE than ONCE.
       state.cart.items[productInCartIndex].qty++;
-      console.log(state.cart.items);
     } else {
       const newItem = {
         id: payload.id,

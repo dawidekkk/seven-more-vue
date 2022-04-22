@@ -6,26 +6,29 @@
       </div>
       <div>
         <h3>{{ name }}</h3>
-        <h4>{{ color }}</h4>
-        <div class="item__data">
-          <div>
+        <h4 :class="color">Kolor: {{ color }}</h4>
+        <div class="item-data">
+          <div class="info">
             Kwota za produkt:
             <strong>{{ price }} PLN</strong>
           </div>
           <div>
-            Ilość:
-            <strong>{{ qty }} {{ checkQty() }} </strong>
+            Ilość: <strong>{{ qty }} {{ checkQty() }}</strong>
+          </div>
+          <div class="number-wrapper">
+            <input type="number" min="1" max="10" step="1" >
           </div>
         </div>
-        <div class="item__total">Total: ${{ itemTotal }}</div>
-        <button @click="removeProductFromCart">Remove</button>
+        <div class="item-total">Całość: {{ itemTotal }} PLN</div>
+        <div class="btn-wrapper">
+          <BaseButton @click="removeProductFromCart">Usuń</BaseButton>
+        </div>
       </div>
     </div>
   </li>
 </template>
 
 <script>
-
 export default {
   props: ["id", "name", "image", "price", "qty", "color"],
 
@@ -35,26 +38,27 @@ export default {
     },
   },
   methods: {
+
     removeProductFromCart() {
       this.$store.commit({
-        type: 'removeProductFromCart',
+        type: "removeProductFromCart",
         id: this.id,
         // image: this.image,
         // name: this.name,
         // price: this.price,
         // color: this.color,
-      })
+      });
     },
 
     checkQty() {
-      if(this.qty === 1) {
-        return 'sztuka'
-      } else if(this.qty === 2 || this.qty === 3 || this.qty === 4) {
-        return 'sztuki'
+      if (this.qty === 1) {
+        return "sztuka";
+      } else if (this.qty === 2 || this.qty === 3 || this.qty === 4) {
+        return "sztuki";
       } else {
-        return 'sztuk';
+        return "sztuk";
       }
-    }
+    },
   },
 };
 </script>
@@ -62,19 +66,30 @@ export default {
 <style scoped lang="scss">
 li {
   list-style: none;
-  width: 90%;
+  width: 100%;
   height: auto;
-  border: 1px solid black;
 }
 
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
+
+.info {
+  margin-top: 1rem;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .img-wrapper {
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -83,6 +98,61 @@ li {
   img {
     width: 200px;
     height: auto;
+  }
+}
+
+input {
+  width: 80px;
+  padding: .5rem;
+}
+
+// button {
+//   width: 160px;
+//   border-radius: 8px;
+//   border: none;
+//   height: 42px;
+//   font-weight: bold;
+//   background: linear-gradient(145deg, #ffffff, #e0e1e2);
+//   box-shadow: 8px 8px 17px #d4d5d5, -8px -8px 17px #ffffff;
+//   // font-weight: bold;
+
+//   &:hover,
+//   &:active {
+//     box-shadow: inset 8px 8px 17px #d4d5d5, inset -8px -8px 17px #ffffff;
+//   }
+// }
+
+.czarny {
+  color: black;
+}
+
+.pomaranczowy {
+  color: orange;
+}
+
+.blekit {
+  color: rgb(0, 140, 255);
+}
+
+.bialy {
+  color: rgb(226, 226, 226);
+}
+
+.bezowy {
+  color: beige;
+}
+
+.grafit {
+  color: grey;
+}
+
+.bordowy {
+  color: violet;
+}
+
+@media screen and (min-width: 600px) {
+  .wrapper {
+    width: 500px;
   }
 }
 </style>

@@ -50,10 +50,13 @@ button {
 
 .h1 {
   opacity: 0;
+  display: none;
+
   @media screen and (min-width: 1200px) {
     opacity: 1;
+    display: block;
     position: absolute;
-    top: -30%; left: 50%;
+    top: -23%; left: 50%;
     transform: translate(-50%, 50%);
     color: rgba(128, 128, 128, 0.12);
     font-size: 180px;

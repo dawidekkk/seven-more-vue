@@ -7,12 +7,10 @@
     <p>{{ name }}</p>
     <span>{{ color }}</span>
     <p>{{ price }}</p>
-    <div>
-      <button class="btn" @click="addToCart">
-        <h4 class="h4">
-          dodaj do koszyka<font-awesome-icon icon="plus" class="plus" />
-        </h4>
-      </button>
+    <div class="btn-wrapper">
+      <BaseButton class="btn" @click="addToCart">
+        DODAJ DO KOSZYKA<font-awesome-icon icon="plus" class="plus" />
+      </BaseButton>
     </div>
   </div>
 </template>
@@ -41,10 +39,6 @@ export default {
       });
     },
   },
-
-  mounted() {
-    // console.log(this.addToCart()
-  },
 };
 </script>
 
@@ -62,19 +56,16 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.h4 {
-  text-transform: uppercase;
+.btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
 }
 
 .plus {
   width: 1rem;
   height: 1rem;
-}
-
-.btn {
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
 }
 
 .img {

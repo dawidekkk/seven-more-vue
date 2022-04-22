@@ -1,13 +1,19 @@
 <template>
   <header>
     <div class="logo-wrapper">
-      <router-link to="/sevenmorevue"
+      <router-link to="/sevenmorevue" class="center"
         ><img src="../../assets/images/logo.png" alt="logo strony" class="logo"
       /></router-link>
     </div>
     <div class="wrapper">
       <div class="basket">
-        <li><router-link to="/koszyk">Koszyk[{{ cartQty }}]</router-link></li>
+        <li>
+          <router-link class="size" to="/koszyk"
+            ><font-awesome-icon icon="shopping-basket" />Koszyk[{{
+              cartQty
+            }}]</router-link
+          >
+        </li>
       </div>
       <div class="ham-wrapper">
         <font-awesome-icon :icon="toggleIcon" class="icon" @click="toggleHidden" />
@@ -16,16 +22,10 @@
     <Transition name="ham">
       <nav v-if="!hidden">
         <ul>
-          <!-- <font-awesome-icon
-            :icon="toggleIcon"
-            class="icon close"
-            @click="toggleHidden"
-          /> -->
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/sklep">sklep</router-link></li>
           <li><router-link to="/voucher">Voucher</router-link></li>
           <li><router-link to="/kontakt">kontakt</router-link></li>
-
           <li><router-link to="/regulamin">Regulamin</router-link></li>
         </ul>
       </nav>
@@ -57,8 +57,8 @@ export default {
   computed: {
     cartQty() {
       return this.$store.getters.cartQty;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -92,12 +92,20 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   height: 100px;
+}
+
+.center {
+  display: flex;
 }
 
 .logo {
   width: 10rem;
+}
+
+.size {
+  font-size: 1.25rem;
 }
 
 nav {
@@ -125,16 +133,18 @@ ul {
 li {
   text-transform: uppercase;
   list-style: none;
+
+  a {
+    &:hover {
+    border-bottom: 4px solid green;
+  }
+  }
 }
 
 a {
   text-decoration: none;
   font-size: 22px;
   color: black;
-
-  &:hover {
-    border-bottom: 2px solid green;
-  }
 }
 
 .wrapper {
@@ -150,6 +160,8 @@ a {
 .ham-wrapper {
   width: 50px;
   height: auto;
+  display: flex;
+  align-items: center;
 }
 
 .hidden {

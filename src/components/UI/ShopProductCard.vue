@@ -3,8 +3,8 @@
     <BasePages :page-name="title"></BasePages>
     <div class="shop-product-card">
       <div class="wrapper">
-        <div >
-123
+        <div>
+          <CartItem />
         </div>
       </div>
     </div>
@@ -12,17 +12,22 @@
 </template>
 
 <script>
+import CartItem from "./CartItem.vue";
 export default {
-
   props: {
     image: String,
   },
-
   data() {
     return {
       title: "Sklep",
     };
   },
+  methods: {
+    shopProd() {
+      return this.$store.getters.shopProducts;
+    },
+  },
+  components: { CartItem },
 };
 </script>
 
