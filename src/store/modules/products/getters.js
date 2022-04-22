@@ -19,6 +19,10 @@ export default {
     return state.cart.items;
   },
 
+  hasCartItems(state) {
+    return state.cart.items && state.cart.items.length > 0;
+  },
+
   cartTotal(state) {
     return state.cart.total;
   },

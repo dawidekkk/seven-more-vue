@@ -2,7 +2,7 @@
   <section>
     <BasePages :page-name="title"></BasePages>
     <div class="shopping-carts">
-      <div class="empty">
+      <div class="empty" v-if="!hasCartItems">
         <h2>Koszyk jest pusty! :( Nic nie znajduję się obecnie w koszyku.</h2>
       </div>
       <div>
@@ -43,10 +43,19 @@ export default {
     cartTotal() {
       return this.$store.getters.cartTotal.toFixed(2);
     },
+
     cartItems() {
       console.log(this.$store.getters.cartItems);
       return this.$store.getters.cartItems;
     },
+
+    hasCartItems() {
+      return this.$store.getters.hasCartItems;
+    }
+    ,
+    zeroCartItems() {
+      return this.$store.getters.zeroCartItems;
+    }
   },
 };
 </script>
