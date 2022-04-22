@@ -44,6 +44,7 @@ export default {
       return this.$store.getters.cartTotal.toFixed(2);
     },
     cartItems() {
+      console.log(this.$store.getters.cartItems);
       return this.$store.getters.cartItems;
     },
   },
@@ -77,25 +78,7 @@ ul {
   height: auto;
   display: flex;
   align-items: center;
-  // justify-content: center;
   flex-wrap: wrap;
 }
 
-// h3 {
-//   text-align: center;
-//   margin: 1.5rem auto;
-//   color: grey;
-//   font-weight: bold;
-// }
-
-// a {
-//   font-size: 2.25rem;
-// }
-
-// @media screen and (min-width: 992px) {
-//   ul {
-//     width: 50%;
-//     margin: 0 auto;
-//   }
-// }
 </style>

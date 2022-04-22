@@ -18,14 +18,13 @@
           </div>
         </div>
         <div class="item__total">Total: ${{ itemTotal }}</div>
-        <button @click="removeProductFromCart({ id })">Remove</button>
+        <button @click="removeProductFromCart">Remove</button>
       </div>
     </div>
   </li>
 </template>
 
 <script>
-import { mapActions } from "vuex";
 
 export default {
   props: ["id", "name", "image", "price", "qty", "color"],
@@ -36,7 +35,16 @@ export default {
     },
   },
   methods: {
-    ...mapActions["removeProductFromCart"],
+    removeProductFromCart() {
+      this.$store.commit({
+        type: 'removeProductFromCart',
+        id: this.id,
+        // image: this.image,
+        // name: this.name,
+        // price: this.price,
+        // color: this.color,
+      })
+    }
   },
 };
 </script>

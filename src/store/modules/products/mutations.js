@@ -1,13 +1,13 @@
 export default {
 
   addProductToCart(state, payload) {
-    const productInCartIndex = state.cart.items.findIndex((e) => e.productId === payload.id)
+    const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
     
     if(productInCartIndex >= 0) {
       state.cart.items[productInCartIndex].qty++;
     } else {
       const newItem = {
-        productId: payload.id,
+        id: payload.id,
         name: payload.name,
         image: payload.image,
         price: payload.price,
@@ -20,7 +20,7 @@ export default {
   },
 
   removeProductFromCart(state, payload) {
-    const productInCartIndex = state.cart.items.findIndex((cartItem) => cartItem.productId === payload.id)
+    const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
     
     const prodData = state.cart.items[productInCartIndex];
     state.cart.items.splice(productInCartIndex, 1)
