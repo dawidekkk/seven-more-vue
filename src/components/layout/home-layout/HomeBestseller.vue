@@ -6,6 +6,7 @@
       <HomeProductCard
         v-for="product in products"
         :key="product.id"
+        :id="product.id"
         :name="product.name"
         :color="product.color"
         :image="product.image"

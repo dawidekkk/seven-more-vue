@@ -7,7 +7,7 @@
     </div>
     <div class="wrapper">
       <div class="basket">
-        <li><router-link to="/koszyk">Koszyk[0]</router-link></li>
+        <li><router-link to="/koszyk">Koszyk[{{ cartQty }}]</router-link></li>
       </div>
       <div class="ham-wrapper">
         <font-awesome-icon :icon="toggleIcon" class="icon" @click="toggleHidden" />
@@ -25,7 +25,7 @@
           <li><router-link to="/sklep">sklep</router-link></li>
           <li><router-link to="/voucher">Voucher</router-link></li>
           <li><router-link to="/kontakt">kontakt</router-link></li>
-          
+
           <li><router-link to="/regulamin">Regulamin</router-link></li>
         </ul>
       </nav>
@@ -53,6 +53,12 @@ export default {
       toggleIcon,
     };
   },
+
+  computed: {
+    cartQty() {
+      return this.$store.getters.cartQty;
+    }
+  }
 };
 </script>
 
@@ -115,7 +121,6 @@ ul {
   justify-content: space-around;
   flex-direction: column;
 }
-
 
 li {
   text-transform: uppercase;
