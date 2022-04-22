@@ -6,8 +6,8 @@
         <h2>Koszyk jest pusty! :( Nic nie znajduję się obecnie w koszyku.</h2>
       </div>
       <div>
-        <h2>Your cart</h2>
-        <h3>Total amount: {{ cartTotal }}</h3>
+        <h2>Twoje zamówienie:</h2>
+        <h3>Kwota całkowita: {{ cartTotal }} PLN</h3>
         <ul>
           <CartItem
             v-for="item in cartItems"
@@ -70,7 +70,7 @@ export default {
   top: 100px;
   left: 0;
   color: grey;
-  padding: 2rem 3rem;
+  padding: 2rem 1rem;
 }
 
 .empty {

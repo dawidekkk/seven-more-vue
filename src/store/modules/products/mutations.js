@@ -2,15 +2,18 @@ export default {
 
   addProductToCart(state, payload) {
     const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
+    console.log(productInCartIndex);
     
     if(productInCartIndex >= 0) {
       state.cart.items[productInCartIndex].qty++;
+      console.log(state.cart.items);
     } else {
       const newItem = {
         id: payload.id,
         name: payload.name,
         image: payload.image,
         price: payload.price,
+        color: payload.color,
         qty: 1,
       }
       state.cart.items.push(newItem);

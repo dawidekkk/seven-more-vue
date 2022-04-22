@@ -317,3 +317,6 @@ export default {
   getters: getters,
   actions: actions,
 }
+
+const c = { i: [1, 2], q: 0 }
+console.log(c.i[0].q);

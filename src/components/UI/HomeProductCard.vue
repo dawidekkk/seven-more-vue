@@ -23,10 +23,10 @@ export default {
   props: {
     id: String,
     name: String,
-    color: String,
-    price: Number,
     image: String,
+    price: Number,
     stock: String,
+    color: String,
   },
 
   methods: {
@@ -34,12 +34,16 @@ export default {
       this.$store.commit({
         type: 'addProductToCart',
         id: this.id,
-        image: this.image,
         name: this.name,
+        image: this.image,
         price: this.price,
         color: this.color,
       });
     },
+  },
+
+  mounted() {
+    // console.log(this.addToCart()
   },
 };
 </script>

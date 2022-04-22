@@ -6,6 +6,7 @@
     ref="swiper"
     :slides-per-view="1"
     :breakpoints="swiperOptions"
+    autoreplay
   >
     <swiper-slide v-for="product in products" :key="product.id">
       <li class="carousel-card">

@@ -9,12 +9,12 @@
         <h4>{{ color }}</h4>
         <div class="item__data">
           <div>
-            Price per Item:
-            <strong>${{ price }}</strong>
+            Kwota za produkt:
+            <strong>{{ price }} PLN</strong>
           </div>
           <div>
-            Quantity:
-            <strong>{{ qty }}</strong>
+            Ilość:
+            <strong>{{ qty }} {{ checkQty() }} </strong>
           </div>
         </div>
         <div class="item__total">Total: ${{ itemTotal }}</div>
@@ -44,6 +44,16 @@ export default {
         // price: this.price,
         // color: this.color,
       })
+    },
+
+    checkQty() {
+      if(this.qty === 1) {
+        return 'sztuka'
+      } else if(this.qty === 2 || this.qty === 3 || this.qty === 4) {
+        return 'sztuki'
+      } else {
+        return 'sztuk';
+      }
     }
   },
 };
@@ -52,9 +62,15 @@ export default {
 <style scoped lang="scss">
 li {
   list-style: none;
-  width: 400px;
+  width: 90%;
   height: auto;
   border: 1px solid black;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .img-wrapper {
@@ -65,7 +81,7 @@ li {
   justify-content: center;
 
   img {
-    width: 60%;
+    width: 200px;
     height: auto;
   }
 }
