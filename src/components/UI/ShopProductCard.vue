@@ -3,8 +3,20 @@
     <BasePages :page-name="title"></BasePages>
     <div class="shop-product-card">
       <div class="wrapper">
-        <div>
-          <CartItem />
+        <p>{{ this.$route.params.id }}</p>
+        <img :src="image" alt="zdjecie produktu" />
+        <div class="img-wrapper">
+          <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+        </div>
+        <div class="product-info">
+          <h2>{{ name }}</h2>
+          <h3>{{ price }}</h3>
+          <p>{{ info }}</p>
+          <p>{{ color }}</p>
+          <p>{{ gender }}</p>
+          <p>{{ size }}</p>
         </div>
       </div>
     </div>
@@ -12,10 +24,17 @@
 </template>
 
 <script>
-import CartItem from "./CartItem.vue";
 export default {
   props: {
+    id: String,
+    name: String,
     image: String,
+    price: Number,
+    stock: String,
+    color: String,
+    info: String,
+    gender: String,
+    size: String,
   },
   data() {
     return {
@@ -27,7 +46,10 @@ export default {
       return this.$store.getters.shopProducts;
     },
   },
-  components: { CartItem },
+
+  mounted() {
+    console.log(this.$route.params.id)
+  },
 };
 </script>
 

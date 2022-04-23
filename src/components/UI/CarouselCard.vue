@@ -11,7 +11,11 @@
     <swiper-slide v-for="product in products" :key="product.id">
       <li class="carousel-card">
         <h3>{{ product.stock }}</h3>
-        <img :src="product.image" alt="zdjecie produktu" class="imgs" />
+        <div class="imgs">
+          <router-link :to="`/sklep/${product.id}`">
+          <img :src="product.image" alt="zdjecie produktu"  />
+        </router-link>
+        </div>
         <div class="info">
           <span>{{ product.name }}</span
           ><span>{{ product.color }}</span>
@@ -40,7 +44,7 @@ export default {
   computed: {
     products() {
       return this.$store.getters.carouselProducts;
-    }
+    },
   },
 
   setup() {
@@ -106,9 +110,13 @@ export default {
 
   .imgs {
     grid-area: imgs;
-    // width: 100%;
-    height: 100%;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 300px;
+    }
   }
 
   .info {

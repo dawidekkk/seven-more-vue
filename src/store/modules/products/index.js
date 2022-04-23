@@ -181,6 +181,9 @@ export default {
           image: require("../../../assets/images/1.png"),
           stock: 'RESTOCK',
           type: 'akcesoria',
+          info: 'Wykonana z wysokiej jakości wełny Merino 100%',
+          gender: 'unisex',
+          size: 'uniwersalny'
         },
         {
           id: '2',

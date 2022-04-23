@@ -83,6 +83,11 @@ export default {
   background-color: #d1ecf1;
   padding: 1rem;
 
+  @media screen and (min-width: 996px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+
   h2 {
     color: #0e5561;
     text-align: center;
