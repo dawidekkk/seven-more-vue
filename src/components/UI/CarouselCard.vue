@@ -13,7 +13,7 @@
         <h3>{{ product.stock }}</h3>
         <div class="imgs">
           <router-link :to="`/sklep/${product.id}`">
-          <img :src="product.image" alt="zdjecie produktu"  />
+          <img :src="product.image[0].first" alt="zdjecie produktu"  />
         </router-link>
         </div>
         <div class="info">
@@ -43,7 +43,7 @@ export default {
 
   computed: {
     products() {
-      return this.$store.getters.carouselProducts;
+      return this.$store.getters.shopProducts;
     },
   },
 

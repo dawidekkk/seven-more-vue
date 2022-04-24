@@ -11,9 +11,13 @@ export default {
       const newItem = {
         id: payload.id,
         name: payload.name,
-        image: payload.image,
-        price: payload.price,
         color: payload.color,
+        price: payload.price,
+        image: payload.image,
+        stock: this.stock,
+        category: this.category,
+        info: this.info,
+        size: this.size,
         qty: 1,
       }
       state.cart.items.push(newItem);
