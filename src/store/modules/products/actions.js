@@ -4,6 +4,10 @@ export default {
     context.commit('increase', payload)
   },
 
+  decrease(context, payload) {
+    context.commit('decrease', payload)
+  },
+
   addProductToCart(context, payload) {
     context.commit('addProductToCart', payload)
   },

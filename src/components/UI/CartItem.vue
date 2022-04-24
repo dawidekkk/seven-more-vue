@@ -18,7 +18,10 @@
         </div>
         <div class="item-total">Całość: {{ itemTotal }} PLN</div>
         <div class="btn-wrapper">
-          <BaseButton @click="increase">Add</BaseButton>
+          <div>
+            <BaseButton class="test" @click="increase">Wiecej</BaseButton>
+            <BaseButton class="test" @click="decrease">Mniej</BaseButton>
+          </div>
           <BaseButton @click="removeProductFromCart">Usuń</BaseButton>
         </div>
       </div>
@@ -35,20 +38,27 @@ export default {
     },
   },
   methods: {
-
     increase() {
       this.$store.dispatch({
-        type: 'increase',
+        type: "increase",
         id: this.id,
         price: this.price,
-      })
+      });
+    },
+
+    decrease() {
+      this.$store.dispatch({
+        type: "decrease",
+        id: this.id,
+        price: this.price,
+      });
     },
 
     removeProductFromCart() {
       this.$store.dispatch({
-        type: 'removeProductFromCart',
+        type: "removeProductFromCart",
         id: this.id,
-      })
+      });
     },
 
     checkQty() {
@@ -87,6 +97,7 @@ li {
 .btn-wrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   margin-top: 1rem;
 }
 
@@ -107,21 +118,9 @@ input {
   padding: 0.5rem;
 }
 
-// button {
-//   width: 160px;
-//   border-radius: 8px;
-//   border: none;
-//   height: 42px;
-//   font-weight: bold;
-//   background: linear-gradient(145deg, #ffffff, #e0e1e2);
-//   box-shadow: 8px 8px 17px #d4d5d5, -8px -8px 17px #ffffff;
-//   // font-weight: bold;
-
-//   &:hover,
-//   &:active {
-//     box-shadow: inset 8px 8px 17px #d4d5d5, inset -8px -8px 17px #ffffff;
-//   }
-// }
+.test {
+  width: 80px;
+}
 
 .czarny {
   color: black;

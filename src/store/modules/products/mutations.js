@@ -2,9 +2,14 @@ export default {
 
   increase(state, payload) {
     const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
-
     state.cart.items[productInCartIndex].qty++;
     state.cart.total += payload.price;
+  },
+
+  decrease(state, payload) {
+    const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
+    state.cart.items[productInCartIndex].qty--;
+    state.cart.total -= payload.price;
   },
 
   addProductToCart(state, payload) {
