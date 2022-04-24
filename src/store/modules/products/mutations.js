@@ -12,6 +12,13 @@ export default {
     state.cart.total -= payload.price;
   },
 
+  resetProducts(state, payload) {
+    const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
+    
+    state.cart.qty--;
+    console.log(productInCartIndex)
+  },
+
   addProductToCart(state, payload) {
     const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
     console.log(state.cart.items);
@@ -19,7 +26,6 @@ export default {
     
     if(productInCartIndex >= 0) {
       // Add the same product MORE than ONCE.
-      
       return [
         state.cart.items[productInCartIndex].qty++, state.cart.total += payload.price
       ]
@@ -44,7 +50,6 @@ export default {
 
   removeProductFromCart(state, payload) {
     const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
-    
     const prodData = state.cart.items[productInCartIndex];
     state.cart.items.splice(productInCartIndex, 1)
     state.cart.qty -= prodData.qty;

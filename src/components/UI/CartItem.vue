@@ -18,11 +18,13 @@
         </div>
         <div class="item-total">Całość: {{ itemTotal }} PLN</div>
         <div class="btn-wrapper">
-          <div>
-            <BaseButton class="test" @click="increase">Wiecej</BaseButton>
-            <BaseButton class="test" @click="decrease">Mniej</BaseButton>
+          <div class="btns-inc-dec">
+            <BaseButton @click="decrease">-</BaseButton>
+            <BaseButton @click="increase">+</BaseButton>
           </div>
-          <BaseButton @click="removeProductFromCart">Usuń</BaseButton>
+          <div>
+            <BaseButton @click="removeProductFromCart">Usuń</BaseButton>
+          </div>
         </div>
       </div>
     </div>
@@ -30,6 +32,7 @@
 </template>
 
 <script>
+
 export default {
   props: ["id", "name", "image", "price", "qty", "color"],
   computed: {
@@ -37,12 +40,35 @@ export default {
       return (this.price * this.qty).toFixed(2);
     },
   },
+
+  data() {
+    return {
+      qtyy: this.qty,
+    }
+  },
+
+  watch: {
+    qty(val) {
+      if(val === 0) {
+        this.removeProductFromCart();
+        this.resetProducts();
+      }
+    }
+  },
+
   methods: {
     increase() {
       this.$store.dispatch({
         type: "increase",
         id: this.id,
         price: this.price,
+      });
+    },
+
+    resetProducts() {
+      this.$store.dispatch({
+        type: 'resetProducts',
+        id: this.id,
       });
     },
 
@@ -71,6 +97,10 @@ export default {
       }
     },
   },
+
+  // created() {
+  //   console.log(this.removeProductFromCart())
+  // },
 };
 </script>
 
@@ -96,9 +126,21 @@ li {
 
 .btn-wrapper {
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
   margin-top: 1rem;
+
+  .btns-inc-dec {
+    display: flex;
+
+    button {
+      width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+  }
 }
 
 .img-wrapper {
@@ -116,10 +158,6 @@ li {
 input {
   width: 80px;
   padding: 0.5rem;
-}
-
-.test {
-  width: 80px;
 }
 
 .czarny {

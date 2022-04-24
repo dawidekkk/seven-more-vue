@@ -8,6 +8,10 @@ export default {
     context.commit('decrease', payload)
   },
 
+  resetProducts(context, payload) {
+    context.commit('resetProducts', payload)
+  },
+
   addProductToCart(context, payload) {
     context.commit('addProductToCart', payload)
   },

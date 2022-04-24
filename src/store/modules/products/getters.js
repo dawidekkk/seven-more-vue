@@ -19,10 +19,6 @@ export default {
     return state.cart.items;
   },
 
-  cartItemsO(state) {
-    return state.cart.items[0].qty;
-  },
-
   hasCartItems(state) {
     return state.cart.items && state.cart.items.length > 0;
   },
