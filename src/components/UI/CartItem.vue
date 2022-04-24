@@ -15,12 +15,10 @@
           <div>
             Ilość: <strong>{{ qty }} {{ checkQty() }}</strong>
           </div>
-          <div class="number-wrapper">
-            <input type="number" min="1" max="10" step="1" >
-          </div>
         </div>
         <div class="item-total">Całość: {{ itemTotal }} PLN</div>
         <div class="btn-wrapper">
+          <BaseButton @click="increase">Add</BaseButton>
           <BaseButton @click="removeProductFromCart">Usuń</BaseButton>
         </div>
       </div>
@@ -31,7 +29,6 @@
 <script>
 export default {
   props: ["id", "name", "image", "price", "qty", "color"],
-
   computed: {
     itemTotal() {
       return (this.price * this.qty).toFixed(2);
@@ -39,15 +36,19 @@ export default {
   },
   methods: {
 
-    removeProductFromCart() {
-      this.$store.commit({
-        type: "removeProductFromCart",
+    increase() {
+      this.$store.dispatch({
+        type: 'increase',
         id: this.id,
-        // image: this.image,
-        // name: this.name,
-        // price: this.price,
-        // color: this.color,
-      });
+        price: this.price,
+      })
+    },
+
+    removeProductFromCart() {
+      this.$store.dispatch({
+        type: 'removeProductFromCart',
+        id: this.id,
+      })
     },
 
     checkQty() {
@@ -103,7 +104,7 @@ li {
 
 input {
   width: 80px;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 // button {

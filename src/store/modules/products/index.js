@@ -88,7 +88,8 @@ export default {
           category: 'akcesoria',
           info: 'Wykonana z wysokiej jakości wełny Merino 100%',
           gender: 'unisex',
-          size: 'uniwersalny'
+          size: 'uniwersalny',
+          qty: 1,
         },
         {
           id: '2',

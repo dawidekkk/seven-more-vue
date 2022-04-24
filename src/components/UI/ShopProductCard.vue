@@ -17,7 +17,7 @@
           <p>Rozmiar: {{ prod.size }}</p>
         </div>
         <form class="input-wrapper">
-          <input type="number" min="1" max="10" value="1" />
+          <p>{{ prod.qty }}</p>
           <BaseButton @click.prevent="addToCart">Dodaj do koszyka</BaseButton>
           <p>Dostawa: od 2-4 dni roboczych.</p>
         </form>
@@ -35,14 +35,18 @@ export default {
     return {
       title: "Sklep",
       prod: [],
+      test: 1,
     };
   },
   computed: {
     products() {
       return this.$store.getters.shopProducts;
     },
+
   },
+
   methods: {
+
     loadProducts(id) {
       // const id = this.$route.params.id; // this is our props: { id: String } actually.
       const selected = this.products.find((prodId) => prodId.id === id); // MAGIC BEHIND THE SHOPPING CART
@@ -53,7 +57,7 @@ export default {
     addToCart() {
       this.$store.commit({
         type: 'addProductToCart',
-        id: this.prod.id,
+        productId: this.prod.id,
         name: this.prod.name,
         color: this.prod.color,
         price: this.prod.price,
@@ -63,6 +67,7 @@ export default {
         info: this.prod.info,
         gender: this.prod.gender,
         size: this.prod.size,
+        qty: this.prod.qty,
       });
     },
   },

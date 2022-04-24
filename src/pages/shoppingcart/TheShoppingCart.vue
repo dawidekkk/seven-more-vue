@@ -39,7 +39,7 @@ import CartItem from "../../components/UI/CartItem";
 export default {
   components: {
     CartItem,
-  },
+},
 
   data() {
     return {
@@ -47,8 +47,6 @@ export default {
       empty: false,
     };
   },
-
-  methods: {},
 
   computed: {
     cartTotal() {

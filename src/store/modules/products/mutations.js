@@ -1,12 +1,23 @@
 export default {
 
+  increase(state, payload) {
+    const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
+
+    state.cart.items[productInCartIndex].qty++;
+    state.cart.total += payload.price;
+  },
+
   addProductToCart(state, payload) {
     const productInCartIndex = state.cart.items.findIndex((e) => e.id === payload.id)
+    console.log(state.cart.items);
     console.log(productInCartIndex);
     
     if(productInCartIndex >= 0) {
       // Add the same product MORE than ONCE.
-      state.cart.items[productInCartIndex].qty++;
+      
+      return [
+        state.cart.items[productInCartIndex].qty++, state.cart.total += payload.price
+      ]
     } else {
       const newItem = {
         id: payload.id,
@@ -14,10 +25,10 @@ export default {
         color: payload.color,
         price: payload.price,
         image: payload.image,
-        stock: this.stock,
-        category: this.category,
-        info: this.info,
-        size: this.size,
+        stock: payload.stock,
+        category: payload.category,
+        info: payload.info,
+        size: payload.size,
         qty: 1,
       }
       state.cart.items.push(newItem);

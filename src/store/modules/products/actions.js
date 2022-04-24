@@ -1,9 +1,14 @@
 export default {
-  addToCart(context, payload) {
-    context.comit('addProductToCart', payload)
+
+  increase(context, payload) {
+    context.commit('increase', payload)
+  },
+
+  addProductToCart(context, payload) {
+    context.commit('addProductToCart', payload)
   },
   
   removeProductFromCart(context, payload) {
-    context.comit('removeProductFromCart', payload)
+    context.commit('removeProductFromCart', payload)
   }
 }
