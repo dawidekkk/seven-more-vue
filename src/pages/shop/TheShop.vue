@@ -51,7 +51,7 @@
           :id="product.id"
           :name="product.name"
           :color="product.color"
-          :image="product.image"
+          :image="product.image[0].first"
           :price="product.price"
           :stock="product.stock"
         />

@@ -4,7 +4,7 @@
     <div class="shop-product-card">
       <div class="wrapper">
         <div class="imgs">
-          <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" @click="test" />
+          <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" />
           <div class="img-wrapper">
             <img :src="prod.image[1].second" alt="" class="loop-img" />
             <!-- <img :src="prod.image[2].third" alt="" class="loop-img" /> -->
@@ -55,10 +55,6 @@ export default {
   },
 
   methods: {
-
-    test() {
-      console.log('elo');
-    },
 
     loadProducts(id) {
       // const id = this.$route.params.id; // this is our props: { id: String } actually.

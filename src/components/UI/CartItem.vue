@@ -2,7 +2,9 @@
   <li>
     <div class="wrapper">
       <div class="img-wrapper">
-        <img :src="image" alt="title" />
+        <router-link :to="`/sklep/${id}`">
+          <img :src="image" alt="title" />
+        </router-link>
       </div>
       <div>
         <h3>{{ name }}</h3>
@@ -32,7 +34,6 @@
 </template>
 
 <script>
-
 export default {
   props: ["id", "name", "image", "price", "qty", "color"],
   computed: {
@@ -44,16 +45,16 @@ export default {
   data() {
     return {
       qtyy: this.qty,
-    }
+    };
   },
 
   watch: {
     qty(val) {
-      if(val === 0) {
+      if (val === 0) {
         this.removeProductFromCart();
         this.resetProducts();
       }
-    }
+    },
   },
 
   methods: {
@@ -67,7 +68,7 @@ export default {
 
     resetProducts() {
       this.$store.dispatch({
-        type: 'resetProducts',
+        type: "resetProducts",
         id: this.id,
       });
     },

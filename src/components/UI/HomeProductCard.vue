@@ -1,9 +1,9 @@
 <template>
   <div class="home-product-card">
     <h4>{{ stock }}</h4>
-    <a href="">
+    <router-link :to="`/sklep/${id}`">
       <img :src="image" alt="zdjecie produktu" class="img" />
-    </a>
+    </router-link>
     <p>{{ name }}</p>
     <span>{{ color }}</span>
     <p>{{ price }}</p>
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     id: String,
@@ -30,7 +29,7 @@ export default {
   methods: {
     addToCart() {
       this.$store.commit({
-        type: 'addProductToCart',
+        type: "addProductToCart",
         id: this.id,
         name: this.name,
         image: this.image,
