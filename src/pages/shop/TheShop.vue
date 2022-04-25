@@ -61,8 +61,6 @@
 </template>
 
 <script>
-// import { ref } from "vue";
-// import useProduct from "../../hooks/products";
 import HomeProductCard from "../../components/UI/HomeProductCard";
 export default {
   components: {
@@ -71,25 +69,15 @@ export default {
 
   data() {
     return {
-      title: 'Sklep'
-    }
+      title: "Sklep",
+    };
   },
 
   computed: {
     products() {
       return this.$store.getters.shopProducts;
-    }
-  }
-
-  // setup() {
-  //   const title = ref("Sklep");
-  //   const [products] = useProduct("shopProducts");
-
-  //   return {
-  //     title,
-  //     products,
-  //   };
-  // },
+    },
+  },
 };
 </script>
 

@@ -1,30 +1,35 @@
 <template>
   <section>
-    <BasePages :page-name="`${title}`"></BasePages>
+    <BasePages :page-name="title"></BasePages>
     <div class="shop-product-card">
       <div class="wrapper">
         <div class="imgs">
           <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" />
           <div class="img-wrapper">
             <img :src="prod.image[1].second" alt="" class="loop-img" />
-            <!-- <img :src="prod.image[2].third" alt="" class="loop-img" /> -->
           </div>
         </div>
         <div class="product-info">
           <div class="info-wrapper">
             <h2>{{ prod.name }}</h2>
+            <h3>Rodzaj: {{ prod.category }}</h3>
             <h3>{{ prod.price }}</h3>
-            <p>{{ prod.info }}</p>
+            <p>Skład surowcowy: {{ prod.info }}</p>
             <p :class="prod.color">Kolor: {{ prod.color }}</p>
             <p>Przeznaczenie: {{ prod.gender }}</p>
-            <div>
-              <span>Rozmiar:</span> <span v-for="size in prod.size" :key="size">{{ size }}, </span>
-            </div>
-          </div>
-          <div>
+            <p>Opis: {{ prod.desc }}</p>
+            <select name="" id="" v-model="selected">
+              <option disabled>Rozmiar:</option>
+              <option :value="prod.size[0]">S</option>
+              <option :value="prod.size[1]">M</option>
+              <option :value="prod.size[2]">L</option>
+            </select>
+
             <BaseButton class="btn" @click.prevent="addToCart"
               >Dodaj do koszyka</BaseButton
             >
+          </div>
+          <div>
             <p>Dostawa: od 2-4 dni roboczych.</p>
           </div>
         </div>
@@ -34,18 +39,16 @@
 </template>
 
 <script>
-// import ShowModal from '../UI/ShowModal'
 export default {
-  components: {
-    // ShowModal,
-  },
   props: {
     id: String,
+    modelValue: String,
   },
   data() {
     return {
       title: "Sklep",
       prod: [],
+      selected: "",
     };
   },
   computed: {
@@ -55,6 +58,9 @@ export default {
   },
 
   methods: {
+    updateModelValue(e) {
+      this.$emit("update:modelValue", e.target.value);
+    },
 
     loadProducts(id) {
       // const id = this.$route.params.id; // this is our props: { id: String } actually.
@@ -75,7 +81,7 @@ export default {
         category: this.prod.category,
         info: this.prod.info,
         gender: this.prod.gender,
-        size: this.prod.size,
+        // size: this.prod.size,
         qty: this.prod.qty,
       });
     },
@@ -178,5 +184,4 @@ export default {
     @include flexCenter();
   }
 }
-
 </style>

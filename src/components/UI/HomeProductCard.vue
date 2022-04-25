@@ -8,7 +8,7 @@
     <span>{{ color }}</span>
     <p>{{ price }}</p>
     <div class="btn-wrapper">
-      <BaseButton class="btn" @click="addToCart">
+      <BaseButton class="btn" @click.prevent="addToCart">
         DODAJ DO KOSZYKA<font-awesome-icon icon="plus" class="plus" />
       </BaseButton>
     </div>
@@ -24,6 +24,7 @@ export default {
     price: Number,
     stock: String,
     color: String,
+    size: String,
   },
 
   methods: {
@@ -35,6 +36,7 @@ export default {
         image: this.image,
         price: this.price,
         color: this.color,
+        size: this.size,
       });
     },
   },

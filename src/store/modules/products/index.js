@@ -82,7 +82,6 @@ export default {
           image: [
             {first: require("../../../assets/images/1.png")},
             {second: require("../../../assets/images/1a.png")},
-            {third: require("../../../assets/images/1b.png")},
           ],
           stock: 'RESTOCK',
           category: 'akcesoria',
@@ -104,7 +103,7 @@ export default {
           category: 'spodnie',
           info: 'Spodnie welurowe. 80% bawełna, 20% poliester.',
           gender: 'unisex',
-          size: ['S', 'M', 'L'],
+          size: 'S',
           qty: 1,
         },
         {
@@ -134,10 +133,11 @@ export default {
           ],
           stock: "NOWOSC",
           category: 'hoodie',
-          info: 'Spodnie welurowe. 80% bawełna, 20% poliester.',
+          info: '80% bawełna, 20% poliester.',
           gender: 'unisex',
           size: ['S', 'M', 'L'],
           qty: 1,
+          desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
         },
         {
           id: '5',

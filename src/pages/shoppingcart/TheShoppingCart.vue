@@ -19,6 +19,7 @@
             :id="item.id"
             :image="item.image"
             :color="item.color"
+            :size="item.size"
           />
         </ul>
       </div>

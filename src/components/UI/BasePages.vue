@@ -2,6 +2,10 @@
   <section class="base-pages">
     <div class="img">
       <h2>{{ pageName }}</h2>
+      <div>
+        <router-link to="/sevenmorevue">Home</router-link>
+        <!-- <router-link to="/sklep">Sklep/{{ paramsId }}</router-link> -->
+      </div>
     </div>
   </section>
 </template>
@@ -10,17 +14,27 @@
 export default {
   props: {
     pageName: String,
-  }
-}
+  },
+
+  computed: {
+    path() {
+      return this.$route.path;
+    },
+  },
+
+  mounted() {
+    console.log(this.$route);
+  },
+};
 </script>
 
 <style scoped lang="scss">
-
 .img {
-  background-image: url('../../assets/images/bg_6.jpg');
+  background-image: url("../../assets/images/bg_6.jpg");
   background-position: center center;
   background-size: cover;
-  width: 100vw; height: 250px;
+  width: 100vw;
+  height: 250px;
   top: 100px;
   position: relative;
   display: flex;
@@ -29,7 +43,7 @@ export default {
   flex-direction: column;
 
   h2 {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 100;
     font-size: 40px;
     text-transform: uppercase;
@@ -37,5 +51,12 @@ export default {
     color: black;
     text-align: center;
   }
+}
+
+.test {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 </style>

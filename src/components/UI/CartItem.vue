@@ -15,7 +15,8 @@
             <strong>{{ price }} PLN</strong>
           </div>
           <div>
-            Ilość: <strong>{{ qty }} {{ checkQty() }}</strong>
+            <p>Ilość: <strong>{{ qty }} {{ checkQty() }}</strong></p>
+            <p>Rozmiar: {{ size }}</p>
           </div>
         </div>
         <div class="item-total">Całość: {{ itemTotal }} PLN</div>
@@ -35,7 +36,7 @@
 
 <script>
 export default {
-  props: ["id", "name", "image", "price", "qty", "color"],
+  props: ["id", "name", "image", "price", "qty", "color", 'size'],
   computed: {
     itemTotal() {
       return (this.price * this.qty).toFixed(2);
