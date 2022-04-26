@@ -18,13 +18,13 @@
             <p :class="prod.color">Kolor: {{ prod.color }}</p>
             <p>Przeznaczenie: {{ prod.gender }}</p>
             <p>Opis: {{ prod.desc }}</p>
-            <select name="" id="" v-model="selected">
+            <!-- <select name="size" id="" v-model="selected">
               <option disabled>Rozmiar:</option>
               <option :value="prod.size[0]">S</option>
               <option :value="prod.size[1]">M</option>
               <option :value="prod.size[2]">L</option>
-            </select>
-
+            </select> -->
+            <ChooseSize :size="prod.size" v-model="prod.size" />
             <BaseButton class="btn" @click.prevent="addToCart"
               >Dodaj do koszyka</BaseButton
             >
@@ -39,10 +39,16 @@
 </template>
 
 <script>
+import ChooseSize from "./ChooseSize.vue";
 export default {
+
+  components: {
+    ChooseSize,
+  },
+
   props: {
     id: String,
-    modelValue: String,
+    // modelValue: String,
   },
   data() {
     return {
@@ -58,9 +64,9 @@ export default {
   },
 
   methods: {
-    updateModelValue(e) {
-      this.$emit("update:modelValue", e.target.value);
-    },
+    // updateModelValue(e) {
+    //   this.$emit("update:modelValue", e.target.value);
+    // },
 
     loadProducts(id) {
       // const id = this.$route.params.id; // this is our props: { id: String } actually.
@@ -81,7 +87,7 @@ export default {
         category: this.prod.category,
         info: this.prod.info,
         gender: this.prod.gender,
-        // size: this.prod.size,
+        size: this.prod.size,
         qty: this.prod.qty,
       });
     },

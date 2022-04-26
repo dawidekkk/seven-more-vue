@@ -135,7 +135,7 @@ export default {
           category: 'hoodie',
           info: '80% bawełna, 20% poliester.',
           gender: 'unisex',
-          size: ['S', 'M', 'L'],
+          size: ['S', 'M', 'L', 'XL'],
           qty: 1,
           desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
         },
@@ -170,6 +170,7 @@ export default {
           gender: 'unisex',
           size: ['S', 'M', 'L'],
           qty: 1,
+          desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
         },
         {
           id: '7',
@@ -186,6 +187,8 @@ export default {
           gender: 'unisex',
           size: ['S', 'M', 'L'],
           qty: 1,
+          desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
+
         },
         {
           id: '8',
@@ -202,6 +205,8 @@ export default {
           gender: 'unisex',
           size: ['S', 'M', 'L'],
           qty: 1,
+          desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
+
         },
         {
           id: '9',
@@ -234,6 +239,8 @@ export default {
           gender: 'unisex',
           size: ['S', 'M', 'L'],
           qty: 1,
+          desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
+
         },
         {
           id: '11',
@@ -266,6 +273,8 @@ export default {
           gender: 'unisex',
           size: ['S', 'M', 'L'],
           qty: 1,
+          desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
+
         },
         {
           id: '13',
@@ -298,6 +307,8 @@ export default {
           gender: 'unisex',
           size: ['S', 'M', 'L'],
           qty: 1,
+          desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
+
         },
         {
           id: '15',
