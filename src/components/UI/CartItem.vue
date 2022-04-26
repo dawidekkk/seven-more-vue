@@ -99,10 +99,6 @@ export default {
       }
     },
   },
-
-  // created() {
-  //   console.log(this.removeProductFromCart())
-  // },
 };
 </script>
 

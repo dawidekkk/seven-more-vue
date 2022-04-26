@@ -18,12 +18,7 @@
             <p :class="prod.color">Kolor: {{ prod.color }}</p>
             <p>Przeznaczenie: {{ prod.gender }}</p>
             <p>Opis: {{ prod.desc }}</p>
-            <!-- <select name="size" id="" v-model="selected">
-              <option disabled>Rozmiar:</option>
-              <option :value="prod.size[0]">S</option>
-              <option :value="prod.size[1]">M</option>
-              <option :value="prod.size[2]">L</option>
-            </select> -->
+
             <ChooseSize :size="prod.size" v-model="prod.size" />
             <BaseButton class="btn" @click.prevent="addToCart"
               >Dodaj do koszyka</BaseButton
@@ -48,13 +43,13 @@ export default {
 
   props: {
     id: String,
-    // modelValue: String,
   },
+
   data() {
     return {
       title: "Sklep",
       prod: [],
-      selected: "",
+      // selected: "",
     };
   },
   computed: {
@@ -64,9 +59,6 @@ export default {
   },
 
   methods: {
-    // updateModelValue(e) {
-    //   this.$emit("update:modelValue", e.target.value);
-    // },
 
     loadProducts(id) {
       // const id = this.$route.params.id; // this is our props: { id: String } actually.
@@ -78,7 +70,7 @@ export default {
     addToCart() {
       this.$store.commit({
         type: "addProductToCart",
-        productId: this.prod.id,
+        id: this.prod.id,
         name: this.prod.name,
         color: this.prod.color,
         price: this.prod.price,
@@ -86,11 +78,23 @@ export default {
         stock: this.prod.stock,
         category: this.prod.category,
         info: this.prod.info,
-        gender: this.prod.gender,
+        // gender: this.prod.gender,
         size: this.prod.size,
-        qty: this.prod.qty,
+        // qty: this.prod.qty,
       });
     },
+
+    // addToCart() {
+    //   this.$store.commit({
+    //     type: "addProductToCart",
+    //     id: this.id,
+    //     name: this.name,
+    //     image: this.image,
+    //     price: this.price,
+    //     color: this.color,
+    //     // size: this.size,
+    //   });
+    // },
   },
   created() {
     // created() lifecycle hook will be called when the cmp is created before it's shown on the screen.

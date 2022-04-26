@@ -36,7 +36,7 @@ export default {
         image: this.image,
         price: this.price,
         color: this.color,
-        size: this.size,
+        // size: this.size,
       });
     },
   },
