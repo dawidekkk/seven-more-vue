@@ -19,7 +19,7 @@
             <p>Przeznaczenie: {{ prod.gender }}</p>
             <p>Opis: {{ prod.desc }}</p>
 
-            <ChooseSize :size="prod.size" v-model="prod.size" />
+            <ChooseSize :size="prod.size" v-model="selected" />
             <BaseButton class="btn" @click.prevent="addToCart"
               >Dodaj do koszyka</BaseButton
             >
@@ -43,15 +43,17 @@ export default {
 
   props: {
     id: String,
+    // size: String,
   },
 
   data() {
     return {
       title: "Sklep",
       prod: [],
-      // selected: "",
+      selected: '',
     };
   },
+
   computed: {
     products() {
       return this.$store.getters.shopProducts;
@@ -59,6 +61,10 @@ export default {
   },
 
   methods: {
+
+    // choose(e) {
+    //   this.selected = e;
+    // },
 
     loadProducts(id) {
       // const id = this.$route.params.id; // this is our props: { id: String } actually.
@@ -78,23 +84,11 @@ export default {
         stock: this.prod.stock,
         category: this.prod.category,
         info: this.prod.info,
-        // gender: this.prod.gender,
-        size: this.prod.size,
-        // qty: this.prod.qty,
+        gender: this.prod.gender,
+        size: this.selected,
+        qty: this.prod.qty,
       });
     },
-
-    // addToCart() {
-    //   this.$store.commit({
-    //     type: "addProductToCart",
-    //     id: this.id,
-    //     name: this.name,
-    //     image: this.image,
-    //     price: this.price,
-    //     color: this.color,
-    //     // size: this.size,
-    //   });
-    // },
   },
   created() {
     // created() lifecycle hook will be called when the cmp is created before it's shown on the screen.

@@ -103,7 +103,7 @@ export default {
           category: 'spodnie',
           info: 'Spodnie welurowe. 80% bawełna, 20% poliester.',
           gender: 'unisex',
-          size: 'S',
+          size: ['S'],
           qty: 1,
         },
         {

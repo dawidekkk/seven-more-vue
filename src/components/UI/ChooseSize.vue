@@ -20,7 +20,7 @@ export default {
 
   data() {
     return {
-      selected: '',
+      // selected: '',
     }
   },
 
@@ -33,12 +33,6 @@ export default {
   mounted() {
     console.log(this.selected)
   },
-
-  // computed: {
-  //   products() {
-  //     return this.$store.getters.shopProducts;
-  //   },
-  // },
 };
 </script>
 
