@@ -62,10 +62,6 @@ export default {
 
   methods: {
 
-    // choose(e) {
-    //   this.selected = e;
-    // },
-
     loadProducts(id) {
       // const id = this.$route.params.id; // this is our props: { id: String } actually.
       const selected = this.products.find((prodId) => prodId.id === id); // MAGIC BEHIND THE SHOPPING CART
@@ -93,6 +89,7 @@ export default {
   created() {
     // created() lifecycle hook will be called when the cmp is created before it's shown on the screen.
     this.loadProducts(this.id);
+    
   },
 };
 </script>

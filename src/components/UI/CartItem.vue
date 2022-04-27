@@ -64,6 +64,7 @@ export default {
         type: "increase",
         id: this.id,
         price: this.price,
+        size: this.size,
       });
     },
 
@@ -79,6 +80,7 @@ export default {
         type: "decrease",
         id: this.id,
         price: this.price,
+        size: this.size,
       });
     },
 
