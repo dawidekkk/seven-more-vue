@@ -72,6 +72,8 @@ export default {
       this.$store.dispatch({
         type: "resetProducts",
         id: this.id,
+        price: this.price,
+        size: this.size,
       });
     },
 
@@ -88,6 +90,8 @@ export default {
       this.$store.dispatch({
         type: "removeProductFromCart",
         id: this.id,
+        price: this.price,
+        size: this.size,
       });
     },
 

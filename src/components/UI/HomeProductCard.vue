@@ -8,9 +8,9 @@
     <span>{{ color }}</span>
     <p>{{ price }}</p>
     <div class="btn-wrapper">
-      <BaseButton class="btn" @click.prevent="addToCart">
+      <!-- <BaseButton class="btn" @click.prevent="addToCart">
         DODAJ DO KOSZYKA<font-awesome-icon icon="plus" class="plus" />
-      </BaseButton>
+      </BaseButton> -->
     </div>
   </div>
 </template>

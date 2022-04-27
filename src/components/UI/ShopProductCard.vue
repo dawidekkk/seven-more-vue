@@ -43,7 +43,6 @@ export default {
 
   props: {
     id: String,
-    // size: String,
   },
 
   data() {
@@ -60,6 +59,16 @@ export default {
     },
   },
 
+  watch: {
+    // loadProducts(newValue) {
+    //   localStorage.setItem(this.id, JSON.stringify(newValue))
+    // }
+    addToCart(newV) {
+      localStorage.getItem(newV);
+    }
+  },
+    
+
   methods: {
 
     loadProducts(id) {
@@ -70,6 +79,9 @@ export default {
     },
 
     addToCart() {
+
+      
+
       this.$store.commit({
         type: "addProductToCart",
         id: this.prod.id,
@@ -84,12 +96,13 @@ export default {
         size: this.selected,
         qty: this.prod.qty,
       });
+      localStorage.setItem(this.addToCart, 'elp')
     },
   },
   created() {
     // created() lifecycle hook will be called when the cmp is created before it's shown on the screen.
+    // this.loadProducts = JSON.parse(localStorage.getItem(this.id))
     this.loadProducts(this.id);
-    
   },
 };
 </script>
