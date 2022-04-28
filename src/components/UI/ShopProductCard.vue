@@ -4,17 +4,23 @@
     <div class="shop-product-card">
       <div class="wrapper">
         <div class="imgs">
-          <button @click="showModal = true">Cl</button>
+          <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" />
           <Teleport to="body">
             <ShowModal :show="showModal" @close="showModal = false">
-              <template #header>
-                <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" />
+              <template #main>
+                <!-- <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" /> -->
+                <img :src="prod.image[1].second" alt="" class="loop-img-modal" />
               </template>
             </ShowModal>
           </Teleport>
 
           <div class="img-wrapper">
-            <img :src="prod.image[1].second" alt="" class="loop-img" />
+            <img
+              @click="showModal = true"
+              :src="prod.image[1].second"
+              alt=""
+              class="loop-img"
+            />
           </div>
         </div>
         <div class="product-info">
@@ -157,6 +163,13 @@ export default {
   height: auto;
 }
 
+.loop-img-modal {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .btn {
   width: 100%;
   margin: 1rem auto;
@@ -192,6 +205,11 @@ export default {
     grid-area: product-info;
     font-size: 1.5rem;
     @include flexCenter();
+  }
+
+  .loop-img {
+    width: 300px;
+    height: auto;
   }
 }
 </style>
