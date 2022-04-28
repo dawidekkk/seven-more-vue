@@ -207,9 +207,9 @@ export default {
     @include flexCenter();
   }
 
-  .loop-img {
-    width: 300px;
-    height: auto;
+  .loop-img-modal,
+  .main-img {
+    width: 500px;
   }
 }
 </style>

@@ -26,10 +26,6 @@ export default {
 
 <style scoped>
 
-.modal {
-  
-}
-
 .modal-mask {
   position: fixed;
   top: 0;
