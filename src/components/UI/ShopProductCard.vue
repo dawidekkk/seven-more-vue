@@ -4,13 +4,15 @@
     <div class="shop-product-card">
       <div class="wrapper">
         <div class="imgs">
+          <button @click="showModal = true">Cl</button>
+          <Teleport to="body">
+            <ShowModal :show="showModal" @close="showModal = false">
+              <template #header>
+                <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" />
+              </template>
+            </ShowModal>
+          </Teleport>
 
-        <Teleport to="body">
-          <ShowModal :show="showModal" @close="showModal = false">
-          <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" />
-          </ShowModal>
-        </Teleport>
-        
           <div class="img-wrapper">
             <img :src="prod.image[1].second" alt="" class="loop-img" />
           </div>
@@ -41,14 +43,11 @@
 <script>
 import ChooseSize from "./ChooseSize.vue";
 import ShowModal from "./ShowModal.vue";
-import ShowModal from "./ShowModal.vue";
 export default {
-
   components: {
     ChooseSize,
     ShowModal,
-    ShowModal
-},
+  },
 
   props: {
     id: String,
@@ -58,7 +57,8 @@ export default {
     return {
       title: "Sklep",
       prod: [],
-      selected: '',
+      selected: "",
+      showModal: false,
     };
   },
 
@@ -69,7 +69,6 @@ export default {
   },
 
   methods: {
-
     loadProducts(id) {
       // const id = this.$route.params.id; // this is our props: { id: String } actually.
       const selected = this.products.find((prodId) => prodId.id === id); // MAGIC BEHIND THE SHOPPING CART
@@ -133,9 +132,9 @@ export default {
   height: 100%;
   // display: flex;
 
-  &:hover {
-    transform: scale(2);
-  }
+  // &:hover {
+  //   transform: scale(2);
+  // }
 
   @media screen and (min-width: 600px) {
     width: 500px;
