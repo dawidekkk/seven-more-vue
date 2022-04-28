@@ -43,12 +43,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-      qtyy: this.qty,
-    };
-  },
-
   watch: {
     qty(val) {
       if (val === 0) {

@@ -46,6 +46,7 @@ export default {
       state.cart.items[productInCartIndex].qty++
     } else {
       state.cart.items.push(newItem);
+      localStorage.setItem("newItem", JSON.stringify)
     }
     
     state.cart.qty++;

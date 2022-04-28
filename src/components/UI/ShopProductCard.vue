@@ -4,7 +4,13 @@
     <div class="shop-product-card">
       <div class="wrapper">
         <div class="imgs">
+
+        <Teleport to="body">
+          <ShowModal :show="showModal" @close="showModal = false">
           <img :src="prod.image[0].first" alt="zdjecie produktu" class="main-img" />
+          </ShowModal>
+        </Teleport>
+        
           <div class="img-wrapper">
             <img :src="prod.image[1].second" alt="" class="loop-img" />
           </div>
@@ -18,7 +24,6 @@
             <p :class="prod.color">Kolor: {{ prod.color }}</p>
             <p>Przeznaczenie: {{ prod.gender }}</p>
             <p>Opis: {{ prod.desc }}</p>
-
             <ChooseSize :size="prod.size" v-model="selected" />
             <BaseButton class="btn" @click.prevent="addToCart"
               >Dodaj do koszyka</BaseButton
@@ -35,11 +40,15 @@
 
 <script>
 import ChooseSize from "./ChooseSize.vue";
+import ShowModal from "./ShowModal.vue";
+import ShowModal from "./ShowModal.vue";
 export default {
 
   components: {
     ChooseSize,
-  },
+    ShowModal,
+    ShowModal
+},
 
   props: {
     id: String,
@@ -59,16 +68,6 @@ export default {
     },
   },
 
-  watch: {
-    // loadProducts(newValue) {
-    //   localStorage.setItem(this.id, JSON.stringify(newValue))
-    // }
-    addToCart(newV) {
-      localStorage.getItem(newV);
-    }
-  },
-    
-
   methods: {
 
     loadProducts(id) {
@@ -76,12 +75,10 @@ export default {
       const selected = this.products.find((prodId) => prodId.id === id); // MAGIC BEHIND THE SHOPPING CART
       if (!selected) return;
       this.prod = selected;
+      // this.prod = JSON.stringify(localStorage.getItem('prod'));
     },
 
     addToCart() {
-
-      
-
       this.$store.commit({
         type: "addProductToCart",
         id: this.prod.id,
@@ -96,7 +93,7 @@ export default {
         size: this.selected,
         qty: this.prod.qty,
       });
-      localStorage.setItem(this.addToCart, 'elp')
+      // localStorage.setItem(this.addToCart, 'elp')
     },
   },
   created() {

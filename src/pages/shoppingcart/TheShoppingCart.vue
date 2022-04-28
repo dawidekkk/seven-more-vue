@@ -40,7 +40,7 @@ import CartItem from "../../components/UI/CartItem";
 export default {
   components: {
     CartItem,
-},
+  },
 
   data() {
     return {
@@ -48,6 +48,16 @@ export default {
       empty: false,
     };
   },
+
+  // watch: {
+  //   cartItems(newV) {
+  //     localStorage.setItem("newItem", JSON.stringify(newV));
+  //   },
+  // },
+
+  // mounted() {
+  //   this.cartItems = JSON.parse(localStorage.getItem("products")) || [];
+  // },
 
   computed: {
     cartTotal() {
