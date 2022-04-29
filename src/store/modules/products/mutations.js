@@ -63,3 +63,12 @@ export default {
     state.cart.total -= prodData.price * prodData.qty;
   }
 }
+
+const a = 100;
+const b = 2;
+
+const o = {
+  [a]: b,
+}
+
+console.log(o);

@@ -28,12 +28,7 @@
       </div>
       <div class="btns-wrapper">
         <div class="the-shop-btns-wrapper">
-          <button>XS</button>
-          <button>S</button>
-          <button>M</button>
-          <button>L</button>
-          <button>XL</button>
-          <button>XXL</button>
+          <ShopCheckboxes @change-filter="setFilters" />
         </div>
         <div class="the-shop-btns-wrapper">
           <button class="black"></button>
@@ -62,20 +57,44 @@
 
 <script>
 import HomeProductCard from "../../components/UI/HomeProductCard";
+import ShopCheckboxes from "../../components/UI/ShopCheckboxes"
 export default {
   components: {
     HomeProductCard,
+    ShopCheckboxes
   },
 
   data() {
     return {
       title: "Sklep",
+      activeFilters: {
+        universal: true,
+        s: true,
+        m: true,
+        l: true,
+        xl: true,
+      }
     };
+  },
+
+  methods: {
+    setFilters(updateFilters) {
+      this.activeFilters = updateFilters;
+    }
   },
 
   computed: {
     products() {
-      return this.$store.getters.shopProducts;
+      const products = this.$store.getters.shopProducts
+
+      return products.filter((product) => {
+        if(this.activeFilters.universal && product.size.includes('uniwersalny')) {
+          return true;
+        }
+        if(this.activeFilters.s && product.size.includes('S')) {
+          return true;
+        }
+      })    
     },
   },
 };
@@ -128,14 +147,14 @@ export default {
   width: 100%;
   margin: 0 auto;
 
-  button {
-    margin: 0.5rem 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid black;
-    cursor: pointer;
-  }
+  // button {
+  //   margin: 0.5rem 0;
+  //   width: 40px;
+  //   height: 40px;
+  //   border-radius: 50%;
+  //   border: 1px solid black;
+  //   cursor: pointer;
+  // }
 
   .black {
     background-color: black;
