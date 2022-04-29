@@ -25,10 +25,9 @@ export default function useFilter(filter) {
       if(filter.xl && product.size.includes("XL")) {
         return true;
       }
+      return false;
     })
   })
-
-  console.log(123);
 
   return [sizes]
 }

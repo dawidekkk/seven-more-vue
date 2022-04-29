@@ -38,7 +38,6 @@ export default {
   methods: {
     setFilter(e) {
       const inputId = e.target.id;
-      console.log(inputId);
       const isActive = e.target.checked;
       const updateFilters = {
         ...this.sizes, // copying object

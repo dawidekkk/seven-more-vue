@@ -29,15 +29,16 @@
       <div class="btns-wrapper">
         <div class="the-shop-btns-wrapper">
           <ShopSizesCheckboxes @change-filter="setFilters" />
+          <button @click="filterSize">Test</button>
         </div>
-        <!-- <div class="the-shop-btns-wrapper">
+        <div class="the-shop-btns-wrapper">
           <ShopColorCheckboxes @change-filter="setColorFilters" />
-        </div> -->
+        </div>
       </div>
-      <div class="bestseller-wrapper">
+      <div class="bestseller-wrapper" v-if="filterSize">
         <HomeProductCard
-          v-for="product in products"
-          :key="product"
+          v-for="product in filterSize"
+          :key="product.id"
           :id="product.id"
           :name="product.name"
           :color="product.color"
@@ -53,15 +54,15 @@
 <script>
 import HomeProductCard from "../../components/UI/HomeProductCard";
 import ShopSizesCheckboxes from "../../components/UI/ShopSizesCheckboxes";
-// import ShopColorCheckboxes from "@/components/UI/ShopColorCheckboxes.vue";
-// import { reactive, computed } from "vue";
+import ShopColorCheckboxes from "@/components/UI/ShopColorCheckboxes.vue";
+// import { reactive } from "vue";
 // import { useStore } from "vuex";
 // import useFilter from "../../hooks/useFilter";
 export default {
   components: {
     HomeProductCard,
     ShopSizesCheckboxes,
-    // ShopColorCheckboxes,
+    ShopColorCheckboxes,
   },
 
   data() {
@@ -102,11 +103,18 @@ export default {
     products() {
       const products = this.$store.getters.shopProducts;
 
-      return products.filter((product) => {
-        if (this.activeFilters.uniwersalny && product.size.includes("uniwersalny")) {
+      return products;
+    },
+
+    filterSize() {
+      const products = this.$store.getters.shopProducts;
+      const size = products.filter((product) => {
+        if (this.activeFilters.uniwersalny && product.size.includes("uniwersalny") ||
+        this.activeColors.czarny && product.color.includes('czarny')) {
           return true;
         }
-        if (this.activeFilters.s && product.size.includes("S")) {
+        if (this.activeFilters.s && product.size.includes("S") ||
+        this.activeColors.blekit && product.color.includes("blekit")) {
           return true;
         }
         if (this.activeFilters.m && product.size.includes("M")) {
@@ -120,41 +128,57 @@ export default {
         }
 
         return false;
+      })
 
-        // if(this.activeColors.czarny && product.color) {
-        //   return true;
-        // }
-        // if(this.activeColors.blekit && product.color) {
-        //   return true;
-        // }
-      });
+      return size;
     },
+
+    filterColors() {
+      const products = this.$store.getters.shopProducts;
+      const color = products.filter((product) => {
+        if (this.activeColors.czarny && product.color.includes('czarny')) {
+          return true;
+        }
+        if (this.activeColors.blekit && product.color.includes("blekit")) {
+          return true;
+        }
+        return false;
+      })
+
+      return color;
+    }
   },
 
-  // setup() {
-  //   const store = useStore();
-  //   const products = computed(() => {
-  //     return store.getters.shopProducts;
-  //   });
+  setup() {
 
-  //   console.log(products);
+    // const store = useStore();
+    // const products = computed(() => {
+    //   return store.getters.shopProducts;
+    // })
 
-  //   const activeFilters = reactive({
-  //     universal: true,
-  //     s: true,
-  //     m: true,
-  //     l: true,
-  //     xl: true,
-  //   });
+    // const activeFilters = reactive({
+    //   activeFilters: {
+    //     uniwersalny: true,
+    //     s: true,
+    //     m: true,
+    //     l: true,
+    //     xl: true,
+    //   },
+    // })
 
-  //   const [setFilters] = useFilter(activeFilters);
+    // const setFilters = (updateFilters) => {
+    //   activeFilters.activeFilters = updateFilters;
+    // }
 
-  //   return {
-  //     activeFilters,
-  //     setFilters,
-  //     products: products,
-  //   };
-  // },
+    // const [products] = useFilter(activeFilters)
+
+    // return {
+    //   setFilters,
+    //   activeFilters: activeFilters.activeFilters,
+    //   products: products.value,
+    //   // sizes,
+    // }
+  }
 };
 </script>
 
