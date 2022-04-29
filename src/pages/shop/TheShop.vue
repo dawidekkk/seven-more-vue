@@ -28,16 +28,11 @@
       </div>
       <div class="btns-wrapper">
         <div class="the-shop-btns-wrapper">
-          <ShopCheckboxes @change-filter="setFilters" />
+          <ShopSizesCheckboxes @change-filter="setFilters" />
         </div>
-        <div class="the-shop-btns-wrapper">
-          <button class="black"></button>
-          <button class="white"></button>
-          <button class="yellow"></button>
-          <button class="blue"></button>
-          <button class="violet"></button>
-          <button class="grey"></button>
-        </div>
+        <!-- <div class="the-shop-btns-wrapper">
+          <ShopColorCheckboxes @change-filter="setColorFilters" />
+        </div> -->
       </div>
       <div class="bestseller-wrapper">
         <HomeProductCard
@@ -57,22 +52,38 @@
 
 <script>
 import HomeProductCard from "../../components/UI/HomeProductCard";
-import ShopCheckboxes from "../../components/UI/ShopCheckboxes"
+import ShopSizesCheckboxes from "../../components/UI/ShopSizesCheckboxes";
+// import ShopColorCheckboxes from "@/components/UI/ShopColorCheckboxes.vue";
+// import { reactive, computed } from "vue";
+// import { useStore } from "vuex";
+// import useFilter from "../../hooks/useFilter";
 export default {
   components: {
     HomeProductCard,
-    ShopCheckboxes
+    ShopSizesCheckboxes,
+    // ShopColorCheckboxes,
   },
 
   data() {
     return {
       title: "Sklep",
       activeFilters: {
-        universal: true,
+        uniwersalny: true,
         s: true,
         m: true,
         l: true,
         xl: true,
+      },
+
+      activeColors: {
+        czarny: true,
+        blekit: true,
+        bialy: true,
+        bezowy: true,
+        grafit: true,
+        czerwony: true,
+        pomaranczowy: true,
+        bordowy: true,
       }
     };
   },
@@ -80,23 +91,70 @@ export default {
   methods: {
     setFilters(updateFilters) {
       this.activeFilters = updateFilters;
-    }
+    },
+
+    setColorFilters(updateFilters) {
+      this.activeColors = updateFilters;
+    },
   },
 
   computed: {
     products() {
-      const products = this.$store.getters.shopProducts
+      const products = this.$store.getters.shopProducts;
 
       return products.filter((product) => {
-        if(this.activeFilters.universal && product.size.includes('uniwersalny')) {
+        if (this.activeFilters.uniwersalny && product.size.includes("uniwersalny")) {
           return true;
         }
-        if(this.activeFilters.s && product.size.includes('S')) {
+        if (this.activeFilters.s && product.size.includes("S")) {
           return true;
         }
-      })    
+        if (this.activeFilters.m && product.size.includes("M")) {
+          return true;
+        }
+        if (this.activeFilters.l && product.size.includes("L")) {
+          return true;
+        }
+        if (this.activeFilters.xl && product.size.includes("XL")) {
+          return true;
+        }
+
+        return false;
+
+        // if(this.activeColors.czarny && product.color) {
+        //   return true;
+        // }
+        // if(this.activeColors.blekit && product.color) {
+        //   return true;
+        // }
+      });
     },
   },
+
+  // setup() {
+  //   const store = useStore();
+  //   const products = computed(() => {
+  //     return store.getters.shopProducts;
+  //   });
+
+  //   console.log(products);
+
+  //   const activeFilters = reactive({
+  //     universal: true,
+  //     s: true,
+  //     m: true,
+  //     l: true,
+  //     xl: true,
+  //   });
+
+  //   const [setFilters] = useFilter(activeFilters);
+
+  //   return {
+  //     activeFilters,
+  //     setFilters,
+  //     products: products,
+  //   };
+  // },
 };
 </script>
 

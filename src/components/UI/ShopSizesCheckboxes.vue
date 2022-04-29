@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       sizes: {
-        universal: true,
+        uniwersalny: true,
         s: true,
         m: true,
         l: true,
