@@ -29,6 +29,10 @@ export default {
 
   cartQty(state) {
     return state.cart.qty;
+  },
+
+  tshirts(state) {
+    return state.tshirts;
   }
 
 }

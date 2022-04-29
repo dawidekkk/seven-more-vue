@@ -6,6 +6,43 @@ export default {
   // namespaced: true,
   state() {
     return {
+
+      tshirts: [
+        {
+          id: '13',
+          name: 'T-SHIRT ALIEN',
+          color: 'czarny',
+          price: 99.99,
+          image: [
+            {first: require("../../../assets/images/14.png")},
+            {second: require("../../../assets/images/14a.png")}
+          ],
+          stock: "NOWOSC",
+          category: 'tshirt',
+          info: 'Bluza z kapturem.',
+          gender: 'unisex',
+          size: ['S', 'M', 'L'],
+          qty: 1,
+        },
+        {
+          id: '14',
+          name: 'Hoodie ALIEN',
+          color: 'czarny',
+          price: 249.99,
+          image: [
+            {first: require("../../../assets/images/13.png")},
+            {second: require("../../../assets/images/13a.png")}
+          ],
+          stock: "NOWOSC",
+          category: 'tshirt',
+          info: 'Bluza z kapturem.',
+          gender: 'unisex',
+          size: ['S', 'M', 'L'],
+          qty: 1,
+          desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
+        },
+      ],
+
       bestsellerProducts: [
         {
           id: '7',
@@ -308,7 +345,6 @@ export default {
           size: ['S', 'M', 'L'],
           qty: 1,
           desc: `dwuwarstwowy kaptur; taśma wzmacniająca na karku z pojedynczej dzianiny; z przodu kieszeń-kangurka. `
-
         },
         {
           id: '15',
