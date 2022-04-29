@@ -29,13 +29,13 @@
       <div class="btns-wrapper">
         <div class="the-shop-btns-wrapper">
           <ShopSizesCheckboxes @change-filter="setFilters" />
-          <button @click="filterSize">Test</button>
+          <button @click="filter = true">Test</button>
         </div>
         <div class="the-shop-btns-wrapper">
           <ShopColorCheckboxes @change-filter="setColorFilters" />
         </div>
       </div>
-      <div class="bestseller-wrapper" v-if="filterSize">
+      <div class="bestseller-wrapper">
         <HomeProductCard
           v-for="product in filterSize"
           :key="product.id"
@@ -76,6 +76,8 @@ export default {
         xl: true,
       },
 
+      filter: false,
+
       activeColors: {
         czarny: true,
         blekit: true,
@@ -84,14 +86,30 @@ export default {
         grafit: true,
         czerwony: true,
         pomaranczowy: true,
-        bordowy: true,
+        bronze: true,
       }
     };
+  },
+
+  watch: {
+    // setFilters(newV) {
+    //   if(this.filters) {
+    //     this.activeFilters = newV;
+    //   }
+    // }
+
+    // filter(newV) {
+    //   if(newV) {
+    //     // this.activeFilters = oldV;
+    //     this.setFilters()
+    //   }
+    // }
   },
 
   methods: {
     setFilters(updateFilters) {
       this.activeFilters = updateFilters;
+      
     },
 
     setColorFilters(updateFilters) {
@@ -100,11 +118,11 @@ export default {
   },
 
   computed: {
-    products() {
-      const products = this.$store.getters.shopProducts;
+    // products() {
+    //   const products = this.$store.getters.shopProducts;
 
-      return products;
-    },
+    //   return products;
+    // },
 
     filterSize() {
       const products = this.$store.getters.shopProducts;
@@ -126,6 +144,30 @@ export default {
         if (this.activeFilters.xl && product.size.includes("XL")) {
           return true;
         }
+        if (this.activeColors.czarny && product.color.includes('czarny')) {
+          return true;
+        }
+        if (this.activeColors.blekit && product.color.includes('blekit')) {
+          return true;
+        }
+        if (this.activeColors.bialy && product.color.includes('bialy')) {
+          return true;
+        }
+        if (this.activeColors.bezowy && product.color.includes('bezowy')) {
+          return true;
+        }
+        if (this.activeColors.grafit && product.color.includes('grafit')) {
+          return true;
+        }
+        if (this.activeColors.czerwony && product.color.includes('czerwony')) {
+          return true;
+        }
+        if (this.activeColors.pomaranczowy && product.color.includes('pomaranczowy')) {
+          return true;
+        }
+        if (this.activeColors.bronze && product.color.includes('bronze')) {
+          return true;
+        }
 
         return false;
       })
@@ -133,20 +175,20 @@ export default {
       return size;
     },
 
-    filterColors() {
-      const products = this.$store.getters.shopProducts;
-      const color = products.filter((product) => {
-        if (this.activeColors.czarny && product.color.includes('czarny')) {
-          return true;
-        }
-        if (this.activeColors.blekit && product.color.includes("blekit")) {
-          return true;
-        }
-        return false;
-      })
+    // filterColors() {
+    //   const products = this.$store.getters.shopProducts;
+    //   const color = products.filter((product) => {
+    //     if (this.activeColors.czarny && product.color.includes('czarny')) {
+    //       return true;
+    //     }
+    //     if (this.activeColors.blekit && product.color.includes("blekit")) {
+    //       return true;
+    //     }
+    //     return false;
+    //   })
 
-      return color;
-    }
+    //   return color;
+    // }
   },
 
   setup() {

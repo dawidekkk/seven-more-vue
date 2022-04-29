@@ -28,8 +28,8 @@
     <label for="pomaranczowy">Pomarańczowy</label>
   </div>
   <div>
-    <input type="checkbox" id="bordowy" checked @change="setFilter" />
-    <label for="bordowy">Bordowy</label>
+    <input type="checkbox" id="bronze" checked @change="setFilter" />
+    <label for="bronze">Brązowy</label>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
         grafit: true,
         czerwony: true,
         pomaranczowy: true,
-        bordowy: true,
+        bronze: true,
       },
     };
   },

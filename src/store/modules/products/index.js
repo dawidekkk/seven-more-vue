@@ -50,7 +50,7 @@ export default {
         {
           id: '12',
           name: 'Hoodie Welur SICARIOS',
-          color: 'bordowy',
+          color: 'bronze',
           price: 349.99,
           image: require("../../../assets/images/12.png"),
           stock: "RESTOCK",
@@ -261,7 +261,7 @@ export default {
         {
           id: '12',
           name: 'Hoodie Welur SICARIOS',
-          color: 'bordowy',
+          color: 'bronze',
           price: 349.99,
           image: [
             {first: require("../../../assets/images/12.png")},
