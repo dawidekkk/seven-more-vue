@@ -1,7 +1,7 @@
 <template>
   <div>
     <ProductCard
-      v-for="product in tshirts"
+      v-for="product in products"
       :key="product.id"
       :id="product.id"
       :name="product.name"
@@ -14,25 +14,47 @@
 </template>
 
 <script>
-// import ProductCardSpecify from "./ProductCardSpecify";
 import ProductCard from "./ProductCard.vue";
 export default {
   components: {
-    // ProductCardSpecify,
     ProductCard,
   },
 
-  computed: {
-    tshirts() {
-      return this.$store.getters.tshirts;
-    },
-  }
+  props: {
+    activeFilters: {
+      type: Object,
+      uniwersalny: String,
+      s: String,
+      m: String,
+      l: String,
+      xl: String,
+    }
+  },
 
-  // computed: {
-  //   tshirts() {
-  //     return this.$store.getters.tshirts;
-  //   },
-  // },
+  computed: {
+    products() {
+      const tshirts = this.$store.getters.tshirts;
+      const size = tshirts.filter((product) => {
+        if (this.activeFilters.uniwersalny && product.size.includes("uniwersalny")) {
+          return true;
+        }
+        if (this.activeFilters.s && product.size.includes("S")) {
+          return true;
+        }
+        if (this.activeFilters.m && product.size.includes("M")) {
+          return true;
+        }
+        if (this.activeFilters.l && product.size.includes("L")) {
+          return true;
+        }
+        if (this.activeFilters.xl && product.size.includes("XL")) {
+          return true;
+        }
+        return false;
+      });
+      return size;
+    },
+  },
 };
 </script>
 

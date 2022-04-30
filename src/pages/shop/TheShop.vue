@@ -51,7 +51,8 @@
           />
         </div>
         <div v-if="tshirtPath" class="items-wrapper">
-          <router-view></router-view>
+          <!-- <router-view></router-view> -->
+          <ShopProductTshirt :activeFilters="activeFilters" />
         </div>
         <div v-if="hoodiesPath" class="items-wrapper">
           <ProductCard
@@ -73,6 +74,7 @@
 <script>
 import ProductCard from "../../components/UI/ProductCard";
 import ShopSizesCheckboxes from "../../components/UI/ShopSizesCheckboxes";
+import ShopProductTshirt from "@/components/UI/ShopProductTshirt.vue";
 
 // import ShopColorCheckboxes from "@/components/UI/ShopColorCheckboxes.vue";
 // import ShopProductTshirt from "@/components/UI/ShopProductTshirt.vue";
@@ -83,7 +85,7 @@ export default {
   components: {
     ProductCard,
     ShopSizesCheckboxes,
-    // ProductPaths,
+    ShopProductTshirt
 },
 
   data() {
@@ -135,7 +137,7 @@ export default {
     },
 
     hoodiesPath() {
-      return this.$route.path === "/sklep/h";
+      return this.$route.path === "/sklep/hoodies";
     },
 
     shopPath() {
@@ -160,30 +162,6 @@ export default {
         if (this.activeFilters.xl && product.size.includes("XL")) {
           return true;
         }
-        // if (this.activeColors.czarny && product.color.includes("czarny")) {
-        //   return true;
-        // }
-        // if (this.activeColors.blekit && product.color.includes("blekit")) {
-        //   return true;
-        // }
-        // if (this.activeColors.bialy && product.color.includes("bialy")) {
-        //   return true;
-        // }
-        // if (this.activeColors.bezowy && product.color.includes("bezowy")) {
-        //   return true;
-        // }
-        // if (this.activeColors.grafit && product.color.includes("grafit")) {
-        //   return true;
-        // }
-        // if (this.activeColors.czerwony && product.color.includes("czerwony")) {
-        //   return true;
-        // }
-        // if (this.activeColors.pomaranczowy && product.color.includes("pomaranczowy")) {
-        //   return true;
-        // }
-        // if (this.activeColors.bronze && product.color.includes("bronze")) {
-        //   return true;
-        // }
         return false;
       });
       return size;
@@ -250,3 +228,28 @@ export default {
   }
 }
 </style>
+
+        // if (this.activeColors.czarny && product.color.includes("czarny")) {
+        //   return true;
+        // }
+        // if (this.activeColors.blekit && product.color.includes("blekit")) {
+        //   return true;
+        // }
+        // if (this.activeColors.bialy && product.color.includes("bialy")) {
+        //   return true;
+        // }
+        // if (this.activeColors.bezowy && product.color.includes("bezowy")) {
+        //   return true;
+        // }
+        // if (this.activeColors.grafit && product.color.includes("grafit")) {
+        //   return true;
+        // }
+        // if (this.activeColors.czerwony && product.color.includes("czerwony")) {
+        //   return true;
+        // }
+        // if (this.activeColors.pomaranczowy && product.color.includes("pomaranczowy")) {
+        //   return true;
+        // }
+        // if (this.activeColors.bronze && product.color.includes("bronze")) {
+        //   return true;
+        // }
