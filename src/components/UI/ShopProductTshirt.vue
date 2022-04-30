@@ -1,9 +1,8 @@
 <template>
   <div>
-  <h1>ewainiwaniwfa</h1>
-    <ShopProductCard
-      v-for="tshirt in tshirts"
-      :key="tshirt.id"
+    <ProductCard
+      v-for="product in tshirts"
+      :key="product.id"
       :id="product.id"
       :name="product.name"
       :color="product.color"
@@ -15,17 +14,25 @@
 </template>
 
 <script>
-import ShopProductCard from "./ShopProductCard";
+// import ProductCardSpecify from "./ProductCardSpecify";
+import ProductCard from "./ProductCard.vue";
 export default {
   components: {
-    ShopProductCard,
+    // ProductCardSpecify,
+    ProductCard,
   },
 
   computed: {
     tshirts() {
       return this.$store.getters.tshirts;
     },
-  },
+  }
+
+  // computed: {
+  //   tshirts() {
+  //     return this.$store.getters.tshirts;
+  //   },
+  // },
 };
 </script>
 

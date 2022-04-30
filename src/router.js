@@ -8,7 +8,7 @@ import TheDownloadableLinks from './pages/regulamin/TheDownloadableLinks.vue'
 import TheShipInfo from './pages/regulamin/TheShipInfo.vue'
 import TheContact from './pages/contact/TheContact.vue'
 import TheShop from './pages/shop/TheShop.vue'
-import ShopProductCard from './components/UI/ShopProductCard.vue'
+import ProductCardSpecify from './components/UI/ProductCardSpecify.vue'
 import ShoppingCart from './pages/shoppingcart/TheShoppingCart.vue'
 import ShopProductTshirt from './components/UI/ShopProductTshirt.vue'
 
@@ -22,8 +22,11 @@ const router = createRouter({
   routes: [
     { path: '/', redirect: '/sevenmorevue'},
     { path: '/sevenmorevue', component: TheHome },
-    { path: '/sklep', component: TheShop, children: [{ path: 'tshirt', component: ShopProductTshirt }] },
-    { path: '/sklep/:id', props: true, component: ShopProductCard },
+    { path: '/sklep', component: TheShop, children: [
+      // { path:':t', props: true, component: ShopProductTshirt },
+      { path:'tshirt', component: ShopProductTshirt },
+    ] },
+    { path: '/sklep/:id', props: true, component: ProductCardSpecify },
     { path: '/voucher', component: TheVoucher },
     { path: '/koszyk', component: ShoppingCart },
     { path: '/regulamin', component: TheRules },

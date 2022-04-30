@@ -33,6 +33,18 @@ export default {
 
   tshirts(state) {
     return state.tshirts;
-  }
+  },
+
+  hoodies(state) {
+    return state.hoodies;
+  },
+
+  accessories(state) {
+    return state.accessories;
+  },
+
+  joggers(state) {
+    return state.joggers;
+  },
 
 }

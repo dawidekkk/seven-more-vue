@@ -1,7 +1,7 @@
 <template>
   <section class="base-pages">
     <div class="img">
-      <h2>{{ pageName }}</h2>
+      <router-link class="title" :to="test">{{ pageName }}</router-link>
       <div>
         <router-link to="/sevenmorevue">Home</router-link>
         <!-- <router-link to="/sklep">Sklep/{{ paramsId }}</router-link> -->
@@ -20,10 +20,14 @@ export default {
     path() {
       return this.$route.path;
     },
+
+    test() {
+      return this.$route.matched[0];
+    }
   },
 
   mounted() {
-    console.log(this.$route);
+    console.log(this.$route.matched[0]);
   },
 };
 </script>
@@ -42,7 +46,7 @@ export default {
   justify-content: center;
   flex-direction: column;
 
-  h2 {
+  .title {
     font-family: "Lato", sans-serif;
     font-weight: 100;
     font-size: 40px;
@@ -53,10 +57,8 @@ export default {
   }
 }
 
-.test {
-  width: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+a {
+  text-decoration: none;
 }
+
 </style>

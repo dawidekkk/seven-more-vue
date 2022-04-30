@@ -7,8 +7,8 @@
           <nav>
             <ul>
               <h3>Produkty</h3>
-              <router-link to="/sklep/tshirt">T-shirt</router-link>
-              <li>Hoodie</li>
+              <li><router-link to="/sklep/tshirt">T-shirt</router-link></li>
+              <li><router-link to="/sklep/">Hoodies</router-link></li>
               <li>Longsleeve</li>
               <li>Spodnie</li>
               <li>Akcesoria</li>
@@ -37,32 +37,33 @@
           <ShopColorCheckboxes @change-filter="setColorFilters" />
         </div> -->
       </div>
-      <div >
-        <!-- <ShopProductTshirt /> -->
-        <div v-if="shopPath" class="bestseller-wrapper">
-          <HomeProductCard
-          v-for="product in filterSize"
-          :key="product.id"
-          :id="product.id"
-          :name="product.name"
-          :color="product.color"
-          :image="product.image[0].first"
-          :price="product.price"
-          :stock="product.stock"
-        />
+      <div>
+        <div v-if="shopPath" class="items-wrapper">
+          <ProductCard
+            v-for="product in filterSize"
+            :key="product.id"
+            :id="product.id"
+            :name="product.name"
+            :color="product.color"
+            :image="product.image[0].first"
+            :price="product.price"
+            :stock="product.stock"
+          />
         </div>
-
-        <div v-if="tshirtPath" class="bestseller-wrapper">
-          <HomeProductCard
-          v-for="product in tshirts"
-          :key="product.id"
-          :id="product.id"
-          :name="product.name"
-          :color="product.color"
-          :image="product.image[0].first"
-          :price="product.price"
-          :stock="product.stock"
-        />
+        <div v-if="tshirtPath" class="items-wrapper">
+          <router-view></router-view>
+        </div>
+        <div v-if="hoodiesPath" class="items-wrapper">
+          <ProductCard
+            v-for="product in hoodies"
+            :key="product.id"
+            :id="product.id"
+            :name="product.name"
+            :color="product.color"
+            :image="product.image[0].first"
+            :price="product.price"
+            :stock="product.stock"
+          />
         </div>
       </div>
     </div>
@@ -70,8 +71,9 @@
 </template>
 
 <script>
-import HomeProductCard from "../../components/UI/HomeProductCard";
+import ProductCard from "../../components/UI/ProductCard";
 import ShopSizesCheckboxes from "../../components/UI/ShopSizesCheckboxes";
+
 // import ShopColorCheckboxes from "@/components/UI/ShopColorCheckboxes.vue";
 // import ShopProductTshirt from "@/components/UI/ShopProductTshirt.vue";
 // import { ref } from "vue";
@@ -79,11 +81,10 @@ import ShopSizesCheckboxes from "../../components/UI/ShopSizesCheckboxes";
 // import useFilter from "../../hooks/useFilter";
 export default {
   components: {
-    HomeProductCard,
+    ProductCard,
     ShopSizesCheckboxes,
-    // ShopColorCheckboxes,
-    // ShopProductTshirt
-  },
+    // ProductPaths,
+},
 
   data() {
     return {
@@ -121,22 +122,24 @@ export default {
   },
 
   computed: {
+    // tshirts() {
+    //   return this.$store.getters.tshirts;
+    // },
 
-    tshirts() {
-      return this.$store.getters.tshirts;
+    hoodies() {
+      return this.$store.getters.hoodies;
     },
 
     tshirtPath() {
-      return this.$route.path === '/sklep/tshirt';
+      return this.$route.path === "/sklep/tshirt";
+    },
+
+    hoodiesPath() {
+      return this.$route.path === "/sklep/h";
     },
 
     shopPath() {
-      return this.$route.path === '/sklep';
-    },
-
-    products() {
-      const products = this.$store.getters.shopProducts;
-      return products;
+      return this.$route.path === "/sklep";
     },
 
     filterSize() {
@@ -231,7 +234,7 @@ export default {
   margin: 0 auto;
 }
 
-.bestseller-wrapper {
+.items-wrapper {
   width: 100%;
   height: 100%;
   display: grid;

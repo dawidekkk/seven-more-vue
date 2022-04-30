@@ -3,7 +3,7 @@
     <h1 class="h1">Produkty</h1>
     <BaseTitle>bestseller</BaseTitle>
     <div class="bestseller-wrapper">
-      <HomeProductCard
+      <ProductCard
         v-for="product in products"
         :key="product.id"
         :id="product.id"
@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import HomeProductCard from "../../UI/HomeProductCard";
+import ProductCard from "../../UI/ProductCard";
 
 export default {
-  components: { HomeProductCard },
+  components: { ProductCard },
 
   computed: {
     products() {
