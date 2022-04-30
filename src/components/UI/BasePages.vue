@@ -1,7 +1,7 @@
 <template>
   <section class="base-pages">
     <div class="img">
-      <router-link class="title" :to="test">{{ pageName }}</router-link>
+      <router-link class="title" :to="homePage">{{ pageName }}</router-link>
       <div>
         <router-link to="/sevenmorevue">Home</router-link>
         <!-- <router-link to="/sklep">Sklep/{{ paramsId }}</router-link> -->
@@ -21,13 +21,9 @@ export default {
       return this.$route.path;
     },
 
-    test() {
+    homePage() {
       return this.$route.matched[0];
     }
-  },
-
-  mounted() {
-    console.log(this.$route.matched[0]);
   },
 };
 </script>

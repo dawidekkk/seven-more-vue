@@ -45,7 +45,7 @@ export default {
 
 <style scoped lang="scss">
 .home-product-card {
-  width: auto;
+  width: 100%;
   height: auto;
   background-color: aquamarine;
   color: black;

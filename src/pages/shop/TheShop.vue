@@ -8,8 +8,8 @@
             <ul>
               <h3>Produkty</h3>
               <li><router-link to="/sklep/tshirt">T-shirt</router-link></li>
-              <li><router-link to="/sklep/">Hoodies</router-link></li>
-              <li>Longsleeve</li>
+              <li><router-link to="/sklep/hoodies">Hoodies</router-link></li>
+              <li><router-link to="/sklep/long">Longsleeve</router-link></li>
               <li>Spodnie</li>
               <li>Akcesoria</li>
             </ul>
@@ -51,20 +51,12 @@
           />
         </div>
         <div v-if="tshirtPath" class="items-wrapper">
-          <!-- <router-view></router-view> -->
-          <ShopProductTshirt :activeFilters="activeFilters" />
+          <router-view :active-filters="activeFilters" />
+          <!-- <ShopProductTshirt :active-filters="activeFilters" /> -->
         </div>
         <div v-if="hoodiesPath" class="items-wrapper">
-          <ProductCard
-            v-for="product in hoodies"
-            :key="product.id"
-            :id="product.id"
-            :name="product.name"
-            :color="product.color"
-            :image="product.image[0].first"
-            :price="product.price"
-            :stock="product.stock"
-          />
+          <router-view :active-filters="activeFilters" />
+          <!-- <ShopProductHoodies :active-filters="activeFilters" /> -->
         </div>
       </div>
     </div>
@@ -74,7 +66,8 @@
 <script>
 import ProductCard from "../../components/UI/ProductCard";
 import ShopSizesCheckboxes from "../../components/UI/ShopSizesCheckboxes";
-import ShopProductTshirt from "@/components/UI/ShopProductTshirt.vue";
+// import ShopProductTshirt from "../../pages/shop/ShopProductTshirt";
+// import ShopProductHoodies from "../../pages/shop/ShopProductHoodies";
 
 // import ShopColorCheckboxes from "@/components/UI/ShopColorCheckboxes.vue";
 // import ShopProductTshirt from "@/components/UI/ShopProductTshirt.vue";
@@ -85,7 +78,8 @@ export default {
   components: {
     ProductCard,
     ShopSizesCheckboxes,
-    ShopProductTshirt
+    // ShopProductTshirt,
+    // ShopProductHoodies
 },
 
   data() {
