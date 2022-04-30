@@ -1,35 +1,37 @@
 <template>
   <div>
-    <input type="checkbox" id="czarny" checked @change="setFilter" />
-    <label for="czarny">Czarny</label>
-  </div>
-  <div>
-    <input type="checkbox" id="blekit" checked @change="setFilter" />
-    <label for="blekit">Błękitny</label>
-  </div>
-  <div>
-    <input type="checkbox" id="bialy" checked @change="setFilter" />
-    <label for="bialy">Biały</label>
-  </div>
-  <div>
-    <input type="checkbox" id="bezowy" checked @change="setFilter" />
-    <label for="bezowy">Beżowy</label>
-  </div>
-  <div>
-    <input type="checkbox" id="grafit" checked @change="setFilter" />
-    <label for="grafit">Grafit</label>
-  </div>
-  <div>
-    <input type="checkbox" id="czerwony" checked @change="setFilter" />
-    <label for="czerwony">Czerwony</label>
-  </div>
-  <div>
-    <input type="checkbox" id="pomaranczowy" checked @change="setFilter" />
-    <label for="pomaranczowy">Pomarańczowy</label>
-  </div>
-  <div>
-    <input type="checkbox" id="bronze" checked @change="setFilter" />
-    <label for="bronze">Brązowy</label>
+    <div>
+      <input type="checkbox" id="czarny" checked @change="setFilter" />
+      <label for="czarny">Czarny</label>
+    </div>
+    <div>
+      <input type="checkbox" id="blekit" checked @change="setFilter" />
+      <label for="blekit">Błękitny</label>
+    </div>
+    <div>
+      <input type="checkbox" id="bialy" checked @change="setFilter" />
+      <label for="bialy">Biały</label>
+    </div>
+    <div>
+      <input type="checkbox" id="bezowy" checked @change="setFilter" />
+      <label for="bezowy">Beżowy</label>
+    </div>
+    <div>
+      <input type="checkbox" id="grafit" checked @change="setFilter" />
+      <label for="grafit">Grafit</label>
+    </div>
+    <div>
+      <input type="checkbox" id="czerwony" checked @change="setFilter" />
+      <label for="czerwony">Czerwony</label>
+    </div>
+    <div>
+      <input type="checkbox" id="pomaranczowy" checked @change="setFilter" />
+      <label for="pomaranczowy">Pomarańczowy</label>
+    </div>
+    <div>
+      <input type="checkbox" id="bronze" checked @change="setFilter" />
+      <label for="bronze">Brązowy</label>
+    </div>
   </div>
 </template>
 
@@ -67,6 +69,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

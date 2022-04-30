@@ -1,13 +1,13 @@
 <template>
   <section>
-    <BasePages :page-name="title"></BasePages>
+    <BasePages :page-name="title" />
     <div class="the-shop">
       <div class="the-shop-wrapper">
         <div class="menu-wrapper">
           <nav>
             <ul>
               <h3>Produkty</h3>
-              <li>T-shirt</li>
+              <router-link to="/sklep/tshirt">T-shirt</router-link>
               <li>Hoodie</li>
               <li>Longsleeve</li>
               <li>Spodnie</li>
@@ -27,17 +27,20 @@
         </div>
       </div>
       <div class="btns-wrapper">
-        <div class="the-shop-btns-wrapper">
+        <div class="checkbox-wrapper">
+          <h3>Rozmiar:</h3>
           <ShopSizesCheckboxes @change-filter="setFilters" />
           <!-- <button @click="filter = true">Test</button> -->
         </div>
-        <div class="the-shop-btns-wrapper">
+        <!-- <div class="checkbox-wrapper">
+          <h3>Kolor:</h3>
           <ShopColorCheckboxes @change-filter="setColorFilters" />
-        </div>
+        </div> -->
       </div>
-      <div class="bestseller-wrapper">
+      <div >
         <!-- <ShopProductTshirt /> -->
-        <HomeProductCard
+        <div v-if="shopPath" class="bestseller-wrapper">
+          <HomeProductCard
           v-for="product in filterSize"
           :key="product.id"
           :id="product.id"
@@ -47,6 +50,20 @@
           :price="product.price"
           :stock="product.stock"
         />
+        </div>
+
+        <div v-if="tshirtPath" class="bestseller-wrapper">
+          <HomeProductCard
+          v-for="product in tshirts"
+          :key="product.id"
+          :id="product.id"
+          :name="product.name"
+          :color="product.color"
+          :image="product.image[0].first"
+          :price="product.price"
+          :stock="product.stock"
+        />
+        </div>
       </div>
     </div>
   </section>
@@ -55,7 +72,7 @@
 <script>
 import HomeProductCard from "../../components/UI/HomeProductCard";
 import ShopSizesCheckboxes from "../../components/UI/ShopSizesCheckboxes";
-import ShopColorCheckboxes from "@/components/UI/ShopColorCheckboxes.vue";
+// import ShopColorCheckboxes from "@/components/UI/ShopColorCheckboxes.vue";
 // import ShopProductTshirt from "@/components/UI/ShopProductTshirt.vue";
 // import { ref } from "vue";
 // import { useStore } from "vuex";
@@ -64,9 +81,9 @@ export default {
   components: {
     HomeProductCard,
     ShopSizesCheckboxes,
-    ShopColorCheckboxes,
+    // ShopColorCheckboxes,
     // ShopProductTshirt
-},
+  },
 
   data() {
     return {
@@ -104,10 +121,24 @@ export default {
   },
 
   computed: {
+
+    tshirts() {
+      return this.$store.getters.tshirts;
+    },
+
+    tshirtPath() {
+      return this.$route.path === '/sklep/tshirt';
+    },
+
+    shopPath() {
+      return this.$route.path === '/sklep';
+    },
+
     products() {
       const products = this.$store.getters.shopProducts;
       return products;
     },
+
     filterSize() {
       const products = this.$store.getters.shopProducts;
       const size = products.filter((product) => {
@@ -126,32 +157,32 @@ export default {
         if (this.activeFilters.xl && product.size.includes("XL")) {
           return true;
         }
-        if (this.activeColors.czarny && product.color.includes('czarny')) {
-          return true;
-        }
-        if (this.activeColors.blekit && product.color.includes('blekit')) {
-          return true;
-        }
-        if (this.activeColors.bialy && product.color.includes('bialy')) {
-          return true;
-        }
-        if (this.activeColors.bezowy && product.color.includes('bezowy')) {
-          return true;
-        }
-        if (this.activeColors.grafit && product.color.includes('grafit')) {
-          return true;
-        }
-        if (this.activeColors.czerwony && product.color.includes('czerwony')) {
-          return true;
-        }
-        if (this.activeColors.pomaranczowy && product.color.includes('pomaranczowy')) {
-          return true;
-        }
-        if (this.activeColors.bronze && product.color.includes('bronze')) {
-          return true;
-        }
+        // if (this.activeColors.czarny && product.color.includes("czarny")) {
+        //   return true;
+        // }
+        // if (this.activeColors.blekit && product.color.includes("blekit")) {
+        //   return true;
+        // }
+        // if (this.activeColors.bialy && product.color.includes("bialy")) {
+        //   return true;
+        // }
+        // if (this.activeColors.bezowy && product.color.includes("bezowy")) {
+        //   return true;
+        // }
+        // if (this.activeColors.grafit && product.color.includes("grafit")) {
+        //   return true;
+        // }
+        // if (this.activeColors.czerwony && product.color.includes("czerwony")) {
+        //   return true;
+        // }
+        // if (this.activeColors.pomaranczowy && product.color.includes("pomaranczowy")) {
+        //   return true;
+        // }
+        // if (this.activeColors.bronze && product.color.includes("bronze")) {
+        //   return true;
+        // }
         return false;
-      })
+      });
       return size;
     },
   },
@@ -193,45 +224,11 @@ export default {
 }
 
 .btns-wrapper {
-  margin: 1.5rem auto;
-  padding: 0rem 3rem;
-  width: 400px;
-}
-
-.the-shop-btns-wrapper {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  width: 100%;
+  width: 400px;
+  height: auto;
   margin: 0 auto;
-
-  // button {
-  //   margin: 0.5rem 0;
-  //   width: 40px;
-  //   height: 40px;
-  //   border-radius: 50%;
-  //   border: 1px solid black;
-  //   cursor: pointer;
-  // }
-
-  .black {
-    background-color: black;
-  }
-  .white {
-    background-color: white;
-  }
-  .yellow {
-    background-color: yellow;
-  }
-  .blue {
-    background-color: blue;
-  }
-  .violet {
-    background-color: violet;
-  }
-  .grey {
-    background-color: grey;
-  }
 }
 
 .bestseller-wrapper {

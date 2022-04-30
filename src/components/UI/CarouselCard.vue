@@ -13,7 +13,7 @@
         <h3>{{ product.stock }}</h3>
         <div class="imgs">
           <router-link :to="`/sklep/${product.id}`">
-            <img :src="product.image[0].first" alt="zdjecie produktu" />
+            <img :src="product.image[0].first" alt="zdjecie produktu" class="img" />
           </router-link>
         </div>
         <div class="info">

@@ -13,7 +13,6 @@
               </template>
             </ShowModal>
           </Teleport>
-
           <div class="img-wrapper">
             <img
               @click="showModal = true"

@@ -1,23 +1,25 @@
 <template>
   <div>
-    <input type="checkbox" id="uniwersalny" checked @change="setFilter" />
-    <label for="uniwersalny">Uniwersalny</label>
-  </div>
-  <div>
-    <input type="checkbox" id="s" checked @change="setFilter" />
-    <label for="s">S</label>
-  </div>
-  <div>
-    <input type="checkbox" id="m" checked @change="setFilter" />
-    <label for="m">M</label>
-  </div>
-  <div>
-    <input type="checkbox" id="l" checked @change="setFilter" />
-    <label for="l">L</label>
-  </div>
-  <div>
-    <input type="checkbox" id="xl" checked @change="setFilter" />
-    <label for="xl">XL</label>
+    <div>
+      <input type="checkbox" id="uniwersalny" checked @change="setFilter" />
+      <label for="uniwersalny">Uniwersalny</label>
+    </div>
+    <div>
+      <input type="checkbox" id="s" checked @change="setFilter" />
+      <label for="s">S</label>
+    </div>
+    <div>
+      <input type="checkbox" id="m" checked @change="setFilter" />
+      <label for="m">M</label>
+    </div>
+    <div>
+      <input type="checkbox" id="l" checked @change="setFilter" />
+      <label for="l">L</label>
+    </div>
+    <div>
+      <input type="checkbox" id="xl" checked @change="setFilter" />
+      <label for="xl">XL</label>
+    </div>
   </div>
 </template>
 
@@ -51,6 +53,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
