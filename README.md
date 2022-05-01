@@ -1,5 +1,18 @@
 # seven-more-vue
 
+Prywatny projekt klon strony https://www.7more7.com/ gwoli nauki Vue.JS.
+
+Wykorzystane biblioteki:
+- Vuex (wykorzystana biblioteka ma charakter edukacyjny)
+- Vue router
+- Swiperjs
+
+Funkcjonalności strony:
+- sortowanie produktów w /sklep po określonych rozmiarach;
+- dodawanie określonych rozmiarów produktu do komponentu /koszyk;
+- możliwość wybrania wielosztuk tego samego produktu. Ponadto możliwość usunięcia produktu z poziomu /koszyk oraz dodanie lub odjęcie ilości zakupu.
+- formularze w komponencie /voucher posiadają wiele określone zabezpieczenia, które pozwalają użytkownikowi wprowadzić poprawnę dane oraz uniknąć pomyłki.  
+
 ## Project setup
 ```
 npm install
