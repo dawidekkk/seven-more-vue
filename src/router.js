@@ -12,6 +12,7 @@ import ProductCardSpecify from './components/UI/ProductCardSpecify.vue'
 import ShoppingCart from './pages/shoppingcart/TheShoppingCart.vue'
 import ShopProductTshirt from './pages/shop/ShopProductTshirt.vue'
 import ShopProductHoodies from './pages/shop/ShopProductHoodies.vue'
+import ShopProductJoggers from './pages/shop/ShopProductJoggers.vue'
 
 // Async loading specify cmps, because of performance. 
 const NotFound = defineAsyncComponent(() => 
@@ -26,6 +27,7 @@ const router = createRouter({
     { path: '/sklep', component: TheShop, children: [
       { path:'tshirt', component: ShopProductTshirt },
       { path:'hoodies', component: ShopProductHoodies },
+      { path:'spodnie', component: ShopProductJoggers },
     ] },
     { path: '/sklep/:id', props: true, component: ProductCardSpecify },
     { path: '/voucher', component: TheVoucher },
