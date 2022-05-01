@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div>
       <input type="checkbox" id="uniwersalny" checked @change="setFilter" />
       <label for="uniwersalny">Uniwersalny</label>
@@ -53,4 +53,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 400px;
+  margin-bottom: 2rem;
+}
+</style>

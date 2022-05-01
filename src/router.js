@@ -13,6 +13,7 @@ import ShoppingCart from './pages/shoppingcart/TheShoppingCart.vue'
 import ShopProductTshirt from './pages/shop/ShopProductTshirt.vue'
 import ShopProductHoodies from './pages/shop/ShopProductHoodies.vue'
 import ShopProductJoggers from './pages/shop/ShopProductJoggers.vue'
+import ShopProductLong from "./pages/shop/ShopProductLong.vue";
 import ShopProductAccesories from './pages/shop/ShopProductAccessories.vue'
 
 // Async loading specify cmps, because of performance. 
@@ -28,7 +29,7 @@ const router = createRouter({
     { path: '/sklep', component: TheShop, children: [
       { path:'tshirt', component: ShopProductTshirt },
       { path:'hoodies', component: ShopProductHoodies },
-      // { path:'long', component: ShopProductLong },
+      { path:'longsleeve', component: ShopProductLong },
       { path:'spodnie', component: ShopProductJoggers },
       { path:'akcesoria', component: ShopProductAccesories },
     ] },

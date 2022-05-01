@@ -9,7 +9,7 @@
               <h3>Produkty</h3>
               <li><router-link to="/sklep/tshirt">T-shirt</router-link></li>
               <li><router-link to="/sklep/hoodies">Hoodies</router-link></li>
-              <li><router-link to="/sklep/long">Longsleeve</router-link></li>
+              <li><router-link to="/sklep/longsleeve">Longsleeve</router-link></li>
               <li><router-link to="/sklep/spodnie">Spodnie</router-link></li>
               <li><router-link to="/sklep/akcesoria">Akcesoria</router-link></li>
             </ul>
@@ -28,7 +28,7 @@
       </div>
       <div class="btns-wrapper">
         <div class="checkbox-wrapper">
-          <h3>Rozmiar:</h3>
+          <h3 class="checkbox-title">Rozmiar:</h3>
           <ShopSizesCheckboxes @change-filter="setFilters" />
           <!-- <button @click="filter = true">Test</button> -->
         </div>
@@ -62,6 +62,9 @@
           <router-view :active-filters="activeFilters" />
         </div>
         <div v-if="accesoriesPath" class="items-wrapper">
+          <router-view :active-filters="activeFilters" />
+        </div>
+        <div v-if="longPath" class="items-wrapper">
           <router-view :active-filters="activeFilters" />
         </div>
       </div>
@@ -148,6 +151,10 @@ export default {
       return this.$route.path === "/sklep/akcesoria";
     },
 
+    longPath() {
+      return this.$route.path === "/sklep/longsleeve";
+    },
+
     shopPath() {
       return this.$route.path === "/sklep";
     },
@@ -219,6 +226,17 @@ export default {
   height: auto;
   margin: 0 auto;
 }
+
+.checkbox-title {
+  text-align: center;
+}
+
+// .checkbox-wrapper {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: row;
+// }
 
 .items-wrapper {
   width: 100%;

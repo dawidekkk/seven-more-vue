@@ -6,6 +6,26 @@ export default {
   // namespaced: true,
   state() {
     return {
+
+      longsleeve: [
+        {
+          id: '15',
+          name: 'Longsleeve SICARIOS',
+          color: 'czarny',
+          price: 179.99,
+          image: [
+            {first: require("../../../assets/images/15.png")},
+            {second: require("../../../assets/images/15a.png")}
+          ],
+          stock: "NOWOSC",
+          category: 'longsleeve',
+          info: 'Bluza z kapturem.',
+          gender: 'unisex',
+          size: ['S', 'M', 'L'],
+          qty: 1,
+        },
+      ],
+
       joggers: [
         {
           id: '2',

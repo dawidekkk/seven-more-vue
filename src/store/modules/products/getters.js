@@ -47,8 +47,8 @@ export default {
     return state.joggers;
   },
 
-  long(state) {
-    return state.long;
+  longsleeve(state) {
+    return state.longsleeve;
   },
 
 }

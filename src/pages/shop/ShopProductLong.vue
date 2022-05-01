@@ -78,8 +78,8 @@ export default {
 
   computed: {
     products() {
-      const joggers = this.$store.getters.joggers;
-      const size = joggers.filter((product) => {
+      const longsleeve = this.$store.getters.longsleeve;
+      const size = longsleeve.filter((product) => {
         if (this.activeFilters.uniwersalny && product.size.includes("uniwersalny")) {
           return true;
         }
