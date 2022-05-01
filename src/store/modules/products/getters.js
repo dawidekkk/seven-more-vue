@@ -47,4 +47,8 @@ export default {
     return state.joggers;
   },
 
+  long(state) {
+    return state.long;
+  },
+
 }

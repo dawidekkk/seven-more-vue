@@ -11,7 +11,7 @@
               <li><router-link to="/sklep/hoodies">Hoodies</router-link></li>
               <li><router-link to="/sklep/long">Longsleeve</router-link></li>
               <li><router-link to="/sklep/spodnie">Spodnie</router-link></li>
-              <li>Akcesoria</li>
+              <li><router-link to="/sklep/akcesoria">Akcesoria</router-link></li>
             </ul>
           </nav>
         </div>
@@ -59,6 +59,9 @@
           <!-- <ShopProductHoodies :active-filters="activeFilters" /> -->
         </div>
         <div v-if="joggersPath" class="items-wrapper">
+          <router-view :active-filters="activeFilters" />
+        </div>
+        <div v-if="accesoriesPath" class="items-wrapper">
           <router-view :active-filters="activeFilters" />
         </div>
       </div>
@@ -139,6 +142,10 @@ export default {
 
     joggersPath() {
       return this.$route.path === "/sklep/spodnie";
+    },
+
+    accesoriesPath() {
+      return this.$route.path === "/sklep/akcesoria";
     },
 
     shopPath() {
