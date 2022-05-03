@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import store from "@/store";
 import { ref, computed } from "vue";
 export default {
   setup() {
@@ -47,18 +48,23 @@ export default {
       return hidden.value ? "bars" : "xmark";
     });
 
+    const cartQty = computed(() => {
+      return store.getters.cartQty;
+    })
+
     return {
       hidden,
       toggleHidden,
       toggleIcon,
+      cartQty
     };
   },
 
-  computed: {
-    cartQty() {
-      return this.$store.getters.cartQty;
-    },
-  },
+  // computed: {
+  //   cartQty() {
+  //     return this.$store.getters.cartQty;
+  //   },
+  // },
 };
 </script>
 
