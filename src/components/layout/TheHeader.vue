@@ -35,8 +35,14 @@
 
 <script>
 import store from "@/store";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
 export default {
+
+  // mounted() {
+  //   console.log(this.$route.path)
+  // },
+
   setup() {
     const hidden = ref(true);
 
@@ -52,19 +58,26 @@ export default {
       return store.getters.cartQty;
     })
 
+    const route = useRoute();
+
+    onMounted(() => {
+      console.log(route.path)
+      if(!hidden.value && route.path === '/sklep') {
+        console.log('elo');
+      }
+
+      if(!hidden.value) {
+        console.log('nfuesn');
+      }
+    })
+
     return {
       hidden,
       toggleHidden,
       toggleIcon,
-      cartQty
+      cartQty,
     };
   },
-
-  // computed: {
-  //   cartQty() {
-  //     return this.$store.getters.cartQty;
-  //   },
-  // },
 };
 </script>
 

@@ -2,6 +2,23 @@
   <section>
     <BasePages :page-name="title"></BasePages>
     <div class="shopping-carts">
+      <div class="paths">
+        <div class="path">
+          <p>1. Koszyk</p>
+        </div>
+        <div class="path">
+          <p>2. Logowanie</p>
+        </div>
+        <div class="path">
+          <p>3. Transport</p>
+        </div>
+        <div class="path">
+          <p>4. Płatność</p>
+        </div>
+        <div class="path">
+          <p>5. Zakończenie</p>
+        </div>
+      </div>
       <div class="empty" v-if="!hasCartItems">
         <h2>Koszyk jest pusty! :( Nic nie znajduję się obecnie w koszyku.</h2>
       </div>
@@ -71,6 +88,8 @@ export default {
     hasCartItems() {
       return this.$store.getters.hasCartItems;
     },
+
+
   },
 };
 </script>
@@ -86,6 +105,24 @@ export default {
   left: 0;
   color: grey;
   padding: 2rem 1rem;
+}
+
+.paths {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem auto;
+  color: rgb(245, 245, 245);
+
+  .path {
+    width: 250px;
+    background-color: #0e5561;
+    margin-bottom: .5rem;
+    text-align: center;
+    padding: .75rem;
+  }
 }
 
 .empty {
@@ -139,5 +176,15 @@ ul {
 
 .button-next {
   width: 80%;
+}
+
+@media screen and (min-width: 1200px) {
+  .paths {
+    flex-direction: row;
+  }
+
+  .path {
+    margin: 0rem .5rem;
+  }
 }
 </style>
