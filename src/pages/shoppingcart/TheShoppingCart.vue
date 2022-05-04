@@ -3,7 +3,7 @@
     <BasePages :page-name="title"></BasePages>
     <div class="shopping-carts">
       <div class="paths">
-        <div class="path">
+        <div class="path" :class="{ active: hasCartItems }">
           <p>1. Koszyk</p>
         </div>
         <div class="path">
@@ -72,9 +72,10 @@ export default {
   //   },
   // },
 
-  // mounted() {
-  //   this.cartItems = JSON.parse(localStorage.getItem("products")) || [];
-  // },
+  mounted() {
+    // this.cartItems = JSON.parse(localStorage.getItem("products")) || [];
+    console.log(this.$route)
+  },
 
   computed: {
     cartTotal() {
@@ -89,7 +90,11 @@ export default {
       return this.$store.getters.hasCartItems;
     },
 
-
+    // isActive() {
+    //   if(this.$route.path === '/koszyk') {
+    //     return true;
+    //   }
+    // }
   },
 };
 </script>
@@ -114,15 +119,15 @@ export default {
   justify-content: center;
   flex-direction: column;
   margin: 1rem auto;
-  color: rgb(245, 245, 245);
+  color: rgb(40, 40, 40);
+}
 
-  .path {
-    width: 250px;
-    background-color: #0e5561;
-    margin-bottom: .5rem;
-    text-align: center;
-    padding: .75rem;
-  }
+.path {
+  width: 250px;
+  background-color: #cdcdcd;
+  margin-bottom: .5rem;
+  text-align: center;
+  padding: .75rem;
 }
 
 .empty {
@@ -186,5 +191,25 @@ ul {
   .path {
     margin: 0rem .5rem;
   }
+}
+
+@keyframes bg {
+  from {
+    background-color: #78d5ef;
+  }
+
+  to {
+    background-color: #1893b5;
+  }
+}
+
+.active {
+  background-color: #78d5ef;
+  color: white;
+  animation-name: bg;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
 }
 </style>
