@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
-import { defineAsyncComponent } from "vue";
+import { createRouter, createWebHistory } from "vue-router"
+import { defineAsyncComponent } from "vue"
 import TheHome from './pages/home/TheHome.vue'
 import TheVoucher from './pages/voucher/TheVoucher.vue'
 import TheRules from './pages/regulamin/TheRules.vue'
@@ -10,10 +10,11 @@ import TheContact from './pages/contact/TheContact.vue'
 import TheShop from './pages/shop/TheShop.vue'
 import ProductCardSpecify from './components/UI/ProductCardSpecify.vue'
 import ShoppingCart from './pages/shoppingcart/TheShoppingCart.vue'
+import ShoppingCartLogin from './pages/shoppingcart/ShoppingCartLogin.vue'
 import ShopProductTshirt from './pages/shop/ShopProductTshirt.vue'
 import ShopProductHoodies from './pages/shop/ShopProductHoodies.vue'
 import ShopProductJoggers from './pages/shop/ShopProductJoggers.vue'
-import ShopProductLong from "./pages/shop/ShopProductLong.vue";
+import ShopProductLong from "./pages/shop/ShopProductLong.vue"
 import ShopProductAccesories from './pages/shop/ShopProductAccessories.vue'
 
 // Async loading specify cmps, because of performance. 
@@ -36,6 +37,7 @@ const router = createRouter({
     { path: '/sklep/:id', props: true, component: ProductCardSpecify },
     { path: '/voucher', component: TheVoucher },
     { path: '/koszyk', component: ShoppingCart },
+    { path: '/logowanie', component: ShoppingCartLogin},
     { path: '/regulamin', component: TheRules },
     { path: '/polityka', component: ThePrivacyPolicy },
     { path: '/pliki', component: TheDownloadableLinks },
