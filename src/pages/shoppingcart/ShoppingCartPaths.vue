@@ -1,9 +1,9 @@
 <template>
   <div class="paths">
-    <div class="path" :class="{ active }">
+    <div class="path" :class="{ activeShop }">
       <p>1. Koszyk</p>
     </div>
-    <div class="path">
+    <div class="path" :class="{activeShop: this.$route.path === '/logowanie'}">
       <p>2. Logowanie</p>
     </div>
     <div class="path">
@@ -19,11 +19,15 @@
 </template>
 
 <script>
+
 export default {
   props: {
-    active: String,
-  }
-}
+    activeShop: String,
+  },
+
+
+
+};
 </script>
 
 <style scoped lang="scss">
@@ -55,7 +59,17 @@ export default {
   }
 }
 
-.active {
+@media screen and (min-width: 1200px) {
+  .paths {
+    flex-direction: row;
+  }
+
+  .path {
+    margin: 0rem 0.5rem;
+  }
+}
+
+.activeShop {
   background-color: #78d5ef;
   color: white;
   animation-name: bg;

@@ -2,18 +2,20 @@
   <section>
     <BasePages :page-name="title"></BasePages>
     <div class="wrapper">
-    
+      <ShoppingCartPaths active />
     </div>
   </section>
 </template>
 
 <script>
+import ShoppingCartPaths from "./ShoppingCartPaths.vue";
 export default {
   data() {
     return {
       title: "Logowanie",
     };
   },
+  components: { ShoppingCartPaths },
 };
 </script>
 

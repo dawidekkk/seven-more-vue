@@ -2,7 +2,7 @@
   <section>
     <BasePages :page-name="title"></BasePages>
     <div class="shopping-carts">
-      <ShoppingCartPaths :active="hasCartItems" />
+      <ShoppingCartPaths :active-shop="hasCartItems" />
       <div class="empty" v-if="!hasCartItems">
         <h2>Koszyk jest pusty! :( Nic nie znajduję się obecnie w koszyku.</h2>
       </div>
@@ -44,8 +44,8 @@ import ShoppingCartPaths from "./ShoppingCartPaths.vue";
 export default {
   components: {
     CartItem,
-    ShoppingCartPaths
-},
+    ShoppingCartPaths,
+  },
 
   data() {
     return {
@@ -102,8 +102,6 @@ export default {
   color: grey;
   padding: 2rem 1rem;
 }
-
-
 
 .empty {
   background-color: #d1ecf1;
@@ -167,6 +165,4 @@ ul {
     margin: 0rem 0.5rem;
   }
 }
-
-
 </style>
