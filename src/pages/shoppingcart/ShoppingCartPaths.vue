@@ -21,9 +21,6 @@
 <script>
 
 export default {
-  props: {
-    activeShop: String,
-  },
 
   methods: {
     loginPath(path) {
