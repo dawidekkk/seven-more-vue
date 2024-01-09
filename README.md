@@ -1,7 +1,5 @@
 # seven-more-vue
 
-Prywatny projekt klon strony https://www.7more7.com/ gwoli nauki Vue.JS.
-
 Wykorzystane biblioteki:
 - Vuex (wykorzystana biblioteka ma charakter edukacyjny)
 - Vue router
